@@ -1,0 +1,53 @@
+unit add_stock_unit;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
+  Stocks_Data, Stock;
+
+type
+
+  { TForm2 }
+  add_stock_proc = procedure ( sender : tObject; const Stock_name,Stock_country : string) of object;
+
+  TForm2 = class(TForm)
+    Button1: TButton;
+    ComboIndustry: TComboBox;
+    ComboCountry: TComboBox;
+    Edit1: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    procedure Button1Click(Sender: TObject);
+  private
+    fadd_stock_proc : add_stock_proc;
+  public
+    property add_stock : add_stock_proc read fadd_stock_proc write fadd_stock_proc;
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.lfm}
+
+{ TForm2 }
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+  if Assigned(fadd_stock_proc) then
+   begin
+     StocksData.AddStock(tStock.Create(edit1.Text,ComboCountry.Text));
+     fadd_stock_proc(self,edit1.Text,ComboCountry.Text);
+     Self.Close;
+   end;
+end;
+
+end.
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="PayPal" country="USA" industry="IT" portfolio=""/>
+  <stock_operation date="08.12.2021" count="1" price="194.69" operation_buy="1"/>
+  <stock_operation date="02.02.2022" count="1" price="147.62" operation_buy="1"/>
+  <stock_operation date="11.02.2022" count="1" price="119.61" operation_buy="1"/>
+  <stock_operation date="20.05.2022" count="1" price="83.23" operation_buy="1"/>
+  <stock_operation date="08.08.2022" count="1" price="97.90" operation_buy="1"/>
+  <stock_operation date="15.09.2022" count="4" price="390.36" operation_buy="1"/>
+  <stock_operation date="15.09.2022" count="5" price="483.00" operation_buy="0"/>
+</Main>

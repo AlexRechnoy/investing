@@ -1,0 +1,248 @@
+unit Stocks_Data;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, EditBtn, Stock;
+
+type
+
+  { tStocks_Data }
+  tStocks_Data = class
+   private
+    fOnSaved      : TNotifyEvent;{Событие при измении флага fIsSaved}
+   private
+    fIsSaved      : boolean;     {Данные сохранены}
+    fStockList    : iStockList;  {Все акции}
+    fIndustryList : TStringList; {Список отраслей}
+    fCountryList  : TStringList; {Список стран}
+    procedure DoOnSaved;
+    procedure SetIsSaved(AVal : boolean);
+   published
+    property OnSaved : TNotifyEvent read fOnSaved write fOnSaved;
+   public
+    constructor Create;
+    function getStock(const StockName : string):IStock;
+    procedure ReadFromXML;
+    procedure CheckStockProps;
+    procedure AddStock(Stock: IStock);
+    procedure EditStock(Stock : IStock; Country,Name,Industry : string);
+    procedure WriteToXML;
+    property IsSaved : boolean read fIsSaved write SetIsSaved;
+    property StockList: IStockList read fStockList;
+    property IndustryList : TStringList read  fIndustryList write fIndustryList;
+    property CountryList: TStringList read fCountryList write fCountryList;
+  end;
+
+  function sort_by_name(const I1 ,I2 : IStock) : LongInt;
+
+var
+  StocksData: tStocks_Data;
+
+implementation
+
+uses FileUtil, XMLRead,XMLWrite,DOM, Dialogs;
+
+const prop_file_name =  RootDir+'__stockProps.xml';
+
+procedure tStocks_Data.DoOnSaved;
+begin
+  if Assigned(fOnSaved)
+  then fOnSaved(Self);
+end;
+
+procedure tStocks_Data.SetIsSaved(AVal: boolean);
+begin
+  if aVal<>fIsSaved then
+   begin
+     fIsSaved:=Aval;
+     DoOnSaved;
+   end;
+end;
+
+function sort_by_name(const I1 ,I2 : IStock) : LongInt;
+begin
+  if AnsiLowerCase(I1.Name)>AnsiLowerCase(I2.Name) then result:=1 else
+    if  AnsiLowerCase(I1.Name)<AnsiLowerCase(I2.Name) then result:=-1 else
+      result:=0;
+end;
+
+{ tStocks_Data }
+constructor tStocks_Data.Create;
+begin
+  fStockList    := IStockList.Create;
+  fIndustryList := TStringList.Create;
+  fCountryList  := TStringList.Create;
+  ReadFromXML;
+  IsSaved:=true;
+  fStockList.Sort(@sort_by_name);
+end;
+
+procedure tStocks_Data.CheckStockProps;
+var tekStock : IStock;
+    function findProp(const stockProp : string; propList : TStringList):boolean;
+    var tekStr   : string;
+    begin
+      Result:=false;
+      for tekStr in propList do
+        if stockProp=tekStr then
+         begin
+           result:=true;
+           exit;
+         end;
+      propList.Add(stockProp);
+    end;
+begin
+  for tekStock in StockList do
+   begin
+     if not findProp(tekStock.Country,fCountryList) then
+      begin
+        tekStock.Country:='Нет';
+        ShowMessage(Format('У акции "%s" не указана страна',[tekStock.Name]));
+        IsSaved:=false;
+      end;
+     if not findProp(tekStock.Industry,fIndustryList) then
+      begin
+        tekStock.Industry:='Нет';
+        ShowMessage(Format('У акции "%s" не указана отрасль',[tekStock.Name]));
+        IsSaved:=false;
+      end;
+   end;
+end;
+
+function tStocks_Data.getStock(const StockName: string): IStock;
+var tekStock : IStock;
+begin
+  Result:=nil;
+  for tekStock in StockList do
+   begin
+     if AnsiLowerCase(tekStock.Name)=AnsiLowerCase(StockName) then
+      begin
+        Result:=tekStock;
+        exit;
+      end;
+   end;
+end;
+
+procedure tStocks_Data.ReadFromXML;
+var fileList: TStringList;
+    tekStock: IStock;
+    tekFileName: string;
+    procedure ReadStocks;
+    begin
+      fileList := FindAllFiles(RootDir, '*.xml', True);
+      for tekFileName in fileList do
+       begin
+         if pos('__stockProps.xml',tekFileName)>0
+         then continue;
+         tekStock := tStock.Create(tekFileName,'','');
+         tekStock.ReadFromXML(tekFileName);
+         fStockList.Add(tekStock);
+       end;
+    end;
+    procedure ReadProps;
+    var XMLDoc     : TXMLDocument;
+        RootNode   : TDOMNode;
+        domelement : TDOMElement;
+        procedure ReadProp(list : tstringlist; nodeName : string);
+        var tekChild   : TDOMNode;
+        begin
+          tekChild:=RootNode.FindNode(nodeName).FirstChild;
+          while tekChild<>nil do
+           begin
+             if tekChild.HasChildNodes
+             then list.Add(tekChild.FirstChild.TextContent);
+             tekChild:=tekChild.NextSibling;
+           end;
+        end;
+
+    begin
+      try
+        ReadXMLFile(XMLDoc,prop_file_name);
+        RootNode:=XMLDoc.DocumentElement;
+        ReadProp(fCountryList,'country');
+        ReadProp(fIndustryList,'industry');
+      except
+        XmlDoc  :=TXMLDocument.Create;
+        RootNode:=XMLDoc.CreateElement('Main');
+        domelement:=XMLDoc.CreateElement('country');
+        RootNode.AppendChild(domelement);
+        domelement:=XMLDoc.CreateElement('industry');
+        RootNode.AppendChild(domelement);
+        XMLDoc.AppendChild(RootNode);
+        WriteXMLFile(XMLDoc,prop_file_name);
+      end;
+    end;
+begin
+  ReadProps;
+  ReadStocks;
+end;
+
+procedure tStocks_Data.AddStock(Stock: IStock); {Добавление акции}
+begin
+  fStockList.Add(Stock);
+  IsSaved:=false;
+  fStockList.Sort(@sort_by_name);
+end;
+
+procedure tStocks_Data.EditStock(Stock: IStock; Country, Name, Industry: string);
+begin
+  Stock.Country:=Country;
+  Stock.Name:=Name;
+  Stock.Industry:=Industry;
+  IsSaved:=false;
+end;
+
+procedure tStocks_Data.WriteToXML;
+    procedure WriteStocks;
+    var tekStock : IStock;
+    begin
+      for tekStock in fStockList do
+        tekStock.WriteToXML
+    end;
+    procedure WriteProps;
+    var RootNode     : TDOMNode;
+        XMLDoc       : TXMLDocument;
+        procedure WriteProp(list : tstringlist; nodeName : string);
+        var propNode : tDOMNode;
+            tekelem  : TDOMElement;
+            tekName  : string;
+        begin
+          propNode:=RootNode.FindNode(nodeName);
+          while Assigned(propNode.FirstChild) do
+            propNode.FirstChild.Destroy;
+          for tekName in list do
+            if propNode<>nil then
+             begin
+               tekelem:=XMLDoc.CreateElement('item');
+               tekelem.AppendChild(XMLDOC.CreateTextNode(tekName));
+               propNode.AppendChild(tekelem);
+           end;
+
+        end;
+
+    begin
+      try
+        ReadXMLFile(XMLDoc,prop_file_name);
+        RootNode:=XMLDoc.DocumentElement;
+        WriteProp(fCountryList,'country');
+        WriteProp(fIndustryList,'industry');
+        WriteXMLFile(XMLDoc,prop_file_name);
+      except
+
+      end;
+    end;
+begin
+  WriteStocks;
+  WriteProps;
+  IsSaved:=true;
+end;
+
+
+
+initialization
+  StocksData := tStocks_Data.Create;
+
+end.

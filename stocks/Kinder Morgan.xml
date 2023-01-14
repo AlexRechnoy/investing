@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Kinder Morgan" country="USA" industry="Энергетика" portfolio=""/>
+  <stock_operation date="06.01.2021" count="4" price="56.84" operation_buy="1"/>
+  <stock_operation date="14.01.2021" count="4" price="61.80" operation_buy="1"/>
+  <stock_operation date="20.01.2021" count="1" price="15.58" operation_buy="1"/>
+  <stock_operation date="27.01.2021" count="1" price="14.90" operation_buy="1"/>
+  <stock_operation date="18.02.2021" count="2" price="30.40" operation_buy="0"/>
+  <stock_operation date="22.02.2021" count="3" price="45.00" operation_buy="0"/>
+  <stock_operation date="23.02.2021" count="5" price="75.50" operation_buy="0"/>
+  <stock_operation date="17.05.2021" count="1" price="18.40" operation_buy="1"/>
+  <stock_operation date="24.05.2021" count="1" price="18.86" operation_buy="1"/>
+  <stock_operation date="28.05.2021" count="1" price="18.34" operation_buy="1"/>
+  <stock_operation date="09.06.2021" count="1" price="18.95" operation_buy="0"/>
+  <stock_operation date="17.06.2021" count="1" price="18.32" operation_buy="1"/>
+  <stock_operation date="23.06.2021" count="2" price="36.68" operation_buy="1"/>
+  <stock_operation date="25.06.2021" count="1" price="18.39" operation_buy="0"/>
+  <stock_operation date="02.07.2021" count="3" price="55.35" operation_buy="0"/>
+  <stock_operation date="23.08.2021" count="1" price="16.18" operation_buy="1"/>
+  <stock_operation date="27.08.2021" count="1" price="16.40" operation_buy="1"/>
+  <stock_operation date="02.09.2021" count="1" price="16.43" operation_buy="1"/>
+  <stock_operation date="14.09.2021" count="1" price="16.07" operation_buy="1"/>
+  <stock_operation date="29.09.2021" count="4" price="68.00" operation_buy="0"/>
+  <stock_operation date="15.02.2022" count="1" price="17.08" operation_buy="1"/>
+  <stock_operation date="24.02.2022" count="1" price="16.70" operation_buy="1"/>
+  <stock_operation date="15.06.2022" count="1" price="18.03" operation_buy="1"/>
+</Main>

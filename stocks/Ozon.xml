@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Ozon" country="Россия" industry="Услуги" portfolio=""/>
+  <stock_operation date="26.08.2021" count="1" price="3909.00" operation_buy="1"/>
+  <stock_operation date="23.09.2021" count="1" price="3754.00" operation_buy="0"/>
+  <stock_operation date="30.12.2021" count="1" price="2239.00" operation_buy="1"/>
+  <stock_operation date="17.01.2022" count="1" price="1787.00" operation_buy="1"/>
+  <stock_operation date="18.01.2022" count="1" price="1665.00" operation_buy="1"/>
+  <stock_operation date="24.01.2022" count="1" price="1277.00" operation_buy="1"/>
+  <stock_operation date="21.02.2022" count="1" price="1350.00" operation_buy="1"/>
+  <stock_operation date="24.02.2022" count="1" price="976.00" operation_buy="1"/>
+  <stock_operation date="26.04.2022" count="1" price="954.00" operation_buy="1"/>
+  <stock_operation date="16.05.2022" count="1" price="892.00" operation_buy="1"/>
+  <stock_operation date="27.05.2022" count="1" price="937.00" operation_buy="1"/>
+  <stock_operation date="06.06.2022" count="1" price="798.00" operation_buy="1"/>
+  <stock_operation date="25.06.2022" count="5" price="6500.00" operation_buy="0"/>
+  <stock_operation date="29.07.2022" count="1" price="1404.00" operation_buy="0"/>
+  <stock_operation date="10.08.2022" count="4" price="5600.00" operation_buy="0"/>
+  <stock_operation date="26.08.2022" count="1" price="1490.00" operation_buy="1"/>
+  <stock_operation date="20.09.2022" count="1" price="1369.00" operation_buy="1"/>
+  <stock_operation date="28.09.2022" count="1" price="1108.00" operation_buy="1"/>
+  <stock_operation date="04.10.2022" count="1" price="1200.00" operation_buy="0"/>
+  <stock_operation date="03.11.2022" count="2" price="2640.00" operation_buy="0"/>
+  <stock_operation date="15.11.2022" count="1" price="1530.00" operation_buy="1"/>
+  <stock_operation date="29.11.2022" count="1" price="1428.00" operation_buy="1"/>
+</Main>

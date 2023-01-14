@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Carvana Co" country="USA" industry="Услуги" portfolio=""/>
+  <stock_operation date="11.01.2023" count="1" price="4.49" operation_buy="1"/>
+  <stock_operation date="12.01.2023" count="1" price="7.67" operation_buy="1"/>
+</Main>

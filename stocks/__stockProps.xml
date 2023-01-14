@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <country>
+    <item>Россия</item>
+    <item>USA</item>
+    <item>China</item>
+    <item>Europe</item>
+  </country>
+  <industry>
+    <item>Туризм</item>
+    <item>IT</item>
+    <item>Услуги</item>
+    <item>Энергетика</item>
+    <item>Металлургия</item>
+    <item>Недвижимость</item>
+    <item>Криптовалюта</item>
+    <item>Фармацевтика</item>
+    <item>Финансы</item>
+    <item>Сфера услуг</item>
+  </industry>
+</Main>
