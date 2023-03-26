@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Morgan Stanley" country="USA" industry="Финансы" portfolio=""/>
+  <stock_operation date="18.02.2022" count="1" price="94.81" operation_buy="1"/>
+  <stock_operation date="18.04.2022" count="1" price="85.95" operation_buy="1"/>
+  <stock_operation date="12.08.2022" count="1" price="91.00" operation_buy="0"/>
+  <stock_operation date="24.01.2023" count="1" price="91.00" operation_buy="0"/>
+  <stock_operation date="08.02.2023" count="1" price="98.77" operation_buy="1"/>
+</Main>

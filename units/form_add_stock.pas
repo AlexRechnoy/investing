@@ -34,17 +34,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
    private
-    fStock          : IStock;  {Выбранная акция (для режима редактирования)}
-    fOnAddStock     : add_stock_proc;
-    fOnEditStock    : TNotifyEvent;
     fRegim          : tStockRegim;
     procedure UpdateCombo(Sender : TObject);
     procedure FillCombos;
   public
-    property OnAddStock : add_stock_proc read fOnAddStock write fOnAddStock;
-    property OnEditStock: TNotifyEvent read fOnEditStock write fOnEditStock;
     property regim : tStockRegim read fRegim write fRegim;
-    property Stock : IStock read fStock write fStock;
   end;
 
 var
@@ -82,9 +76,9 @@ begin
   Button1.Caption:=btn_text[fRegim=_SREdit];
   if fRegim=_SREdit then
    begin
-     Edit1.Text:=fStock.Name;
-     ComboCountry.ItemIndex :=getIndex(ComboCountry,fStock.Country);
-     ComboIndustry.ItemIndex:=getIndex(ComboIndustry,fStock.Industry);
+     Edit1.Text:=StocksData.ChosenStock.Name;
+     ComboCountry.ItemIndex :=getIndex(ComboCountry,StocksData.ChosenStock.Country);
+     ComboIndustry.ItemIndex:=getIndex(ComboIndustry,StocksData.ChosenStock.Industry);
    end;
 end;
 
@@ -125,17 +119,8 @@ procedure TForm2.Button1Click(Sender: TObject);
 var newStock : IStock;
 begin
   case fRegim of
-      _SRAdd : if Assigned(fOnAddStock) then
-                begin
-                  newStock:=tStock.Create(edit1.Text,ComboCountry.Text,ComboIndustry.Text);
-                  StocksData.AddStock(newStock);
-                  fOnAddStock(self,newStock);
-                end;
-      _SREdit: if Assigned(fOnEditStock) then
-                begin
-                  StocksData.EditStock(fStock,ComboCountry.Text,Edit1.Text,ComboIndustry.Text);
-                  fOnEditStock(self);
-                end;
+      _SRAdd : StocksData.AddStock(tStock.Create(edit1.Text,ComboCountry.Text,ComboIndustry.Text));
+      _SREdit: StocksData.EditStock(ComboCountry.Text,Edit1.Text,ComboIndustry.Text);
   end;
   Self.Close;
 end;

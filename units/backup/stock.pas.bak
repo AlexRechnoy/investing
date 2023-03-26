@@ -15,9 +15,9 @@ type
     function GetName : string;
     function GetCountry : string;
     function getStockCount : integer;
-    function getSumPrice : string;
-    function getAverageStockPrice : string;
-    function getBalance : string;
+    function getSumPrice : double;
+    function getAverageStockPrice : double;
+    function getBalance : double;
     function get_portfolio_name:string;
     function GetIndustry:string;
     function getOperationListStr : TStringList;
@@ -32,10 +32,10 @@ type
     property Name : string read GetName write SetName;
     property Country : string read GetCountry write SetCountry;
     property Industry : string read GetIndustry write SetIndustry;
-    property stockCount : integer read getStockCount;
-    property sumPrice : string read getSumPrice;
-    property balance : string read getBalance;
-    property averagePrice : string read getAverageStockPrice;
+    property Count : integer read getStockCount;
+    property sumPrice : double read getSumPrice;
+    property balance : double read getBalance;
+    property averagePrice : double read getAverageStockPrice;
     property portfolio_name : string read get_portfolio_name write set_portfolio_name;
     property OperationListStr : tStringlist read getOperationListStr;
   end;
@@ -45,15 +45,15 @@ type
    private
     fName          : string;
     fCountry       : string;
-    fBalance       : single;
+    //fBalance       : single;
     fCount         : integer;
     fIndustry      : string;        {Отрасль}
     fOperationList : tOperationList;
     fPortFolioName : string;
     function getStockCount : integer;
-    function getSumPrice : string;
-    function getAverageStockPrice : string;
-    function getBalance : string;
+    function getSumPrice : double;
+    function getAverageStockPrice : double;
+    function getBalance : double;
     function GetIndustry:string;
     procedure SetName(Aval : string);
     procedure SetIndustry(Aval : string);
@@ -64,6 +64,8 @@ type
     function getOperationListStr : TStringList;
     function getAveragePrice : string;
    public
+
+
     constructor Create(const aName,aCountry,aIndustry : string);
     procedure WriteToXML;
     procedure ReadFromXML(const fileName : string);
@@ -89,7 +91,7 @@ uses DOM,XMLRead,XMLWrite,FileUtil,Stocks_Data,Dialogs;
 { tStock }
 constructor tStock.Create(const aName, aCountry, aIndustry: string);
 begin
-  fBalance      :=0;
+  //fBalance      :=0;
   fCount        :=0;
   fName         :=aName;
   fCountry      :=aCountry;
@@ -201,8 +203,7 @@ begin
                                     );
 
        except
-
-         on E:EStockSellException do MessageDlg(Format('"%s" акция "%s"',[E.Message,self.Name]), mtWarning,[mbOK],0)
+         on E : EStockSellException do MessageDlg(Format('"%s" акция "%s"',[E.Message,self.Name]), mtWarning,[mbOK],0)
        end;
    end;
 end;
@@ -212,32 +213,38 @@ begin
   Result:=fOperationList.StockCount;
 end;
 
-function tStock.getSumPrice: string;
+function tStock.getSumPrice: double;
 begin
-  if fOperationList.StockCount=0 then Result:='-' else
-    if fOperationList.Sum<0 then Result:='<0' else
-      Result:=Format('%4.2f',[fOperationList.Sum])
+  Result:=fOperationList.Sum;
+  //if fOperationList.StockCount=0 then Result:='-' else
+  //  if fOperationList.Sum<0 then Result:='<0' else
+  //    Result:=Format('%4.2f',[fOperationList.Sum])
 end;
 
-function tStock.getAverageStockPrice: string;
+function tStock.getAverageStockPrice: double;
 var price : double;
 begin
   if fOperationList.StockCount=0
-  then Result:='-'
-  else
-   begin
-     price:=fOperationList.Sum/fOperationList.StockCount;
-     if price>0
-     then Result:=format('%4.2f',[price])
-     else Result:='<0';
+  then Result:=0
+  else Result:=fOperationList.Sum/fOperationList.StockCount;
+
+ // if fOperationList.StockCount=0
+ // then Result:='-'
+ // else
+ //  begin
+ //    price:=fOperationList.Sum/fOperationList.StockCount;
+ //    if price>0
+ //    then Result:=format('%4.2f',[price])
+ //    else Result:='<0';
    end
 end;
 
-function tStock.getBalance: string;
+function tStock.getBalance: double;
 begin
-  if fOperationList.StockCount=0
-  then Result:=format('%4.2f',[fOperationList.Balance])
-  else Result:='-';
+  Result:=fOperationList.Balance;
+  //if fOperationList.StockCount=0
+  //then Result:=format('%4.2f',[fOperationList.Balance])
+  //else Result:='-';
 end;
 
 function tStock.GetIndustry: string;

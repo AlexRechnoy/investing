@@ -3,4 +3,9 @@
   <other name="Carvana Co" country="USA" industry="Услуги" portfolio=""/>
   <stock_operation date="11.01.2023" count="1" price="4.49" operation_buy="1"/>
   <stock_operation date="12.01.2023" count="1" price="7.67" operation_buy="1"/>
+  <stock_operation date="18.01.2023" count="1" price="7.00" operation_buy="1"/>
+  <stock_operation date="31.01.2023" count="1" price="11.05" operation_buy="1"/>
+  <stock_operation date="08.02.2023" count="1" price="13.00" operation_buy="1"/>
+  <stock_operation date="13.02.2023" count="1" price="11.00" operation_buy="1"/>
+  <stock_operation date="22.03.2023" count="2" price="20.00" operation_buy="0"/>
 </Main>

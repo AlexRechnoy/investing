@@ -8,4 +8,5 @@
   <stock_operation date="08.11.2021" count="1" price="181.38" operation_buy="1"/>
   <stock_operation date="07.02.2022" count="1" price="186.31" operation_buy="0"/>
   <stock_operation date="26.05.2022" count="1" price="166.23" operation_buy="1"/>
+  <stock_operation date="07.02.2023" count="1" price="176.26" operation_buy="0"/>
 </Main>

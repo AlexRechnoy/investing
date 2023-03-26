@@ -5,35 +5,57 @@ unit Stocks_Data;
 interface
 
 uses
-  Classes, SysUtils, EditBtn, Stock;
+  Classes, SysUtils, Stock, Stock_Operation, stock_Observer;
 
 type
+  tStockEvent = procedure (sender : TObject; stock : IStock) of object;
 
   { tStocks_Data }
-  tStocks_Data = class
+  tStocks_Data = class(TInterfacedObject,ISubject)
    private
+    fOnAddStock   : tStockEvent; {Событие добавлена новая акция}
+    fOnEditStock  : tStockEvent; {Событие изменены параметры выбранной акции}
     fOnSaved      : TNotifyEvent;{Событие при измении флага fIsSaved}
    private
+    fObserverList : TObserverList;
     fIsSaved      : boolean;     {Данные сохранены}
+    fChosenStock  : IStock;      {Выбранная акция}
     fStockList    : iStockList;  {Все акции}
+    fCountryStocks: IStockList;  {Список акций выбранной страны}
     fIndustryList : TStringList; {Список отраслей}
     fCountryList  : TStringList; {Список стран}
     procedure DoOnSaved;
     procedure SetIsSaved(AVal : boolean);
-   published
+   public
     property OnSaved : TNotifyEvent read fOnSaved write fOnSaved;
+    property OnAddStock : tStockEvent read fOnAddStock write fOnAddStock;
+    property OnEditStock : tStockEvent read fOnEditStock write fOnEditStock;
+   public
+    procedure registerObserver(O : IObserver);
+    procedure removeObserver(O : IObserver);
+    procedure notifyObservers();
+    procedure notifyStockListObservers();
    public
     constructor Create;
     function getStock(const StockName : string):IStock;
     procedure ReadFromXML;
     procedure CheckStockProps;
     procedure AddStock(Stock: IStock);
-    procedure EditStock(Stock : IStock; Country,Name,Industry : string);
+    procedure EditStock(Country,Name,Industry : string);
     procedure WriteToXML;
+    procedure setCountry(const countryName : string);
+    procedure setStock(const stockIndex : integer); //изменилась выбранная акция
+    procedure SetFirstStockFromCountry(countryName : string);
+    function getStockStrList(countryName : string) : TStringlist;
+    procedure AddOperationToChosenStock(aDate:TDate;aOperationType:tOperationType;aCount:integer; aPrice:single);
+    procedure DeleteAllStockOperations;
+    procedure DeleteLastStockOperation;
+
     property IsSaved : boolean read fIsSaved write SetIsSaved;
     property StockList: IStockList read fStockList;
     property IndustryList : TStringList read  fIndustryList write fIndustryList;
     property CountryList: TStringList read fCountryList write fCountryList;
+    property ChosenStock : IStock read fChosenStock;
   end;
 
   function sort_by_name(const I1 ,I2 : IStock) : LongInt;
@@ -46,6 +68,118 @@ implementation
 uses FileUtil, XMLRead,XMLWrite,DOM, Dialogs;
 
 const prop_file_name =  RootDir+'__stockProps.xml';
+
+function sort_by_name(const I1 ,I2 : IStock) : LongInt;
+begin
+  if AnsiLowerCase(I1.Name)>AnsiLowerCase(I2.Name) then result:=1 else
+    if  AnsiLowerCase(I1.Name)<AnsiLowerCase(I2.Name) then result:=-1 else
+      result:=0;
+end;
+
+{ tStocks_Data }
+constructor tStocks_Data.Create;
+begin
+  fObserverList := TObserverList.Create;
+  fStockList    := IStockList.Create;
+  fCountryStocks:= IStockList.Create;
+  fIndustryList := TStringList.Create;
+  fCountryList  := TStringList.Create;
+  fChosenStock  :=nil;
+  ReadFromXML;
+  IsSaved:=true;
+  fStockList.Sort(@sort_by_name);
+  fCountryStocks.AddList(fStockList);
+end;
+
+procedure tStocks_Data.registerObserver(O: IObserver);
+begin
+  FObserverList.Add(O);
+end;
+
+procedure tStocks_Data.removeObserver(O: IObserver);
+var OIndex : integer;
+begin
+  OIndex:=FObserverList.IndexOf(O);
+  If OIndex>=0
+  then FObserverList.Delete(OIndex);
+end;
+
+procedure tStocks_Data.notifyObservers;
+var TekO : IObserver;
+begin
+  for TekO in FObserverList do
+    TekO.UpdateStock(fChosenStock);
+end;
+
+procedure tStocks_Data.notifyStockListObservers;
+var TekO : IObserver;
+begin
+  for TekO in FObserverList do
+    TekO.UpdateStockList(fCountryStocks);
+end;
+
+procedure tStocks_Data.SetFirstStockFromCountry(countryName: string);
+var i : integer;
+begin
+  for i:=0 to StockList.Count-1 do
+    if (countryName='') or (AnsiLowerCase(countryName)=AnsiLowerCase(StockList[i].Country)) then
+     begin
+       FChosenStock:=StocksData.StockList[i];
+       break;
+     end;
+  notifyObservers;
+end;
+
+procedure tStocks_Data.setStock(const stockIndex: integer);
+begin
+  FChosenStock:=fCountryStocks[stockIndex];
+  notifyObservers();
+end;
+
+procedure tStocks_Data.setCountry(const countryName: string);
+var i : integer;
+begin
+  fCountryStocks.Clear;
+  if (countryName='')
+  then fCountryStocks.AddList(fStockList)
+  else
+    begin
+      for i:=0 to StockList.Count-1 do
+        if (AnsiLowerCase(countryName)=AnsiLowerCase(StockList[i].Country))
+        then fCountryStocks.Add(StockList[i]);
+    end;
+  notifyStockListObservers();
+end;
+
+
+function tStocks_Data.getStockStrList(countryName: string): TStringlist;
+var i : integer;
+begin
+  Result:=TStringList.Create;
+  for i:=0 to StockList.Count-1 do
+    if (countryName='') or (AnsiLowerCase(countryName)=AnsiLowerCase(StockList[i].Country))
+    then Result.Add(StockList[i].Name);
+end;
+
+procedure tStocks_Data.AddOperationToChosenStock(aDate: TDate;
+  aOperationType: tOperationType; aCount: integer; aPrice: single);
+begin
+  if fChosenStock<>nil
+  then fChosenStock.AddOperation(aDate,aOperationType,aCount,aPrice);
+  notifyObservers();
+end;
+
+procedure tStocks_Data.DeleteAllStockOperations;
+begin
+  fChosenStock.DeleteAllOperations;
+  notifyObservers();
+end;
+
+procedure tStocks_Data.DeleteLastStockOperation;
+begin
+  fChosenStock.DeleteLastOperation;
+  notifyObservers();
+end;
 
 procedure tStocks_Data.DoOnSaved;
 begin
@@ -60,26 +194,6 @@ begin
      fIsSaved:=Aval;
      DoOnSaved;
    end;
-end;
-
-function sort_by_name(const I1 ,I2 : IStock) : LongInt;
-var s : string;
-begin
-  s:=(I1.Country) ;
-  if AnsiLowerCase(I1.Name)>AnsiLowerCase(I2.Name) then result:=-1 else
-    if  AnsiLowerCase(I1.Name)<AnsiLowerCase(I2.Name) then result:=1 else
-      result:=0;
-end;
-
-{ tStocks_Data }
-constructor tStocks_Data.Create;
-begin
-  fStockList    := IStockList.Create;
-  fIndustryList := TStringList.Create;
-  fCountryList  := TStringList.Create;
-  ReadFromXML;
-  IsSaved:=true;
-  fStockList.Sort(@sort_by_name);
 end;
 
 procedure tStocks_Data.CheckStockProps;
@@ -187,14 +301,19 @@ begin
   fStockList.Add(Stock);
   IsSaved:=false;
   fStockList.Sort(@sort_by_name);
+  if Assigned(fOnAddStock)
+  then fOnAddStock(self,Stock);
 end;
 
-procedure tStocks_Data.EditStock(Stock: IStock; Country, Name, Industry: string);
+procedure tStocks_Data.EditStock(Country, Name, Industry: string);
 begin
-  Stock.Country:=Country;
-  Stock.Name:=Name;
-  Stock.Industry:=Industry;
+  fChosenStock.Country :=Country;
+  fChosenStock.Name    :=Name;
+  fChosenStock.Industry:=Industry;
   IsSaved:=false;
+  if Assigned(fOnEditStock)
+  then fOnEditStock(self,fChosenStock);
+  notifyObservers();
 end;
 
 procedure tStocks_Data.WriteToXML;
@@ -241,8 +360,6 @@ begin
   WriteProps;
   IsSaved:=true;
 end;
-
-
 
 initialization
   StocksData := tStocks_Data.Create;

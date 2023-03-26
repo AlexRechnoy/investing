@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
   <other name="TAL" country="China" industry="Сфера услуг" portfolio="Рисковый"/>
-  <stock_operation date="27.10.2021" count="10" price="43.60" operation_buy="1"/>
   <stock_operation date="27.10.2021" count="56" price="491.35" operation_buy="1"/>
+  <stock_operation date="27.10.2021" count="10" price="43.60" operation_buy="1"/>
   <stock_operation date="29.10.2021" count="2" price="8.14" operation_buy="1"/>
   <stock_operation date="04.11.2021" count="2" price="7.95" operation_buy="1"/>
   <stock_operation date="01.02.2022" count="4" price="11.43" operation_buy="1"/>

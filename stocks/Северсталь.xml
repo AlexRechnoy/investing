@@ -2,8 +2,8 @@
 <Main>
   <other name="Северсталь" country="Россия" industry="Металлургия" portfolio=""/>
   <stock_operation date="27.10.2020" count="1" price="1079.00" operation_buy="1"/>
-  <stock_operation date="09.11.2020" count="2" price="2192.00" operation_buy="1"/>
   <stock_operation date="09.11.2020" count="2" price="2200.00" operation_buy="1"/>
+  <stock_operation date="09.11.2020" count="2" price="2192.00" operation_buy="1"/>
   <stock_operation date="26.11.2020" count="5" price="5724.00" operation_buy="1"/>
   <stock_operation date="27.11.2020" count="1" price="1146.00" operation_buy="1"/>
   <stock_operation date="08.12.2020" count="4" price="4648.00" operation_buy="1"/>
@@ -34,10 +34,10 @@
   <stock_operation date="19.07.2021" count="2" price="3350.00" operation_buy="0"/>
   <stock_operation date="29.07.2021" count="1" price="1784.00" operation_buy="1"/>
   <stock_operation date="03.08.2021" count="2" price="3572.00" operation_buy="0"/>
-  <stock_operation date="10.08.2021" count="5" price="8714.00" operation_buy="0"/>
   <stock_operation date="10.08.2021" count="5" price="8711.00" operation_buy="1"/>
-  <stock_operation date="24.08.2021" count="1" price="1691.00" operation_buy="1"/>
+  <stock_operation date="10.08.2021" count="5" price="8714.00" operation_buy="0"/>
   <stock_operation date="24.08.2021" count="1" price="1691.00" operation_buy="0"/>
+  <stock_operation date="24.08.2021" count="1" price="1691.00" operation_buy="1"/>
   <stock_operation date="24.08.2021" count="1" price="1691.00" operation_buy="1"/>
   <stock_operation date="26.08.2021" count="2" price="3394.00" operation_buy="1"/>
   <stock_operation date="30.08.2021" count="1" price="1745.00" operation_buy="1"/>
@@ -70,4 +70,8 @@
   <stock_operation date="22.08.2022" count="1" price="705.00" operation_buy="1"/>
   <stock_operation date="27.09.2022" count="1" price="616.00" operation_buy="1"/>
   <stock_operation date="10.10.2022" count="1" price="584.00" operation_buy="1"/>
+  <stock_operation date="27.12.2022" count="4" price="3600.00" operation_buy="0"/>
+  <stock_operation date="16.01.2023" count="5" price="4525.00" operation_buy="0"/>
+  <stock_operation date="02.02.2023" count="3" price="3000.00" operation_buy="0"/>
+  <stock_operation date="24.02.2023" count="3" price="3126.00" operation_buy="0"/>
 </Main>

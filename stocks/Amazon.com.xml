@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Amazon.com" country="USA" industry="IT" portfolio=""/>
+  <stock_operation date="06.01.2023" count="1" price="82.94" operation_buy="1"/>
+  <stock_operation date="03.02.2023" count="1" price="108.16" operation_buy="1"/>
+  <stock_operation date="21.03.2023" count="1" price="98.82" operation_buy="1"/>
+</Main>

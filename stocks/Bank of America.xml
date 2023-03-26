@@ -8,4 +8,6 @@
   <stock_operation date="14.12.2021" count="1" price="43.30" operation_buy="1"/>
   <stock_operation date="27.04.2022" count="1" price="36.53" operation_buy="1"/>
   <stock_operation date="07.07.2022" count="1" price="31.22" operation_buy="1"/>
+  <stock_operation date="24.01.2023" count="1" price="34.55" operation_buy="1"/>
+  <stock_operation date="24.03.2023" count="1" price="26.63" operation_buy="1"/>
 </Main>

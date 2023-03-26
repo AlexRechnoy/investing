@@ -24,4 +24,5 @@
   <stock_operation date="15.02.2022" count="1" price="17.08" operation_buy="1"/>
   <stock_operation date="24.02.2022" count="1" price="16.70" operation_buy="1"/>
   <stock_operation date="15.06.2022" count="1" price="18.03" operation_buy="1"/>
+  <stock_operation date="24.03.2023" count="1" price="16.22" operation_buy="1"/>
 </Main>

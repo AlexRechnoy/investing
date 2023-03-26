@@ -22,4 +22,5 @@
   <stock_operation date="02.12.2022" count="1" price="6375.00" operation_buy="1"/>
   <stock_operation date="20.12.2022" count="1" price="6039.00" operation_buy="1"/>
   <stock_operation date="09.01.2023" count="2" price="12700.00" operation_buy="0"/>
+  <stock_operation date="10.01.2023" count="1" price="6358.00" operation_buy="1"/>
 </Main>

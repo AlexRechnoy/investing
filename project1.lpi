@@ -64,7 +64,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="7">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -84,10 +84,25 @@
         <ResourceBaseClass Value="Form"/>
       </Unit2>
       <Unit3>
-        <Filename Value="units\grid_stocks.pas"/>
+        <Filename Value="units\stockfullgrid.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="Grid_Stocks"/>
+        <UnitName Value="stockFullGrid"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="units\stockgrid.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="stockGrid"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="units\stockpanel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="stockPanel"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="units\stock_observer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="stock_Observer"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

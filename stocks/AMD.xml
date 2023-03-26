@@ -16,4 +16,5 @@
   <stock_operation date="15.09.2022" count="1" price="76.27" operation_buy="1"/>
   <stock_operation date="30.09.2022" count="1" price="64.40" operation_buy="1"/>
   <stock_operation date="12.01.2023" count="1" price="69.79" operation_buy="1"/>
+  <stock_operation date="22.03.2023" count="1" price="100.00" operation_buy="0"/>
 </Main>

@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 378
+  Left = 504
   Height = 852
-  Top = 53
+  Top = 99
   Width = 1307
   Caption = 'Инвестиции'
   ClientHeight = 832
@@ -33,40 +33,12 @@ object Form1: TForm1
         ClientHeight = 778
         ClientWidth = 504
         TabOrder = 0
-        object StringGrid3: TStringGrid
-          Left = 1
-          Height = 776
-          Top = 1
-          Width = 502
-          Align = alClient
-          ColCount = 6
+        object StringGrid1: TStringGrid
+          Left = 188
+          Height = 100
+          Top = 134
+          Width = 200
           TabOrder = 0
-          ColWidths = (
-            28
-            103
-            64
-            96
-            77
-            92
-          )
-          Cells = (
-            5
-            1
-            0
-            'Название'
-            2
-            0
-            'Кол-во'
-            3
-            0
-            'Ср.стоимость'
-            4
-            0
-            'Сумма'
-            5
-            0
-            'Баланс'
-          )
         end
       end
       object Panel5: TPanel
@@ -90,129 +62,37 @@ object Form1: TForm1
           ClientWidth = 789
           TabOrder = 0
           object Panel7: TPanel
-            Left = 333
+            Left = 1
             Height = 572
             Top = 1
-            Width = 455
+            Width = 787
             Align = alClient
             BevelInner = bvLowered
             BevelWidth = 3
             Caption = 'Panel7'
             ClientHeight = 572
-            ClientWidth = 455
+            ClientWidth = 787
             TabOrder = 0
-            object Memo1: TMemo
-              Left = 6
-              Height = 477
-              Top = 21
-              Width = 443
-              Align = alClient
-              Lines.Strings = (
-                'Memo1'
-              )
-              ScrollBars = ssAutoVertical
-              TabOrder = 0
-            end
-            object Label5: TLabel
-              Left = 6
-              Height = 15
-              Top = 6
-              Width = 443
-              Align = alTop
-              Caption = 'История операций'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
             object Button4: TButton
               Left = 6
               Height = 34
               Top = 498
-              Width = 443
+              Width = 775
               Align = alBottom
               Caption = 'Удалить последнюю операцию'
               OnClick = Button4Click
-              TabOrder = 1
+              TabOrder = 0
             end
             object Button3: TButton
               Left = 6
               Height = 34
               Top = 532
-              Width = 443
+              Width = 775
               Align = alBottom
               Caption = 'Очистить все операции'
               OnClick = Button3Click
-              TabOrder = 2
-            end
-          end
-          object Panel8: TPanel
-            Left = 1
-            Height = 572
-            Top = 1
-            Width = 327
-            Align = alLeft
-            BevelInner = bvSpace
-            BevelWidth = 2
-            ClientHeight = 572
-            ClientWidth = 327
-            TabOrder = 1
-            object StringGrid1: TStringGrid
-              Left = 4
-              Height = 515
-              Top = 19
-              Width = 319
-              Align = alClient
-              ColCount = 2
-              RowCount = 6
-              TabOrder = 0
-              ColWidths = (
-                125
-                165
-              )
-              Cells = (
-                5
-                0
-                1
-                'Отрасль'
-                0
-                2
-                'Количество акций'
-                0
-                3
-                'Цена акций'
-                0
-                4
-                'Средняя цена акции'
-                0
-                5
-                'Баланс'
-              )
-            end
-            object Label6: TLabel
-              Left = 4
-              Height = 15
-              Top = 4
-              Width = 319
-              Align = alTop
-              Caption = 'Статистика по акции'
-              Font.Style = [fsBold]
-              ParentFont = False
-            end
-            object Button5: TButton
-              Left = 4
-              Height = 34
-              Top = 534
-              Width = 319
-              Align = alBottom
-              Caption = 'Сохранить параметры В XML'
-              OnClick = Button5Click
               TabOrder = 1
             end
-          end
-          object Splitter1: TSplitter
-            Left = 328
-            Height = 572
-            Top = 1
-            Width = 5
           end
         end
         object Panel2: TPanel
@@ -1141,5 +1021,32 @@ object Form1: TForm1
       Caption = 'Action_Save'
       OnExecute = Action_SaveExecute
     end
+  end
+  object ColorDialog1: TColorDialog
+    Color = 7202720
+    CustomColors.Strings = (
+      'ColorA=0'
+      'ColorB=80'
+      'ColorC=8000'
+      'ColorD=8080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=FF'
+      'ColorK=FF00'
+      'ColorL=FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    Left = 112
+    Top = 129
   end
 end

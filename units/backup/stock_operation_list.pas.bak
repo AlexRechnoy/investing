@@ -15,7 +15,7 @@ type
    private
      fOperationStrList : TStringList;
      fStockCount       : integer;     {Кол-во акций}
-     fSum              : double;      {Общая стоимость акций}
+     fSum              : double;      {Общая стоимость акций, которые в данный момент "на руках"}
      fBalance          : double;
      procedure processOperationBuy(stockOperation : IStockOperation);
      function processOperationSell(stockOperation : IStockOperation): boolean;
@@ -80,6 +80,7 @@ var TekStockOperation : IStockOperation;
     TempList          : TStringList;
     i                 : integer;
     errTxt            : string='';
+    index             : integer=0;
 begin
   ClearOperationListData;
   TempList:=TStringList.Create;
@@ -91,12 +92,12 @@ begin
      then
       begin
         processOperationBuy(TekStockOperation);
-        TempList.Add(Format('Дата : %s. Куплено %d за %4.2f',[DateToStr(TekStockOperation.Date), TekStockOperation.Count,TekStockOperation.Price]))
+        TempList.Add(Format('%d Дата : %s. Куплено %d за %4.2f',[index, DateToStr(TekStockOperation.Date), TekStockOperation.Count,TekStockOperation.Price]))
       end
      else
       begin
         if processOperationSell(TekStockOperation)
-        then TempList.Add(Format('Дата : %s. Продано %d за %4.2f',[DateToStr(TekStockOperation.Date),TekStockOperation.Count,TekStockOperation.Price]))
+        then TempList.Add(Format('%d Дата : %s. Продано %d за %4.2f',[index,DateToStr(TekStockOperation.Date),TekStockOperation.Count,TekStockOperation.Price]))
         else
           begin
             TempList.Add(Format('!!!Некорректная продажа!!! Дата : %s. Продано %d за %4.2f',[DateToStr(TekStockOperation.Date),TekStockOperation.Count,TekStockOperation.Price]));
@@ -104,25 +105,33 @@ begin
                                                [fStockCount,TekStockOperation.Count,DateToStr(TekStockOperation.Date)])
           end;
       end;
+      inc(index);
    end;
 
   fOperationStrList.Add(Format('Всего : %d за %4.2f',[fStockCount,fSum]));
-  for i:=TempList.Count-1 downto 0 do
-    fOperationStrList.Add(TempList[i]);
-  if errTxt<>''
-  then raise EStockSellException.Create(errTxt);
+  fOperationStrList.AddStrings(TempList);
+  //for i:=TempList.Count-1 downto 0 do
+  //  fOperationStrList.Add(TempList[i]);
+
+
+  //if errTxt<>''
+  //then raise EStockSellException.Create(errTxt);
 end;
 
 procedure tOperationList.AddOperation(Opearation : IStockOperation);
 begin
-  add(Opearation);
+  self.Add(Opearation);
   Calculate;
 end;
 
 procedure tOperationList.DeleteLastOperation;
 begin
-  Self.Delete(IndexOf(Self.Last));
-  Calculate;
+  if self.Count>0 then
+   begin
+     Self.Delete(IndexOf(Self.Last));
+     Calculate;
+
+   end;
 end;
 
 

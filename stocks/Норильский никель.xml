@@ -6,6 +6,6 @@
   <stock_operation date="14.12.2021" count="1" price="20648.00" operation_buy="1"/>
   <stock_operation date="14.12.2021" count="1" price="21000.00" operation_buy="0"/>
   <stock_operation date="08.11.2022" count="1" price="14100.00" operation_buy="1"/>
-  <stock_operation date="15.11.2022" count="1" price="15080.00" operation_buy="1"/>
   <stock_operation date="15.11.2022" count="1" price="15000.00" operation_buy="0"/>
+  <stock_operation date="15.11.2022" count="1" price="15080.00" operation_buy="1"/>
 </Main>

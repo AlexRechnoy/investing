@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms,MainUnit, form_add_stock,form_edit_props,  add_portfolio_unit;
+  Forms,MainUnit, form_add_stock,form_edit_props,  add_portfolio_unit,
+stock_Observer;
 
 {$R *.res}
 

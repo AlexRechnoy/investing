@@ -11,17 +11,17 @@
   <stock_operation date="25.03.2021" count="1" price="29.80" operation_buy="1"/>
   <stock_operation date="12.04.2021" count="2" price="53.32" operation_buy="1"/>
   <stock_operation date="16.04.2021" count="1" price="23.25" operation_buy="1"/>
-  <stock_operation date="16.04.2021" count="1" price="23.05" operation_buy="1"/>
   <stock_operation date="16.04.2021" count="1" price="23.25" operation_buy="1"/>
-  <stock_operation date="20.04.2021" count="1" price="21.60" operation_buy="1"/>
+  <stock_operation date="16.04.2021" count="1" price="23.05" operation_buy="1"/>
   <stock_operation date="20.04.2021" count="1" price="20.86" operation_buy="1"/>
+  <stock_operation date="20.04.2021" count="1" price="21.60" operation_buy="1"/>
   <stock_operation date="29.04.2021" count="2" price="45.22" operation_buy="1"/>
   <stock_operation date="03.05.2021" count="2" price="40.30" operation_buy="1"/>
-  <stock_operation date="07.05.2021" count="2" price="38.18" operation_buy="1"/>
   <stock_operation date="07.05.2021" count="1" price="19.03" operation_buy="1"/>
-  <stock_operation date="10.05.2021" count="2" price="37.20" operation_buy="1"/>
-  <stock_operation date="10.05.2021" count="1" price="18.00" operation_buy="1"/>
+  <stock_operation date="07.05.2021" count="2" price="38.18" operation_buy="1"/>
   <stock_operation date="10.05.2021" count="1" price="17.98" operation_buy="1"/>
+  <stock_operation date="10.05.2021" count="1" price="18.00" operation_buy="1"/>
+  <stock_operation date="10.05.2021" count="2" price="37.20" operation_buy="1"/>
   <stock_operation date="11.05.2021" count="4" price="58.00" operation_buy="1"/>
   <stock_operation date="12.05.2021" count="1" price="16.60" operation_buy="1"/>
   <stock_operation date="13.05.2021" count="1" price="15.60" operation_buy="1"/>
@@ -45,8 +45,8 @@
   <stock_operation date="28.07.2021" count="1" price="31.00" operation_buy="0"/>
   <stock_operation date="30.07.2021" count="1" price="31.00" operation_buy="0"/>
   <stock_operation date="05.08.2021" count="1" price="32.00" operation_buy="0"/>
-  <stock_operation date="02.09.2021" count="33" price="940.83" operation_buy="0"/>
   <stock_operation date="02.09.2021" count="28" price="792.40" operation_buy="1"/>
+  <stock_operation date="02.09.2021" count="33" price="940.83" operation_buy="0"/>
   <stock_operation date="17.09.2021" count="1" price="25.31" operation_buy="0"/>
   <stock_operation date="23.09.2021" count="3" price="77.40" operation_buy="0"/>
   <stock_operation date="11.10.2021" count="1" price="23.55" operation_buy="0"/>
@@ -57,4 +57,5 @@
   <stock_operation date="14.06.2022" count="1" price="5.82" operation_buy="1"/>
   <stock_operation date="28.09.2022" count="2" price="9.79" operation_buy="1"/>
   <stock_operation date="09.01.2023" count="2" price="8.06" operation_buy="1"/>
+  <stock_operation date="10.01.2023" count="1" price="3.94" operation_buy="1"/>
 </Main>

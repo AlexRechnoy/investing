@@ -35,4 +35,8 @@
   <stock_operation date="19.08.2022" count="1" price="1091.00" operation_buy="0"/>
   <stock_operation date="31.08.2022" count="1" price="1140.00" operation_buy="1"/>
   <stock_operation date="20.09.2022" count="1" price="1074.00" operation_buy="1"/>
+  <stock_operation date="06.01.2023" count="1" price="1049.00" operation_buy="1"/>
+  <stock_operation date="11.01.2023" count="1" price="1042.00" operation_buy="1"/>
+  <stock_operation date="16.02.2023" count="1" price="1032.00" operation_buy="1"/>
+  <stock_operation date="17.03.2023" count="1" price="1075.00" operation_buy="1"/>
 </Main>
