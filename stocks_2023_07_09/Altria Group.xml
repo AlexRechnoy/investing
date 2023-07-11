@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Altria Group" country="USA" industry="Услуги" portfolio=""/>
+  <stock_operation date="04.10.2021" count="1" price="45.97" operation_buy="1"/>
+  <stock_operation date="28.10.2021" count="1" price="44.68" operation_buy="1"/>
+  <stock_operation date="24.01.2022" count="2" price="98.00" operation_buy="0"/>
+  <stock_operation date="08.02.2022" count="1" price="50.38" operation_buy="1"/>
+  <stock_operation date="09.03.2022" count="1" price="51.24" operation_buy="0"/>
+  <stock_operation date="13.05.2022" count="1" price="52.39" operation_buy="1"/>
+  <stock_operation date="28.06.2022" count="1" price="44.02" operation_buy="1"/>
+</Main>

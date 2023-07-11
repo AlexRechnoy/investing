@@ -1,7 +1,7 @@
 object Form4: TForm4
-  Left = 257
+  Left = 220
   Height = 271
-  Top = 136
+  Top = 113
   Width = 597
   Caption = 'Редактор свойств акции'
   ClientHeight = 271

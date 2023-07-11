@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Simon Property Group" country="USA" industry="Финансы" portfolio=""/>
+  <stock_operation date="02.09.2022" count="1" price="101.97" operation_buy="1"/>
+  <stock_operation date="22.02.2023" count="1" price="120.00" operation_buy="0"/>
+  <stock_operation date="02.05.2023" count="1" price="110.58" operation_buy="1"/>
+</Main>

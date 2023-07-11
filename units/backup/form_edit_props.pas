@@ -37,7 +37,7 @@ type
   published
     property OnUpdate : TNotifyEvent read fOnUpdate write fOnUpdate;
   public
-    procedure loadList(const propList : TStringList; const isCountryList : boolean);
+    procedure loadList(const isCountryList : boolean);
   end;
 
 var
@@ -67,8 +67,11 @@ end;
 
 procedure TForm4.BitBtn3Click(Sender: TObject);
 begin
-  ListBox1.Items.Delete( ListBox1.ItemIndex);
-  Edit1.Text:='';
+  if MessageDlg('Удаление отрасли ','Удалить отрасль из списка?', mtConfirmation,[mbYes,mbNo,mbAbort],0)=mrYes then
+   begin
+     ListBox1.Items.Delete(ListBox1.ItemIndex);
+     Edit1.Text:='';
+   end;
 end;
 
 procedure TForm4.Button1Click(Sender: TObject);
@@ -96,11 +99,13 @@ begin
   then BitBtn2Click(self);
 end;
 
-procedure TForm4.loadList(const propList: TStringList;const isCountryList: boolean);
+procedure TForm4.loadList(const isCountryList: boolean);
 begin
   fisCountry:=isCountryList;
   ListBox1.Clear;
-  ListBox1.Items.AddStrings(propList);
+  if fisCountry
+  then ListBox1.Items.AddStrings(StocksData.CountryList)
+  else ListBox1.Items.AddStrings(StocksData.IndustryList);
 end;
 
 procedure TForm4.BitBtn1Click(Sender: TObject);

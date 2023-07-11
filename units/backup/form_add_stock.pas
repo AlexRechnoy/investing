@@ -120,11 +120,7 @@ var newStock : IStock;
 begin
   case fRegim of
       _SRAdd : StocksData.AddStock(tStock.Create(edit1.Text,ComboCountry.Text,ComboIndustry.Text));
-      _SREdit: if Assigned(fOnEditStock) then
-                begin
-                  StocksData.EditStock(StocksData.ChosenStock,ComboCountry.Text,Edit1.Text,ComboIndustry.Text);
-                  fOnEditStock(self);
-                end;
+      _SREdit: StocksData.EditStock(ComboCountry.Text,Edit1.Text,ComboIndustry.Text);
   end;
   Self.Close;
 end;

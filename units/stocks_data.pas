@@ -42,7 +42,8 @@ type
     procedure CheckStockProps;
     procedure AddStock(Stock: IStock);
     procedure EditStock(Country,Name,Industry : string);
-    procedure WriteToXML;
+    procedure WriteToXML(const StockDirName : string='');
+    procedure BackUP;
     procedure setCountry(const countryName : string);
     procedure setStock(const stockIndex : integer); //изменилась выбранная акция
     procedure SetFirstStockFromCountry(countryName : string);
@@ -67,7 +68,7 @@ implementation
 
 uses FileUtil, XMLRead,XMLWrite,DOM, Dialogs;
 
-const prop_file_name =  RootDir+'__stockProps.xml';
+const prop_file_name =  RootStockDir+'__stockProps.xml';
 
 function sort_by_name(const I1 ,I2 : IStock) : LongInt;
 begin
@@ -83,6 +84,7 @@ begin
   fStockList    := IStockList.Create;
   fCountryStocks:= IStockList.Create;
   fIndustryList := TStringList.Create;
+  fIndustryList.Sorted:=true;
   fCountryList  := TStringList.Create;
   fChosenStock  :=nil;
   ReadFromXML;
@@ -251,7 +253,7 @@ var fileList: TStringList;
     tekFileName: string;
     procedure ReadStocks;
     begin
-      fileList := FindAllFiles(RootDir, '*.xml', True);
+      fileList := FindAllFiles(RootStockDir, '*.xml', True);
       for tekFileName in fileList do
        begin
          if pos('__stockProps.xml',tekFileName)>0
@@ -320,12 +322,15 @@ begin
   notifyStockListObservers();
 end;
 
-procedure tStocks_Data.WriteToXML;
+procedure tStocks_Data.WriteToXML(const StockDirName: string);
+var s : string;
     procedure WriteStocks;
     var tekStock : IStock;
     begin
       for tekStock in fStockList do
-        tekStock.WriteToXML
+        if StockDirName=''
+        then tekStock.WriteToXML
+        else tekStock.WriteToXML(StockDirName);
     end;
     procedure WriteProps;
     var RootNode     : TDOMNode;
@@ -360,9 +365,33 @@ procedure tStocks_Data.WriteToXML;
       end;
     end;
 begin
+  s:=ExtractFileDir(ParamStr(0));
+  if (StockDirName<>'') then
+   begin
+     if (not DirectoryExists(StockDirName)) then
+       if not ForceDirectories(s+'/1/sfsds')
+       then exit;
+   end;
   WriteStocks;
   WriteProps;
   IsSaved:=true;
+end;
+
+procedure tStocks_Data.BackUP;
+var myFormatSettings : TFormatSettings;
+//RootStockDir = 'stocks/';
+var stockDir : string;
+    stock_date_str : string;
+begin
+  myFormatSettings:=DefaultFormatSettings;
+  //myFormatSettings.DateSeparator:='_';
+  //myFormatSettings.DecimalSeparator:='_';
+  myFormatSettings.ShortDateFormat:='yyyy_MM_dd';
+  myFormatSettings.LongTimeFormat:='hh_nn_ss';
+  //myFormatSettings.TimeSeparator:='_';
+  stock_date_str:=Format('%s',[DateTimeToStr(Now,myFormatSettings)]);
+  stockDir:=Format('stocks_backup/stocks___%s/',[DateTimeToStr(Now,myFormatSettings)]);
+  WriteToXML(stockDir);
 end;
 
 initialization

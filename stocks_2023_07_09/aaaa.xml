@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="aaaa" country="Россия" industry="Туризм" portfolio=""/>
+  <stock_operation date="14.01.2023" count="1" price="1.00" operation_buy="1"/>
+  <stock_operation date="14.01.2023" count="1" price="5.00" operation_buy="1"/>
+  <stock_operation date="14.01.2023" count="1" price="10.00" operation_buy="1"/>
+</Main>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Twitter" country="USA" industry="IT" portfolio=""/>
+  <stock_operation date="04.10.2021" count="1" price="58.46" operation_buy="1"/>
+  <stock_operation date="11.10.2021" count="1" price="63.00" operation_buy="0"/>
+  <stock_operation date="22.10.2021" count="1" price="62.80" operation_buy="1"/>
+  <stock_operation date="27.10.2021" count="1" price="56.41" operation_buy="1"/>
+  <stock_operation date="28.10.2021" count="1" price="55.39" operation_buy="1"/>
+  <stock_operation date="11.11.2021" count="1" price="52.42" operation_buy="1"/>
+  <stock_operation date="23.11.2021" count="1" price="47.15" operation_buy="1"/>
+  <stock_operation date="30.11.2021" count="1" price="43.70" operation_buy="1"/>
+  <stock_operation date="03.12.2021" count="1" price="42.83" operation_buy="1"/>
+  <stock_operation date="05.01.2022" count="1" price="40.00" operation_buy="1"/>
+  <stock_operation date="24.01.2022" count="1" price="34.82" operation_buy="1"/>
+  <stock_operation date="05.04.2022" count="1" price="51.40" operation_buy="0"/>
+  <stock_operation date="25.04.2022" count="1" price="51.58" operation_buy="0"/>
+  <stock_operation date="25.04.2022" count="2" price="103.40" operation_buy="0"/>
+  <stock_operation date="07.06.2022" count="4" price="160.00" operation_buy="0"/>
+</Main>

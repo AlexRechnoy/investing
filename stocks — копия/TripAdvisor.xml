@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="TripAdvisor" country="USA" industry="Туризм" portfolio=""/>
+  <stock_operation date="24.08.2021" count="1" price="34.90" operation_buy="1"/>
+  <stock_operation date="02.09.2021" count="1" price="35.59" operation_buy="1"/>
+  <stock_operation date="13.10.2021" count="2" price="72.64" operation_buy="0"/>
+  <stock_operation date="26.10.2021" count="1" price="34.65" operation_buy="1"/>
+  <stock_operation date="05.11.2021" count="1" price="33.29" operation_buy="1"/>
+  <stock_operation date="29.11.2021" count="1" price="26.75" operation_buy="1"/>
+  <stock_operation date="30.11.2021" count="1" price="25.72" operation_buy="1"/>
+  <stock_operation date="24.01.2022" count="1" price="26.06" operation_buy="1"/>
+  <stock_operation date="15.02.2022" count="4" price="120.00" operation_buy="0"/>
+  <stock_operation date="19.07.2022" count="1" price="18.74" operation_buy="1"/>
+  <stock_operation date="05.08.2022" count="2" price="46.00" operation_buy="0"/>
+  <stock_operation date="04.05.2023" count="1" price="15.89" operation_buy="1"/>
+  <stock_operation date="09.05.2023" count="1" price="16.23" operation_buy="1"/>
+</Main>

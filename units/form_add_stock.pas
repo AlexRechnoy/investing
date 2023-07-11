@@ -105,13 +105,13 @@ end;
 procedure TForm2.BitBtn1Click(Sender: TObject);
 begin
   Form4.Visible:=true;
-  Form4.loadList(StocksData.CountryList,true);
+  Form4.loadList(true);
 end;
 
 procedure TForm2.BitBtn2Click(Sender: TObject);
 begin
   Form4.Visible:=true;
-  Form4.loadList(StocksData.IndustryList,false);
+  Form4.loadList(false);
 end;
 
 {Сохранит изменения/ добавить}

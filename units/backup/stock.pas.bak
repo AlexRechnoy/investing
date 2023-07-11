@@ -7,10 +7,12 @@ interface
 uses
   Classes, SysUtils,stock_operation_list,Stock_Operation, fgl;
 
+const
+  RootStockDir = 'stocks/';
 type
   { IStock }
   IStock = interface ['{25875868-5C85-469C-9747-7949ACD297C2}']
-    procedure WriteToXML;
+    procedure WriteToXML(const StockDir : string = RootStockDir);
     procedure ReadFromXML(const fileName : string);
     function GetName : string;
     function GetCountry : string;
@@ -45,7 +47,6 @@ type
    private
     fName          : string;
     fCountry       : string;
-    //fBalance       : single;
     fCount         : integer;
     fIndustry      : string;        {Отрасль}
     fOperationList : tOperationList;
@@ -64,12 +65,9 @@ type
     function getOperationListStr : TStringList;
     function getAveragePrice : string;
    public
-
-
     constructor Create(const aName,aCountry,aIndustry : string);
-    procedure WriteToXML;
+    procedure WriteToXML(const StockDir : string = RootStockDir);
     procedure ReadFromXML(const fileName : string);
-
     procedure DeleteLastOperation;
     procedure DeleteAllOperations;
     procedure AddOperation(aDate:TDate;aOperationType:tOperationType;aCount:integer; aPrice:single);
@@ -81,8 +79,6 @@ type
 
   IStockList = specialize TFPGInterfacedObjectList<IStock>;
 
-  const RootDir = 'stocks/';
-
 implementation
 
 uses DOM,XMLRead,XMLWrite,FileUtil,Stocks_Data,Dialogs;
@@ -91,7 +87,6 @@ uses DOM,XMLRead,XMLWrite,FileUtil,Stocks_Data,Dialogs;
 { tStock }
 constructor tStock.Create(const aName, aCountry, aIndustry: string);
 begin
-  //fBalance      :=0;
   fCount        :=0;
   fName         :=aName;
   fCountry      :=aCountry;
@@ -113,7 +108,7 @@ end;
 procedure tStock.AddOperation(aDate: TDate; aOperationType: tOperationType;
   aCount: integer; aPrice: single);
 begin
-  fOperationList.AddOperation(tStockOperation.Create(aDate,aOperationType,aCount,aPrice));
+  fOperationList.AddOperation(tStockOperation.Create(aDate,aOperationType,aCount,aPrice,fOperationList.getMaxOperationID+1));
   StocksData.IsSaved:=false;
 end;
 
@@ -125,11 +120,11 @@ end;
 
 procedure tStock.DeleteAllOperations;
 begin
-  fOperationList.Clear;
+  fOperationList.DeleteAllOperations;
   StocksData.IsSaved:=false;
 end;
 
-procedure tStock.WriteToXML;
+procedure tStock.WriteToXML(const StockDir: string);
 var filename     : string;
     tekOperation : IStockOperation;
     FileExist    : boolean=false;
@@ -137,13 +132,13 @@ var filename     : string;
     RootNode     : TDOMNode;
     domelement   : TDOMElement;
 begin
-  filename:=RootDir+fName+'.xml';
+  filename:=StockDir+fName+'.xml';
   try
     ReadXMLFile(XMLDoc,FileName);
     FileExist:=true;
-    RootNode:=XMLDoc.DocumentElement;
-    while Assigned(RootNode.FirstChild) do
-      RootNode.FirstChild.Destroy;
+    StockDir:=XMLDoc.DocumentElement;
+    while Assigned(StockDir.FirstChild) do
+      StockDir.FirstChild.Destroy;
   except
     XmlDoc  :=TXMLDocument.Create;
     RootNode:=XMLDoc.CreateElement('Main');
@@ -162,6 +157,7 @@ begin
       domelement.SetAttribute('operation_buy',BoolToStr(tekOperation.OperationType=_Operation_Buy,'1','0'));
       domelement.SetAttribute('count',inttostr(tekOperation.Count));
       domelement.SetAttribute('price',format('%4.2f',[tekOperation.Price]));
+      domelement.SetAttribute('id',inttostr(tekOperation.ID));
       RootNode.AppendChild(domelement);
    end;
   IF not FileExist then XMLDoc.AppendChild(RootNode);
@@ -176,6 +172,12 @@ var XMLDoc         : TXMLDocument;
     function GetOperationType(const str : string) : tOperationType;
     begin
       if str='1' then result:=_Operation_Buy else result:=_Operation_Sell;
+    end;
+    function GetOperationID(const operationIDNode : TDOMNode) : integer;
+    begin
+      result:=-1;
+      if operationIDNode<>nil
+      then result:=StrToInt(operationIDNode.NodeValue);
     end;
 begin
   ReadXMLFile(XMLDoc, fileName);
@@ -198,7 +200,8 @@ begin
          fOperationList.AddOperation(tStockOperation.Create(StrToDate(tekNode.Attributes.GetNamedItem('date').NodeValue),
                                                             GetOperationType(tekNode.Attributes.GetNamedItem('operation_buy').NodeValue),
                                                             Strtoint(tekNode.Attributes.GetNamedItem('count').NodeValue),
-                                                            StrToFloat(tekNode.Attributes.GetNamedItem('price').NodeValue)
+                                                            StrToFloat(tekNode.Attributes.GetNamedItem('price').NodeValue),
+                                                            GetOperationID(tekNode.Attributes.GetNamedItem('id'))
                                                            )
                                     );
 
@@ -236,7 +239,6 @@ begin
  //    if price>0
  //    then Result:=format('%4.2f',[price])
  //    else Result:='<0';
-   end
 end;
 
 function tStock.getBalance: double;

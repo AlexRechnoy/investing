@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Alphabet Class A" country="USA" industry="IT" portfolio=""/>
+  <stock_operation date="27.07.2022" count="1" price="110.56" operation_buy="1"/>
+  <stock_operation date="27.07.2022" count="1" price="112.10" operation_buy="0"/>
+  <stock_operation date="28.07.2022" count="1" price="112.00" operation_buy="1"/>
+  <stock_operation date="29.07.2022" count="1" price="113.00" operation_buy="0"/>
+  <stock_operation date="04.08.2022" count="1" price="117.84" operation_buy="1"/>
+  <stock_operation date="09.01.2023" count="1" price="87.55" operation_buy="1"/>
+  <stock_operation date="21.03.2023" count="1" price="100.00" operation_buy="0"/>
+</Main>

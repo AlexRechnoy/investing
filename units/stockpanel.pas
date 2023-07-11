@@ -5,8 +5,8 @@ unit stockPanel;
 interface
 
 uses
-  Classes, SysUtils, ExtCtrls, Controls, StdCtrls,
-  stockGrid, Stocks_Data, stock_Observer, Stock;
+  Classes, SysUtils, ExtCtrls, Controls, StdCtrls, ComCtrls,
+  stockGrid, Stocks_Data, stock_Observer, Stock, Dialogs;
 
 type
 
@@ -14,11 +14,14 @@ type
 
   tStockPanel = class (TPanel, IObserver)
    private
-     fGrid  : tStockGrid;
-     fList  : TListBox;
-     fLabel : TLabel;
+     fGrid    : tStockGrid;
+     fToolBar : TToolBar;
+     fList    : TListBox;
+     fLabel   : TLabel;
+     procedure DeleteLastOperation(Sender : TObject);
+     procedure DeleteAllOperations(Sender : TObject);
    public
-     constructor create(AOwner : TComponent);
+     constructor create(AOwner: TComponent; AImageList : TImageList);
      procedure UpdateStock(stock : IStock);
      procedure UpdateStockList(stock : IStockList);
   end;
@@ -26,8 +29,22 @@ type
 implementation
 
 { tStockPanel }
+constructor tStockPanel.create(AOwner: TComponent; AImageList : TImageList);
+    function createToolButton(const AImageIndex : integer = -1;
+                              const AHint : string = '';
+                              AOnClick : TNotifyEvent = nil ;
+                              const isSeparator : boolean = false) : TToolButton;
+    begin
+      result:=TToolButton.Create(fToolBar);
+      result.Parent    :=fToolBar;
+      result.Hint      :=AHint;
+      result.BorderSpacing.Left:=20;
+      result.ImageIndex:=AImageIndex;
+      result.OnClick   :=AOnClick;
+      if isSeparator
+      then result.Style:=tbsSeparator;
+    end;
 
-constructor tStockPanel.create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
   self.Parent:=AOwner as TWinControl;
@@ -36,12 +53,35 @@ begin
   fLabel.parent:=self;
   fLabel.Caption:='История операций';
   fLabel.Align:=alTop;
+
+  fToolBar:=TToolBar.Create(Self);
+  fToolBar.Parent:=self;
+  fToolBar.Align :=alTop;
+  fToolBar.Images:=AImageList;
+  fToolBar.ButtonHeight:=22;
+  fToolBar.ButtonWidth:=22;
+  fToolBar.ShowHint:=true;
+  fToolBar.ButtonList.Add(createToolButton(5,'Удалить последнюю операцию',@DeleteLastOperation));
+  fToolBar.ButtonList.Add(createToolButton(-1,'',nil,true));
+  fToolBar.ButtonList.Add(createToolButton(6,'Удалить все операции',@DeleteAllOperations));
+
   fGrid:=tStockGrid.Create(self);
   fGrid.Align:=alTop;
   fList:=TListBox.Create(self);
   fList.Parent:=self;
   fList.Align:=alClient;
   StocksData.registerObserver(self);
+end;
+
+procedure tStockPanel.DeleteLastOperation(Sender: TObject);
+begin
+  StocksData.DeleteLastStockOperation;
+end;
+
+procedure tStockPanel.DeleteAllOperations(Sender: TObject);
+begin
+  If MessageDlg('Подтверждение удаления','Точно удалить все операции?', mtConfirmation,[mbYes,mbNo,mbAbort],0)=mrYes
+  then StocksData.DeleteAllStockOperations;
 end;
 
 procedure tStockPanel.UpdateStock(stock : IStock);

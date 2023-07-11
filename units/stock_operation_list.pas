@@ -29,19 +29,25 @@ type
      constructor Create;
      procedure Calculate;
      procedure AddOperation(Opearation : IStockOperation);
+     function getMaxOperationID : integer;
      procedure DeleteLastOperation;
+     procedure DeleteAllOperations;
   end;
 
 
 implementation
 
-uses Dialogs;
+uses Dialogs, Math;
 
 function sortByDate(const stock1,stock2 : IStockOperation) : longint;
 begin
   if stock1.Date>stock2.Date then result:=1 else
     if stock1.Date<stock2.Date then result:=-1 else
-      result:=0;
+      begin
+        if stock1.ID>stock2.ID then result:=1 else
+          if stock1.ID<stock2.ID then result:=-1 else
+            result:=0;
+      end;
 end;
 
 { tOpeationList }
@@ -92,12 +98,23 @@ begin
      then
       begin
         processOperationBuy(TekStockOperation);
-        TempList.Add(Format('%d Дата : %s. Куплено %d за %4.2f',[index, DateToStr(TekStockOperation.Date), TekStockOperation.Count,TekStockOperation.Price]))
+        TempList.Add(Format('%d)  Дата : %s. Куплено %d за %4.2f. Среднее = %4.2f. ID = %d',[index,
+                                                                                    DateToStr(TekStockOperation.Date),
+                                                                                    TekStockOperation.Count,
+                                                                                    TekStockOperation.Price,
+                                                                                    TekStockOperation.Price/TekStockOperation.Count,
+                                                                                    TekStockOperation.ID])
+                    )
       end
      else
       begin
         if processOperationSell(TekStockOperation)
-        then TempList.Add(Format('%d Дата : %s. Продано %d за %4.2f',[index,DateToStr(TekStockOperation.Date),TekStockOperation.Count,TekStockOperation.Price]))
+        then TempList.Add(Format('%d)  Дата : %s. Продано %d за %4.2f. Среднее = %4.2f. ID = %d',[index,
+                                                                                         DateToStr(TekStockOperation.Date),
+                                                                                         TekStockOperation.Count,
+                                                                                         TekStockOperation.Price,
+                                                                                         TekStockOperation.Price/TekStockOperation.Count,
+                                                                                         TekStockOperation.ID]))
         else
           begin
             TempList.Add(Format('!!!Некорректная продажа!!! Дата : %s. Продано %d за %4.2f',[DateToStr(TekStockOperation.Date),TekStockOperation.Count,TekStockOperation.Price]));
@@ -124,14 +141,27 @@ begin
   Calculate;
 end;
 
+function tOperationList.getMaxOperationID: integer;
+var TekStockOperation : IStockOperation;
+begin
+  result:=-1;
+  for TekStockOperation in Self do
+    result:=Max(result,TekStockOperation.ID);
+end;
+
 procedure tOperationList.DeleteLastOperation;
 begin
   if self.Count>0 then
    begin
      Self.Delete(IndexOf(Self.Last));
      Calculate;
-
    end;
+end;
+
+procedure tOperationList.DeleteAllOperations;
+begin
+  Self.Clear;
+  Calculate;
 end;
 
 

@@ -14,6 +14,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+    Action_BackUp: TAction;
     Action_Save: TAction;
     Action_edit_stock: TAction;
     Action_add_stock: TAction;
@@ -23,8 +24,6 @@ type
     BitBtn3: TBitBtn;
     Button1: TButton;
     Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
     Button8: TButton;
     ColorDialog1: TColorDialog;
     CountryCombo: TComboBox;
@@ -73,6 +72,8 @@ type
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    procedure Action_BackUpExecute(Sender: TObject);
     procedure Action_editExecute(Sender: TObject);
     procedure Action_add_stockExecute(Sender: TObject);
     procedure Action_edit_stockExecute(Sender: TObject);
@@ -125,7 +126,7 @@ begin
   StocksData.OnSaved:=@OnSaved;
   StocksData.OnAddStock:=@OnAddStock;
   StocksData.OnEditStock:=@OnEditStock;
-  fstockPanel   :=tStockPanel.create(Panel7);
+  fstockPanel   :=tStockPanel.create(Panel7,ImageList1);
   fstockGrid    :=tGrid_Stocks.Create(Panel4);
   DateEdit1.Date:=Date;
   Fill_Stock_Combo;
@@ -272,6 +273,11 @@ begin
      PortfolioData.Add_Stock_To_Portfolio;
      Fill_Portfolio_ListBoxes;
    end;
+end;
+
+procedure TForm1.Action_BackUpExecute(Sender: TObject);
+begin
+  StocksData.BackUP;
 end;
 
 {Действие "добавить акцию"}
