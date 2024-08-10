@@ -59,12 +59,15 @@
     <RunParams>
       <FormatVersion Value="2"/>
     </RunParams>
-    <RequiredPackages Count="1">
+    <RequiredPackages Count="2">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="TAChartLazarusPkg"/>
       </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
     </RequiredPackages>
-    <Units Count="7">
+    <Units Count="29">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -84,14 +87,14 @@
         <ResourceBaseClass Value="Form"/>
       </Unit2>
       <Unit3>
-        <Filename Value="units\stockfullgrid.pas"/>
+        <Filename Value="units\stocks_grid.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="stockFullGrid"/>
+        <UnitName Value="Stocks_Grid"/>
       </Unit3>
       <Unit4>
-        <Filename Value="units\stockgrid.pas"/>
+        <Filename Value="units\stock_property_grid.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="stockGrid"/>
+        <UnitName Value="Stock_Property_Grid"/>
       </Unit4>
       <Unit5>
         <Filename Value="units\stockpanel.pas"/>
@@ -101,8 +104,120 @@
       <Unit6>
         <Filename Value="units\stock_observer.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="stock_Observer"/>
+        <UnitName Value="Stock_Observer"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="units\form_exchange_property.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form5"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="units\stock_group.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Stock_group"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="units\stock_group_list.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Stock_group_list"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="units\industry_grid.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Industry_Grid"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="units\panel_choose_stock.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Panel_Choose_Stock"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="units\stocks_stats.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Stocks_stats"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="units\industry_stats_list.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Industry_stats_list"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="units\country_stats_list.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Country_stats_list"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="units\country_grid.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Country_Grid"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="units\country_chart.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Country_chart"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="units\tab_portfolio.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Tab_Portfolio"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="units\portfolio_list.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Portfolio_List"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="units\portfolio_grid.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Portfolio_Grid"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="units\portfolio_observer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Portfolio_Observer"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="units\industry_chart.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Industry_chart"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="units\stock_price_panel.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Stock_Price_Panel"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="units\tab_statistics.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Tab_Statistics"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="units\stocks_xml_write.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Stocks_XML_Write"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="units\stocks_xml_read.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Stocks_XML_Read"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="units\filtered_stats_list.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Filtered_stats_list"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="units\stock_list.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Stock_list"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="units\stock_base\stock_filtered_list.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Stock_filtered_list"/>
+      </Unit28>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

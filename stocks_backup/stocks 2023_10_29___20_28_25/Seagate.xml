@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Seagate" country="USA" industry="IT">
+    <portfolios>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="21.01.2022" count="10" price="100.30" operation_buy="1"/>
+  <stock_operation id="1" date="27.01.2022" count="10" price="110.00" operation_buy="0"/>
+  <stock_operation id="2" date="26.05.2023" count="1" price="61.61" operation_buy="1"/>
+  <stock_operation id="3" date="05.09.2023" count="1" price="70.00" operation_buy="0"/>
+  <stock_operation id="4" date="04.10.2023" count="1" price="65.88" operation_buy="1"/>
+  <stock_operation id="5" date="13.10.2023" count="1" price="68.77" operation_buy="0"/>
+</Main>

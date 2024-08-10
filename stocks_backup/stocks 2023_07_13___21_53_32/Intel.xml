@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Intel" country="USA" industry="IT" portfolio=""/>
+  <stock_operation id="-1" date="02.11.2020" count="1" price="44.83" operation_buy="1"/>
+  <stock_operation id="-1" date="05.11.2020" count="1" price="46.30" operation_buy="1"/>
+  <stock_operation id="-1" date="27.11.2020" count="1" price="47.25" operation_buy="1"/>
+  <stock_operation id="-1" date="06.01.2021" count="3" price="153.00" operation_buy="0"/>
+  <stock_operation id="-1" date="17.05.2021" count="1" price="55.50" operation_buy="1"/>
+  <stock_operation id="-1" date="21.06.2021" count="1" price="55.87" operation_buy="0"/>
+  <stock_operation id="-1" date="26.07.2021" count="1" price="54.18" operation_buy="1"/>
+  <stock_operation id="-1" date="12.10.2021" count="1" price="52.19" operation_buy="1"/>
+  <stock_operation id="-1" date="15.10.2021" count="2" price="108.40" operation_buy="0"/>
+  <stock_operation id="-1" date="22.10.2021" count="1" price="51.39" operation_buy="1"/>
+  <stock_operation id="-1" date="27.10.2021" count="1" price="48.31" operation_buy="1"/>
+  <stock_operation id="-1" date="15.11.2021" count="2" price="100.81" operation_buy="0"/>
+  <stock_operation id="-1" date="07.06.2022" count="1" price="43.48" operation_buy="1"/>
+  <stock_operation id="-1" date="29.07.2022" count="1" price="35.78" operation_buy="1"/>
+  <stock_operation id="-1" date="04.08.2022" count="1" price="35.51" operation_buy="1"/>
+  <stock_operation id="-1" date="06.09.2022" count="1" price="31.03" operation_buy="1"/>
+  <stock_operation id="-1" date="06.01.2023" count="1" price="29.21" operation_buy="1"/>
+  <stock_operation id="-1" date="03.04.2023" count="1" price="33.21" operation_buy="0"/>
+  <stock_operation id="-1" date="25.05.2023" count="1" price="27.00" operation_buy="1"/>
+  <stock_operation id="-1" date="13.06.2023" count="1" price="33.74" operation_buy="0"/>
+</Main>

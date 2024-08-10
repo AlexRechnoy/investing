@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Alphabet Class A" country="USA" industry="IT" iscurrency="0" current_price="122.22">
+    <portfolios>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="27.07.2022" count="1" price="110.56" operation_buy="1"/>
+  <stock_operation id="-1" date="27.07.2022" count="1" price="112.10" operation_buy="0"/>
+  <stock_operation id="-1" date="28.07.2022" count="1" price="112.00" operation_buy="1"/>
+  <stock_operation id="-1" date="29.07.2022" count="1" price="113.00" operation_buy="0"/>
+  <stock_operation id="-1" date="04.08.2022" count="1" price="117.84" operation_buy="1"/>
+  <stock_operation id="-1" date="09.01.2023" count="1" price="87.55" operation_buy="1"/>
+  <stock_operation id="-1" date="21.03.2023" count="1" price="100.00" operation_buy="0"/>
+  <stock_operation id="0" date="25.10.2023" count="1" price="127.00" operation_buy="1"/>
+</Main>

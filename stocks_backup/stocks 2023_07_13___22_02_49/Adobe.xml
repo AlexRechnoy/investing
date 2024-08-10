@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Adobe" country="USA" industry="IT" portfolio=""/>
+  <stock_operation id="-1" date="16.12.2021" count="1" price="586.49" operation_buy="1"/>
+  <stock_operation id="-1" date="04.08.2022" count="1" price="423.06" operation_buy="0"/>
+</Main>

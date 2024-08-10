@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="NIKE" country="USA" industry="Потребительские товары">
+    <portfolios>
+      <portfolio>Dow Jones</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="03.01.2022" count="1" price="163.73" operation_buy="1"/>
+  <stock_operation id="-1" date="10.02.2022" count="1" price="144.52" operation_buy="1"/>
+  <stock_operation id="-1" date="01.08.2022" count="1" price="115.28" operation_buy="1"/>
+  <stock_operation id="0" date="28.07.2023" count="1" price="108.61" operation_buy="1"/>
+  <stock_operation id="1" date="23.08.2023" count="1" price="97.77" operation_buy="1"/>
+</Main>

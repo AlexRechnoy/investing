@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="aaaa" country="Россия" industry="IT/Полупроводники" portfolio=""/>
+  <stock_operation id="-1" date="14.01.2023" count="1" price="1.00" operation_buy="1"/>
+  <stock_operation id="-1" date="14.01.2023" count="1" price="10.00" operation_buy="1"/>
+  <stock_operation id="-1" date="14.01.2023" count="1" price="5.00" operation_buy="1"/>
+  <stock_operation id="0" date="09.07.2023" count="1" price="10.00" operation_buy="1"/>
+  <stock_operation id="1" date="09.07.2023" count="1" price="10.00" operation_buy="1"/>
+  <stock_operation id="2" date="09.07.2023" count="1" price="10.00" operation_buy="1"/>
+  <stock_operation id="3" date="09.07.2023" count="1" price="10.00" operation_buy="1"/>
+  <stock_operation id="4" date="09.07.2023" count="1" price="10.00" operation_buy="1"/>
+  <stock_operation id="5" date="09.07.2023" count="1" price="10.00" operation_buy="1"/>
+</Main>

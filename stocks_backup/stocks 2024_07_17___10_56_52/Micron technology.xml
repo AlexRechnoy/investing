@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Micron technology" country="USA" industry="IT/Полупроводники" iscurrency="0" current_price="136">
+    <portfolios>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="10.08.2021" count="1" price="76.40" operation_buy="1"/>
+  <stock_operation id="-1" date="30.09.2021" count="1" price="71.23" operation_buy="1"/>
+  <stock_operation id="-1" date="03.12.2021" count="1" price="82.66" operation_buy="0"/>
+  <stock_operation id="-1" date="16.12.2021" count="1" price="85.10" operation_buy="0"/>
+  <stock_operation id="-1" date="24.01.2022" count="1" price="83.00" operation_buy="1"/>
+  <stock_operation id="-1" date="29.07.2022" count="1" price="61.56" operation_buy="1"/>
+  <stock_operation id="-1" date="08.02.2023" count="1" price="61.89" operation_buy="0"/>
+  <stock_operation id="-1" date="26.05.2023" count="1" price="70.01" operation_buy="0"/>
+  <stock_operation id="0" date="15.06.2023" count="1" price="69.01" operation_buy="1"/>
+  <stock_operation id="1" date="13.07.2023" count="1" price="64.16" operation_buy="1"/>
+  <stock_operation id="2" date="01.08.2023" count="1" price="70.00" operation_buy="0"/>
+</Main>

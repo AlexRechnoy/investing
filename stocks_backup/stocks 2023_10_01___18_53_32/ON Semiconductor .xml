@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="ON Semiconductor " country="USA" industry="IT/Полупроводники" portfolio=""/>
+  <stock_operation id="0" date="16.08.2021" count="1" price="43.00" operation_buy="1"/>
+  <stock_operation id="1" date="20.09.2021" count="1" price="47.00" operation_buy="0"/>
+  <stock_operation id="2" date="11.10.2021" count="1" price="43.76" operation_buy="1"/>
+  <stock_operation id="3" date="19.10.2021" count="1" price="44.20" operation_buy="0"/>
+  <stock_operation id="4" date="16.12.2021" count="1" price="62.71" operation_buy="1"/>
+  <stock_operation id="5" date="24.01.2022" count="1" price="55.14" operation_buy="1"/>
+  <stock_operation id="6" date="03.03.2022" count="1" price="62.50" operation_buy="0"/>
+  <stock_operation id="7" date="31.05.2022" count="1" price="61.00" operation_buy="0"/>
+  <stock_operation id="8" date="22.09.2023" count="1" price="93.57" operation_buy="1"/>
+</Main>

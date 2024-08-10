@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="ГК Самолет" country="Россия" industry="Недвижимость" iscurrency="0" current_price="0">
+    <portfolios/>
+  </other>
+  <stock_operation id="0" date="20.08.2021" count="1" price="3239.00" operation_buy="1"/>
+  <stock_operation id="1" date="20.09.2021" count="1" price="5300.00" operation_buy="0"/>
+  <stock_operation id="2" date="21.09.2021" count="1" price="5726.00" operation_buy="1"/>
+  <stock_operation id="3" date="18.11.2021" count="1" price="4702.00" operation_buy="0"/>
+</Main>

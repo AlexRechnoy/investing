@@ -6,39 +6,43 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  Buttons;
+  Buttons, ComCtrls;
 
 type
+  tProp  = ( _PROP_None,
+             _PROP_Industry, //Режим редактирования свойства "Отрасль"
+             _PROP_Country   //Режим редактирования свойства "Страна"
+                );
 
   { TForm4 }
-
   TForm4 = class(TForm)
     BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
-    Button1: TButton;
+    BitBtnAdd: TBitBtn;
+    BitBtnEditDone: TBitBtn;
+    BitBtnDelete: TBitBtn;
     Edit1: TEdit;
+    USDEdit: TEdit;
     ImageList1: TImageList;
+    Label1: TLabel;
     ListBox1: TListBox;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
+    Panel5: TPanel;
+    TabControl1: TTabControl;
     procedure BitBtn1Click(Sender: TObject);
-    procedure BitBtn2Click(Sender: TObject);
-    procedure BitBtn3Click(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure BitBtnAddClick(Sender: TObject);
+    procedure BitBtnEditDoneClick(Sender: TObject);
+    procedure BitBtnDeleteClick(Sender: TObject);
     procedure Edit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure ListBox1Click(Sender: TObject);
+    procedure TabControl1Change(Sender: TObject);
+    procedure USDEditKeyPress(Sender: TObject; var Key: char);
   private
-    fisCountry : boolean;
-    fOnUpdate  : TNotifyEvent;
+    fProp      : tProp;
     procedure UpdateListBox;
-  published
-    property OnUpdate : TNotifyEvent read fOnUpdate write fOnUpdate;
-  public
-    procedure loadList(const isCountryList : boolean);
   end;
 
 var
@@ -46,7 +50,7 @@ var
 
 implementation
 
-uses Stocks_Data, LCLType;
+uses Stocks_Data, LCLType, form_exchange_property;
 
 {$R *.lfm}
 
@@ -54,6 +58,8 @@ uses Stocks_Data, LCLType;
 procedure TForm4.FormShow(Sender: TObject);
 begin
   Edit1.Clear;
+  TabControl1Change(self);
+  USDEdit.Text:=floattostr(StocksData.USDtoRUB);
 end;
 
 procedure TForm4.ListBox1Click(Sender: TObject);
@@ -61,64 +67,107 @@ begin
   Edit1.Text:=ListBox1.GetSelectedText;
 end;
 
-procedure TForm4.BitBtn2Click(Sender: TObject);
+procedure TForm4.TabControl1Change(Sender: TObject);
 begin
-  ListBox1.Items[ListBox1.ItemIndex]:=edit1.text;
+  Edit1.Clear;
+  fProp:= tProp(TabControl1.TabIndex+1);
+  UpdateListBox;
 end;
 
-procedure TForm4.BitBtn3Click(Sender: TObject);
+procedure TForm4.USDEditKeyPress(Sender: TObject; var Key: char);
 begin
-  if MessageDlg('Удаление отрасли ','Удалить отрасль из списка?', mtConfirmation,[mbYes,mbNo,mbAbort],0)=mrYes then
+  If Not (Key In ['0'..'9', DecimalSeparator, #8, #13])
+  then Key:= #0;
+end;
+
+procedure TForm4.BitBtn1Click(Sender: TObject);
+var valDouble : double;
+begin
+  if (TryStrToFloat(USDEdit.Text, valDouble)) and (valDouble>0)
+  then StocksData.USDtoRUB:=valDouble;
+end;
+
+{Добавление свойства}
+procedure TForm4.BitBtnAddClick(Sender: TObject);
+begin
+  if Edit1.Text<>'' then
    begin
-     StocksData.IndustryList.Delete(ListBox1.ItemIndex);
-     UpdateListBox;
-     Edit1.Text:='';
+     case fProp of
+         _PROP_Country : begin
+                           StocksData.AddCountry(edit1.text);
+                           UpdateListBox;
+                         end;
+         _PROP_Industry: begin
+                           StocksData.AddIndustry(edit1.text);
+                           UpdateListBox;
+                         end;
+     end;
    end;
 end;
 
-procedure TForm4.Button1Click(Sender: TObject);
+{Переименовка свойства}
+procedure TForm4.BitBtnEditDoneClick(Sender: TObject);
+var oldProp : string;
 begin
-  if fisCountry
-  then
-   begin
-     StocksData.CountryList.Clear;
-     StocksData.CountryList.AddStrings(ListBox1.Items);
-   end
-  else
-   begin
-     StocksData.IndustryList.Clear;
-     StocksData.IndustryList.AddStrings(ListBox1.Items);
-   end;
-   if Assigned(fOnUpdate)
-   then fOnUpdate(Self);
-   StocksData.IsSaved:=false;
-   self.Hide;
+  case fProp of
+      _PROP_Country :begin
+                       oldProp:=StocksData.CountryList[ListBox1.ItemIndex];
+                       if MessageDlg('Замена названия cтраны ',Format('Заменить страну с "%s" на "%s"?',[oldProp,edit1.text]), mtConfirmation,[mbYes,mbNo,mbAbort],0)=mrYes then
+                        begin
+                          StocksData.CountryList.Delete(ListBox1.ItemIndex);
+                          StocksData.CountryList.Add(edit1.text);
+                          UpdateListBox;
+                          StocksData.ExchangeCountry(oldProp,edit1.text);
+                        end;
+                     end;
+      _PROP_Industry:begin
+                       oldProp:=StocksData.IndustryList[ListBox1.ItemIndex];
+                       if MessageDlg('Замена названия отрасли ',Format('Заменить отрасль с "%s" на "%s"?',[oldProp,edit1.text]), mtConfirmation,[mbYes,mbNo,mbAbort],0)=mrYes then
+                        begin
+                          StocksData.IndustryList.Delete(ListBox1.ItemIndex);
+                          StocksData.IndustryList.Add(edit1.text);
+                          UpdateListBox;
+                          StocksData.ExchangeIndustry(oldProp,edit1.text);
+                        end;
+                     end;
+  end;
 end;
+
+{Удаление свойства из списка}
+procedure TForm4.BitBtnDeleteClick(Sender: TObject);
+var deletedIndustry : string;
+begin
+  case fProp of
+      _PROP_Country :begin  end;
+      _PROP_Industry:begin
+                       if MessageDlg('Удаление отрасли ','Удалить отрасль из списка?', mtConfirmation,[mbYes,mbNo,mbAbort],0)=mrYes then
+                        begin
+                          deletedIndustry:=StocksData.IndustryList[ListBox1.ItemIndex];
+                          StocksData.IndustryList.Delete(ListBox1.ItemIndex);
+                          Form5.deletedIndustry:=deletedIndustry;
+                          Form5.Show;
+                          UpdateListBox;
+                          Edit1.Text:='';
+                          StocksData.IsSaved:=false;
+                        end;
+                     end;
+  end;
+end;
+
 
 procedure TForm4.Edit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   if key=VK_RETURN
-  then BitBtn2Click(self);
-end;
-
-procedure TForm4.loadList(const isCountryList: boolean);
-begin
-  fisCountry:=isCountryList;
-  UpdateListBox;
+  then BitBtnEditDoneClick(self);
 end;
 
 procedure TForm4.UpdateListBox;
 begin
   ListBox1.Clear;
-  if fisCountry
-  then ListBox1.Items.AddStrings(StocksData.CountryList)
-  else ListBox1.Items.AddStrings(StocksData.IndustryList);
-end;
-
-procedure TForm4.BitBtn1Click(Sender: TObject);
-begin
-  if Edit1.Text<>''
-  then ListBox1.Items.Add(edit1.text);
+  case fProp of
+      _PROP_Country : ListBox1.Items.AddStrings(StocksData.CountryList)  ;
+      _PROP_Industry: ListBox1.Items.AddStrings(StocksData.IndustryList);
+  end;
 end;
 
 end.

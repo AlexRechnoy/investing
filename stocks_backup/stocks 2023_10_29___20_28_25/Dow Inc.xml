@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Dow Inc" country="USA" industry="Энергетика">
+    <portfolios>
+      <portfolio>Dow Jones</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="12.08.2022" count="1" price="55.59" operation_buy="1"/>
+  <stock_operation id="-1" date="03.07.2023" count="1" price="53.15" operation_buy="0"/>
+</Main>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Taiwan Semiconductor" country="Asia" industry="IT/Полупроводники" iscurrency="0" current_price="0">
+    <portfolios>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="02.02.2023" count="1" price="96.95" operation_buy="1"/>
+  <stock_operation id="1" date="25.05.2023" count="1" price="100.00" operation_buy="0"/>
+  <stock_operation id="2" date="22.09.2023" count="1" price="86.07" operation_buy="1"/>
+  <stock_operation id="3" date="09.10.2023" count="1" price="87.36" operation_buy="0"/>
+  <stock_operation id="4" date="17.10.2023" count="1" price="89.30" operation_buy="1"/>
+  <stock_operation id="5" date="20.10.2023" count="1" price="90.58" operation_buy="0"/>
+</Main>

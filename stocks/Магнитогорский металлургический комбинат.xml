@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Магнитогорский металлургический комбинат" country="Россия" industry="Металлургия" portfolio=""/>
+  <other name="Магнитогорский металлургический комбинат" country="Россия" industry="Металлургия" iscurrency="0" current_price="53">
+    <portfolios>
+      <portfolio>Россия</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="11.01.2021" count="30" price="1733.00" operation_buy="1"/>
   <stock_operation id="-1" date="11.01.2021" count="40" price="2315.00" operation_buy="1"/>
   <stock_operation id="-1" date="11.01.2021" count="90" price="5200.00" operation_buy="1"/>
-  <stock_operation id="-1" date="11.01.2021" count="30" price="1733.00" operation_buy="1"/>
   <stock_operation id="-1" date="19.01.2021" count="40" price="2288.00" operation_buy="0"/>
   <stock_operation id="-1" date="08.02.2021" count="100" price="5190.00" operation_buy="1"/>
   <stock_operation id="-1" date="18.02.2021" count="20" price="1034.00" operation_buy="1"/>
@@ -32,9 +36,9 @@
   <stock_operation id="-1" date="07.10.2021" count="90" price="6312.00" operation_buy="0"/>
   <stock_operation id="-1" date="18.10.2021" count="10" price="700.00" operation_buy="0"/>
   <stock_operation id="-1" date="09.11.2021" count="10" price="642.00" operation_buy="1"/>
-  <stock_operation id="-1" date="03.12.2021" count="10" price="627.00" operation_buy="0"/>
   <stock_operation id="-1" date="03.12.2021" count="10" price="627.00" operation_buy="1"/>
   <stock_operation id="-1" date="03.12.2021" count="10" price="626.00" operation_buy="1"/>
+  <stock_operation id="-1" date="03.12.2021" count="10" price="627.00" operation_buy="0"/>
   <stock_operation id="-1" date="14.12.2021" count="10" price="619.00" operation_buy="1"/>
   <stock_operation id="-1" date="14.12.2021" count="20" price="1219.00" operation_buy="1"/>
   <stock_operation id="-1" date="24.02.2022" count="10" price="490.00" operation_buy="1"/>
@@ -65,4 +69,19 @@
   <stock_operation id="-1" date="16.03.2023" count="100" price="4000.00" operation_buy="0"/>
   <stock_operation id="-1" date="22.06.2023" count="10" price="462.00" operation_buy="0"/>
   <stock_operation id="-1" date="03.07.2023" count="10" price="484.00" operation_buy="0"/>
+  <stock_operation id="0" date="13.07.2023" count="10" price="500.00" operation_buy="0"/>
+  <stock_operation id="1" date="15.08.2023" count="10" price="521.00" operation_buy="1"/>
+  <stock_operation id="2" date="16.08.2023" count="10" price="498.80" operation_buy="1"/>
+  <stock_operation id="3" date="17.08.2023" count="10" price="504.00" operation_buy="1"/>
+  <stock_operation id="4" date="31.08.2023" count="40" price="2200.00" operation_buy="0"/>
+  <stock_operation id="5" date="11.09.2023" count="10" price="516.00" operation_buy="1"/>
+  <stock_operation id="6" date="02.11.2023" count="10" price="528.00" operation_buy="1"/>
+  <stock_operation id="7" date="06.12.2023" count="170" price="8517.00" operation_buy="0"/>
+  <stock_operation id="8" date="13.02.2024" count="10" price="556.00" operation_buy="1"/>
+  <stock_operation id="9" date="19.03.2024" count="10" price="549.00" operation_buy="1"/>
+  <stock_operation id="10" date="21.05.2024" count="10" price="590.00" operation_buy="0"/>
+  <stock_operation id="11" date="24.06.2024" count="10" price="538.00" operation_buy="1"/>
+  <stock_operation id="12" date="23.07.2024" count="10" price="536.00" operation_buy="1"/>
+  <stock_operation id="13" date="06.08.2024" count="10" price="496.00" operation_buy="1"/>
+  <stock_operation id="14" date="07.08.2024" count="10" price="497.00" operation_buy="1"/>
 </Main>

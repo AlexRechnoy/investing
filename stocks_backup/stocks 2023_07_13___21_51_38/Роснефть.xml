@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Роснефть" country="Россия" industry="Энергетика" portfolio=""/>
+  <stock_operation id="-1" date="05.11.2020" count="90" price="34632.00" operation_buy="1"/>
+  <stock_operation id="-1" date="05.11.2020" count="100" price="37600.00" operation_buy="1"/>
+  <stock_operation id="-1" date="05.11.2020" count="90" price="34123.00" operation_buy="0"/>
+  <stock_operation id="-1" date="05.11.2020" count="90" price="34110.00" operation_buy="0"/>
+  <stock_operation id="-1" date="21.12.2020" count="10" price="4221.00" operation_buy="0"/>
+  <stock_operation id="-1" date="16.01.2023" count="2" price="694.20" operation_buy="1"/>
+  <stock_operation id="-1" date="17.01.2023" count="1" price="344.05" operation_buy="1"/>
+  <stock_operation id="-1" date="08.02.2023" count="3" price="1051.00" operation_buy="0"/>
+</Main>

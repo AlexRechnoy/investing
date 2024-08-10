@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Cisco" country="USA" industry="IT" iscurrency="0" current_price="46.2">
+    <portfolios>
+      <portfolio>Nasdaq</portfolio>
+      <portfolio>Dow Jones</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="15.09.2021" count="1" price="57.94" operation_buy="1"/>
+  <stock_operation id="1" date="01.10.2021" count="1" price="54.26" operation_buy="1"/>
+  <stock_operation id="2" date="28.10.2021" count="1" price="56.52" operation_buy="0"/>
+  <stock_operation id="3" date="10.11.2021" count="1" price="58.52" operation_buy="0"/>
+  <stock_operation id="4" date="06.01.2022" count="1" price="59.99" operation_buy="1"/>
+  <stock_operation id="5" date="09.03.2022" count="1" price="55.01" operation_buy="0"/>
+  <stock_operation id="6" date="07.06.2022" count="1" price="45.56" operation_buy="1"/>
+  <stock_operation id="7" date="24.08.2022" count="1" price="47.00" operation_buy="0"/>
+  <stock_operation id="8" date="03.05.2023" count="1" price="46.31" operation_buy="1"/>
+</Main>

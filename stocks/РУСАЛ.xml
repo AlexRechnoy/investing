@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="РУСАЛ" country="Россия" industry="Металлургия" iscurrency="0" current_price="35.6">
+    <portfolios>
+      <portfolio>Россия</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="31.03.2021" count="40" price="1946.00" operation_buy="1"/>
+  <stock_operation id="1" date="21.04.2021" count="10" price="519.00" operation_buy="1"/>
+  <stock_operation id="2" date="07.05.2021" count="50" price="2793.00" operation_buy="0"/>
+  <stock_operation id="3" date="25.06.2021" count="20" price="1012.00" operation_buy="1"/>
+  <stock_operation id="4" date="08.07.2021" count="10" price="491.00" operation_buy="1"/>
+  <stock_operation id="5" date="26.07.2021" count="10" price="497.00" operation_buy="0"/>
+  <stock_operation id="6" date="10.08.2021" count="10" price="534.00" operation_buy="1"/>
+  <stock_operation id="7" date="10.08.2021" count="30" price="1606.00" operation_buy="0"/>
+  <stock_operation id="8" date="10.08.2021" count="30" price="1605.00" operation_buy="1"/>
+  <stock_operation id="9" date="20.08.2021" count="10" price="485.00" operation_buy="1"/>
+  <stock_operation id="10" date="03.09.2021" count="20" price="1215.00" operation_buy="0"/>
+  <stock_operation id="11" date="20.09.2021" count="20" price="1375.00" operation_buy="0"/>
+  <stock_operation id="12" date="19.10.2021" count="100" price="7890.00" operation_buy="1"/>
+  <stock_operation id="13" date="22.10.2021" count="10" price="783.00" operation_buy="0"/>
+  <stock_operation id="14" date="22.10.2021" count="90" price="7047.00" operation_buy="0"/>
+  <stock_operation id="15" date="13.09.2023" count="10" price="428.00" operation_buy="1"/>
+  <stock_operation id="16" date="15.09.2023" count="10" price="422.00" operation_buy="1"/>
+  <stock_operation id="17" date="19.09.2023" count="10" price="412.94" operation_buy="1"/>
+  <stock_operation id="18" date="19.09.2023" count="10" price="409.45" operation_buy="1"/>
+  <stock_operation id="19" date="26.09.2023" count="10" price="394.80" operation_buy="1"/>
+  <stock_operation id="20" date="24.11.2023" count="10" price="384.19" operation_buy="1"/>
+  <stock_operation id="21" date="05.12.2023" count="10" price="364.79" operation_buy="1"/>
+  <stock_operation id="22" date="07.12.2023" count="10" price="359.30" operation_buy="1"/>
+  <stock_operation id="23" date="18.12.2023" count="10" price="354.50" operation_buy="1"/>
+  <stock_operation id="24" date="10.01.2024" count="10" price="350.00" operation_buy="1"/>
+  <stock_operation id="25" date="02.02.2024" count="10" price="353.00" operation_buy="1"/>
+  <stock_operation id="26" date="04.03.2024" count="10" price="347.00" operation_buy="1"/>
+  <stock_operation id="27" date="11.03.2024" count="10" price="347.00" operation_buy="1"/>
+  <stock_operation id="28" date="29.03.2024" count="10" price="339.00" operation_buy="1"/>
+  <stock_operation id="29" date="03.04.2024" count="10" price="362.00" operation_buy="0"/>
+  <stock_operation id="30" date="04.04.2024" count="10" price="370.00" operation_buy="0"/>
+  <stock_operation id="31" date="04.04.2024" count="10" price="382.00" operation_buy="0"/>
+  <stock_operation id="32" date="04.04.2024" count="10" price="391.00" operation_buy="0"/>
+  <stock_operation id="33" date="09.04.2024" count="10" price="400.00" operation_buy="0"/>
+  <stock_operation id="34" date="10.04.2024" count="10" price="410.00" operation_buy="0"/>
+  <stock_operation id="35" date="12.04.2024" count="10" price="420.00" operation_buy="0"/>
+  <stock_operation id="36" date="15.04.2024" count="10" price="430.00" operation_buy="0"/>
+  <stock_operation id="37" date="15.05.2024" count="10" price="444.00" operation_buy="0"/>
+  <stock_operation id="38" date="19.06.2024" count="40" price="1669.00" operation_buy="0"/>
+  <stock_operation id="39" date="15.07.2024" count="10" price="374.00" operation_buy="1"/>
+  <stock_operation id="40" date="19.07.2024" count="10" price="386.00" operation_buy="1"/>
+  <stock_operation id="41" date="24.07.2024" count="10" price="380.00" operation_buy="1"/>
+  <stock_operation id="42" date="26.07.2024" count="10" price="365.00" operation_buy="1"/>
+  <stock_operation id="43" date="26.07.2024" count="10" price="358.00" operation_buy="1"/>
+  <stock_operation id="44" date="29.07.2024" count="10" price="347.00" operation_buy="1"/>
+  <stock_operation id="45" date="05.08.2024" count="10" price="337.00" operation_buy="1"/>
+</Main>

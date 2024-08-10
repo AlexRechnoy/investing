@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="ДВМП" country="Россия" industry="Энергетика" iscurrency="0" current_price="67">
+    <portfolios>
+      <portfolio>Россия</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="11.07.2024" count="10" price="594.00" operation_buy="1"/>
+  <stock_operation id="1" date="24.07.2024" count="10" price="648.00" operation_buy="1"/>
+  <stock_operation id="2" date="25.07.2024" count="10" price="705.00" operation_buy="0"/>
+  <stock_operation id="3" date="26.07.2024" count="10" price="683.00" operation_buy="1"/>
+</Main>

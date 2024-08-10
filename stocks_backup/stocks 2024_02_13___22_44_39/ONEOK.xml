@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="ONEOK" country="USA" industry="Нефть/газ" iscurrency="0" current_price="0">
+    <portfolios/>
+  </other>
+  <stock_operation id="-1" date="06.01.2021" count="1" price="40.03" operation_buy="1"/>
+  <stock_operation id="-1" date="02.02.2021" count="1" price="41.00" operation_buy="0"/>
+  <stock_operation id="-1" date="26.05.2021" count="1" price="52.88" operation_buy="1"/>
+  <stock_operation id="-1" date="16.07.2021" count="1" price="54.25" operation_buy="0"/>
+  <stock_operation id="-1" date="21.12.2021" count="1" price="57.49" operation_buy="1"/>
+  <stock_operation id="-1" date="01.08.2022" count="1" price="59.00" operation_buy="0"/>
+  <stock_operation id="-1" date="23.08.2022" count="1" price="64.80" operation_buy="1"/>
+</Main>

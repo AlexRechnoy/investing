@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Carvana Co" country="USA" industry="Услуги">
+    <portfolios>
+      <portfolio>Рискованный</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="11.01.2023" count="1" price="4.49" operation_buy="1"/>
+  <stock_operation id="-1" date="12.01.2023" count="1" price="7.67" operation_buy="1"/>
+  <stock_operation id="-1" date="18.01.2023" count="1" price="7.00" operation_buy="1"/>
+  <stock_operation id="-1" date="31.01.2023" count="1" price="11.05" operation_buy="1"/>
+  <stock_operation id="-1" date="08.02.2023" count="1" price="13.00" operation_buy="1"/>
+  <stock_operation id="-1" date="13.02.2023" count="1" price="11.00" operation_buy="1"/>
+  <stock_operation id="-1" date="22.03.2023" count="2" price="20.00" operation_buy="0"/>
+  <stock_operation id="-1" date="08.05.2023" count="1" price="11.00" operation_buy="0"/>
+  <stock_operation id="-1" date="16.05.2023" count="1" price="10.58" operation_buy="1"/>
+  <stock_operation id="-1" date="23.05.2023" count="1" price="13.00" operation_buy="0"/>
+  <stock_operation id="-1" date="01.06.2023" count="1" price="15.05" operation_buy="0"/>
+  <stock_operation id="0" date="05.09.2023" count="1" price="50.00" operation_buy="0"/>
+  <stock_operation id="1" date="27.09.2023" count="1" price="40.58" operation_buy="1"/>
+</Main>

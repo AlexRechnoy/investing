@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <country>
+    <item>Россия</item>
+    <item>USA</item>
+    <item>Europe</item>
+    <item>Asia</item>
+  </country>
+  <industry>
+    <item>IT</item>
+    <item>IT/Полупроводники</item>
+    <item>Авто</item>
+    <item>Криптовалюта</item>
+    <item>Металлургия</item>
+    <item>Минералы</item>
+    <item>Не определено</item>
+    <item>Недвижимость</item>
+    <item>Нефть/газ</item>
+    <item>Потребительские товары</item>
+    <item>Туризм</item>
+    <item>Услуги</item>
+    <item>Фармацевтика</item>
+    <item>Финансы</item>
+    <item>Энергетика</item>
+  </industry>
+  <other>
+    <usd_to_rub>93</usd_to_rub>
+  </other>
+</Main>

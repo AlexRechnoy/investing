@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Robinhood Markets" country="USA" industry="Криптовалюта" portfolio=""/>
+  <stock_operation id="-1" date="09.08.2021" count="1" price="57.30" operation_buy="1"/>
+  <stock_operation id="-1" date="13.08.2021" count="1" price="51.90" operation_buy="1"/>
+  <stock_operation id="-1" date="30.08.2021" count="1" price="44.88" operation_buy="1"/>
+  <stock_operation id="-1" date="22.10.2021" count="1" price="40.66" operation_buy="1"/>
+  <stock_operation id="-1" date="26.10.2021" count="1" price="36.00" operation_buy="1"/>
+  <stock_operation id="-1" date="03.12.2021" count="1" price="21.96" operation_buy="1"/>
+  <stock_operation id="-1" date="27.12.2021" count="1" price="18.32" operation_buy="1"/>
+  <stock_operation id="-1" date="28.01.2022" count="1" price="10.25" operation_buy="1"/>
+  <stock_operation id="-1" date="31.01.2022" count="1" price="14.48" operation_buy="1"/>
+  <stock_operation id="-1" date="01.02.2022" count="1" price="14.27" operation_buy="1"/>
+  <stock_operation id="-1" date="08.02.2022" count="1" price="13.38" operation_buy="1"/>
+  <stock_operation id="-1" date="12.05.2022" count="1" price="8.48" operation_buy="1"/>
+  <stock_operation id="-1" date="06.06.2022" count="1" price="9.22" operation_buy="1"/>
+  <stock_operation id="-1" date="09.06.2022" count="1" price="8.37" operation_buy="1"/>
+  <stock_operation id="-1" date="14.06.2022" count="1" price="7.18" operation_buy="1"/>
+  <stock_operation id="-1" date="24.06.2022" count="1" price="8.15" operation_buy="1"/>
+  <stock_operation id="-1" date="09.01.2023" count="1" price="8.31" operation_buy="1"/>
+  <stock_operation id="-1" date="13.01.2023" count="1" price="9.21" operation_buy="1"/>
+  <stock_operation id="-1" date="05.05.2023" count="1" price="8.55" operation_buy="1"/>
+  <stock_operation id="-1" date="16.05.2023" count="1" price="8.32" operation_buy="1"/>
+  <stock_operation id="-1" date="15.06.2023" count="2" price="20.02" operation_buy="0"/>
+  <stock_operation id="0" date="10.07.2023" count="1" price="11.00" operation_buy="0"/>
+  <stock_operation id="1" date="19.07.2023" count="1" price="13.02" operation_buy="0"/>
+</Main>

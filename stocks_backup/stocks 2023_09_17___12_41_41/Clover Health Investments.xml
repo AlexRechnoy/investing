@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Clover Health Investments" country="USA" industry="Услуги" portfolio="Рисковый"/>
+  <stock_operation id="-1" date="07.09.2021" count="25" price="246.50" operation_buy="1"/>
+  <stock_operation id="-1" date="03.11.2021" count="9" price="70.20" operation_buy="0"/>
+  <stock_operation id="-1" date="16.11.2021" count="1" price="6.98" operation_buy="1"/>
+  <stock_operation id="-1" date="18.11.2021" count="2" price="11.14" operation_buy="1"/>
+  <stock_operation id="-1" date="18.11.2021" count="2" price="11.32" operation_buy="1"/>
+  <stock_operation id="-1" date="03.12.2021" count="4" price="16.87" operation_buy="1"/>
+  <stock_operation id="-1" date="27.12.2021" count="1" price="4.06" operation_buy="1"/>
+  <stock_operation id="-1" date="11.01.2022" count="5" price="16.20" operation_buy="1"/>
+  <stock_operation id="-1" date="31.01.2022" count="6" price="14.03" operation_buy="1"/>
+  <stock_operation id="-1" date="01.02.2022" count="4" price="10.59" operation_buy="1"/>
+  <stock_operation id="-1" date="09.06.2022" count="3" price="7.19" operation_buy="1"/>
+  <stock_operation id="-1" date="29.06.2022" count="5" price="10.94" operation_buy="1"/>
+  <stock_operation id="-1" date="23.08.2022" count="1" price="2.96" operation_buy="1"/>
+  <stock_operation id="-1" date="30.08.2022" count="10" price="17.59" operation_buy="1"/>
+  <stock_operation id="-1" date="06.01.2023" count="10" price="9.20" operation_buy="1"/>
+  <stock_operation id="-1" date="11.01.2023" count="3" price="3.51" operation_buy="1"/>
+  <stock_operation id="-1" date="13.01.2023" count="4" price="4.92" operation_buy="1"/>
+  <stock_operation id="-1" date="20.01.2023" count="2" price="2.38" operation_buy="1"/>
+  <stock_operation id="-1" date="31.01.2023" count="2" price="2.54" operation_buy="1"/>
+  <stock_operation id="-1" date="02.02.2023" count="10" price="14.00" operation_buy="1"/>
+  <stock_operation id="-1" date="08.02.2023" count="4" price="5.12" operation_buy="1"/>
+  <stock_operation id="-1" date="17.02.2023" count="3" price="3.45" operation_buy="1"/>
+  <stock_operation id="-1" date="22.02.2023" count="2" price="2.22" operation_buy="1"/>
+  <stock_operation id="-1" date="20.03.2023" count="8" price="7.28" operation_buy="1"/>
+  <stock_operation id="-1" date="21.03.2023" count="2" price="1.84" operation_buy="1"/>
+  <stock_operation id="-1" date="29.03.2023" count="5" price="4.25" operation_buy="1"/>
+  <stock_operation id="-1" date="04.05.2023" count="3" price="2.25" operation_buy="1"/>
+  <stock_operation id="-1" date="09.05.2023" count="18" price="18.00" operation_buy="0"/>
+  <stock_operation id="-1" date="10.05.2023" count="10" price="8.60" operation_buy="1"/>
+  <stock_operation id="-1" date="24.05.2023" count="5" price="4.80" operation_buy="1"/>
+  <stock_operation id="-1" date="05.06.2023" count="5" price="5.00" operation_buy="0"/>
+  <stock_operation id="-1" date="16.06.2023" count="10" price="9.10" operation_buy="1"/>
+  <stock_operation id="-1" date="20.06.2023" count="5" price="4.25" operation_buy="1"/>
+  <stock_operation id="-1" date="23.06.2023" count="5" price="4.75" operation_buy="0"/>
+  <stock_operation id="0" date="13.07.2023" count="5" price="5.00" operation_buy="0"/>
+  <stock_operation id="1" date="19.07.2023" count="5" price="5.75" operation_buy="0"/>
+  <stock_operation id="2" date="27.07.2023" count="3" price="3.27" operation_buy="1"/>
+  <stock_operation id="3" date="31.07.2023" count="4" price="4.88" operation_buy="0"/>
+  <stock_operation id="4" date="08.08.2023" count="5" price="6.75" operation_buy="0"/>
+  <stock_operation id="5" date="09.08.2023" count="4" price="6.20" operation_buy="0"/>
+  <stock_operation id="6" date="24.08.2023" count="1" price="1.24" operation_buy="1"/>
+  <stock_operation id="7" date="28.08.2023" count="1" price="1.22" operation_buy="1"/>
+  <stock_operation id="8" date="14.09.2023" count="1" price="1.17" operation_buy="1"/>
+</Main>

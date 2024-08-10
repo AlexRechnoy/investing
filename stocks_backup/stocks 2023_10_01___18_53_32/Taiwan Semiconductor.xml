@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Taiwan Semiconductor" country="Asia" industry="IT/Полупроводники" portfolio=""/>
+  <stock_operation id="0" date="02.02.2023" count="1" price="96.95" operation_buy="1"/>
+  <stock_operation id="1" date="25.05.2023" count="1" price="100.00" operation_buy="0"/>
+  <stock_operation id="2" date="22.09.2023" count="1" price="86.07" operation_buy="1"/>
+</Main>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Ozon" country="Россия" industry="Услуги" iscurrency="0" current_price="3990">
+    <portfolios>
+      <portfolio>Россия</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="26.08.2021" count="1" price="3909.00" operation_buy="1"/>
+  <stock_operation id="-1" date="23.09.2021" count="1" price="3754.00" operation_buy="0"/>
+  <stock_operation id="-1" date="30.12.2021" count="1" price="2239.00" operation_buy="1"/>
+  <stock_operation id="-1" date="17.01.2022" count="1" price="1787.00" operation_buy="1"/>
+  <stock_operation id="-1" date="18.01.2022" count="1" price="1665.00" operation_buy="1"/>
+  <stock_operation id="-1" date="24.01.2022" count="1" price="1277.00" operation_buy="1"/>
+  <stock_operation id="-1" date="21.02.2022" count="1" price="1350.00" operation_buy="1"/>
+  <stock_operation id="-1" date="24.02.2022" count="1" price="976.00" operation_buy="1"/>
+  <stock_operation id="-1" date="26.04.2022" count="1" price="954.00" operation_buy="1"/>
+  <stock_operation id="-1" date="16.05.2022" count="1" price="892.00" operation_buy="1"/>
+  <stock_operation id="-1" date="27.05.2022" count="1" price="937.00" operation_buy="1"/>
+  <stock_operation id="-1" date="06.06.2022" count="1" price="798.00" operation_buy="1"/>
+  <stock_operation id="-1" date="25.06.2022" count="5" price="6500.00" operation_buy="0"/>
+  <stock_operation id="-1" date="29.07.2022" count="1" price="1404.00" operation_buy="0"/>
+  <stock_operation id="-1" date="10.08.2022" count="4" price="5600.00" operation_buy="0"/>
+  <stock_operation id="-1" date="26.08.2022" count="1" price="1490.00" operation_buy="1"/>
+  <stock_operation id="-1" date="20.09.2022" count="1" price="1369.00" operation_buy="1"/>
+  <stock_operation id="-1" date="28.09.2022" count="1" price="1108.00" operation_buy="1"/>
+  <stock_operation id="-1" date="04.10.2022" count="1" price="1200.00" operation_buy="0"/>
+  <stock_operation id="-1" date="03.11.2022" count="2" price="2640.00" operation_buy="0"/>
+  <stock_operation id="-1" date="15.11.2022" count="1" price="1530.00" operation_buy="1"/>
+  <stock_operation id="-1" date="29.11.2022" count="1" price="1428.00" operation_buy="1"/>
+  <stock_operation id="-1" date="16.01.2023" count="1" price="1537.00" operation_buy="1"/>
+  <stock_operation id="-1" date="17.01.2023" count="1" price="1550.00" operation_buy="0"/>
+  <stock_operation id="-1" date="30.01.2023" count="1" price="1697.00" operation_buy="1"/>
+  <stock_operation id="-1" date="16.02.2023" count="1" price="1615.00" operation_buy="1"/>
+  <stock_operation id="-1" date="02.03.2023" count="1" price="1649.00" operation_buy="1"/>
+  <stock_operation id="-1" date="12.04.2023" count="4" price="6800.00" operation_buy="0"/>
+  <stock_operation id="-1" date="14.04.2023" count="1" price="1668.00" operation_buy="1"/>
+  <stock_operation id="-1" date="17.04.2023" count="1" price="1688.00" operation_buy="1"/>
+  <stock_operation id="-1" date="19.04.2023" count="1" price="1695.00" operation_buy="1"/>
+  <stock_operation id="-1" date="17.05.2023" count="1" price="1689.00" operation_buy="1"/>
+  <stock_operation id="-1" date="01.06.2023" count="1" price="1769.00" operation_buy="1"/>
+  <stock_operation id="-1" date="07.06.2023" count="1" price="1901.00" operation_buy="0"/>
+  <stock_operation id="-1" date="23.06.2023" count="1" price="1950.00" operation_buy="0"/>
+  <stock_operation id="0" date="03.08.2023" count="1" price="2565.00" operation_buy="1"/>
+  <stock_operation id="1" date="16.08.2023" count="1" price="2600.00" operation_buy="0"/>
+  <stock_operation id="2" date="12.09.2023" count="1" price="2658.00" operation_buy="1"/>
+  <stock_operation id="3" date="11.01.2024" count="1" price="2950.00" operation_buy="0"/>
+  <stock_operation id="4" date="17.01.2024" count="1" price="2897.00" operation_buy="1"/>
+  <stock_operation id="5" date="20.02.2024" count="1" price="3200.00" operation_buy="0"/>
+  <stock_operation id="6" date="02.04.2024" count="1" price="3900.00" operation_buy="0"/>
+  <stock_operation id="7" date="18.04.2024" count="1" price="4000.00" operation_buy="0"/>
+</Main>

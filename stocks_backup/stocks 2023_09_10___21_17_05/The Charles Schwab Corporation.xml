@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="The Charles Schwab Corporation" country="USA" industry="Финансы" portfolio=""/>
+  <stock_operation id="0" date="28.07.2023" count="1" price="65.79" operation_buy="1"/>
+</Main>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Транснефть" country="Россия" industry="Нефть/газ" iscurrency="0" current_price="1356">
+    <portfolios>
+      <portfolio>Россия</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="03.04.2024" count="1" price="1638.00" operation_buy="1"/>
+  <stock_operation id="1" date="11.07.2024" count="1" price="1441.00" operation_buy="1"/>
+  <stock_operation id="2" date="18.07.2024" count="1" price="1298.00" operation_buy="1"/>
+</Main>

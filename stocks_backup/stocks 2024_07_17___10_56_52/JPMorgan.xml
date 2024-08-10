@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="JPMorgan" country="USA" industry="Финансы" iscurrency="0" current_price="141">
+    <portfolios>
+      <portfolio>Dow Jones</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="14.10.2021" count="1" price="163.90" operation_buy="1"/>
+  <stock_operation id="-1" date="20.10.2021" count="1" price="170.10" operation_buy="0"/>
+  <stock_operation id="-1" date="26.01.2022" count="1" price="149.90" operation_buy="1"/>
+  <stock_operation id="-1" date="12.08.2022" count="1" price="121.48" operation_buy="1"/>
+  <stock_operation id="-1" date="18.01.2023" count="1" price="139.44" operation_buy="0"/>
+  <stock_operation id="0" date="02.08.2023" count="1" price="155.00" operation_buy="0"/>
+  <stock_operation id="1" date="16.08.2023" count="1" price="150.50" operation_buy="1"/>
+</Main>

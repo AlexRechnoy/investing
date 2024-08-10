@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Bank of America" country="USA" industry="Финансы">
+    <portfolios/>
+  </other>
+  <stock_operation id="-1" date="27.08.2021" count="1" price="42.36" operation_buy="1"/>
+  <stock_operation id="-1" date="14.09.2021" count="1" price="40.72" operation_buy="1"/>
+  <stock_operation id="-1" date="23.09.2021" count="1" price="41.84" operation_buy="0"/>
+  <stock_operation id="-1" date="24.09.2021" count="1" price="42.20" operation_buy="0"/>
+  <stock_operation id="-1" date="14.12.2021" count="1" price="43.30" operation_buy="1"/>
+  <stock_operation id="-1" date="27.04.2022" count="1" price="36.53" operation_buy="1"/>
+  <stock_operation id="-1" date="07.07.2022" count="1" price="31.22" operation_buy="1"/>
+  <stock_operation id="-1" date="24.01.2023" count="1" price="34.55" operation_buy="1"/>
+  <stock_operation id="-1" date="24.03.2023" count="1" price="26.63" operation_buy="1"/>
+  <stock_operation id="0" date="23.10.2023" count="1" price="25.97" operation_buy="1"/>
+</Main>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="NVIDIA" country="USA" industry="IT" portfolio=""/>
+  <stock_operation id="-1" date="12.08.2021" count="1" price="199.23" operation_buy="1"/>
+  <stock_operation id="-1" date="08.09.2021" count="1" price="220.00" operation_buy="0"/>
+  <stock_operation id="-1" date="08.09.2021" count="1" price="223.18" operation_buy="1"/>
+  <stock_operation id="-1" date="26.10.2021" count="1" price="249.12" operation_buy="0"/>
+  <stock_operation id="-1" date="23.11.2021" count="1" price="319.00" operation_buy="1"/>
+  <stock_operation id="-1" date="06.12.2021" count="1" price="296.42" operation_buy="1"/>
+  <stock_operation id="-1" date="08.12.2021" count="1" price="320.94" operation_buy="0"/>
+  <stock_operation id="-1" date="14.12.2021" count="1" price="285.42" operation_buy="1"/>
+  <stock_operation id="-1" date="16.12.2021" count="1" price="301.00" operation_buy="0"/>
+  <stock_operation id="-1" date="04.08.2022" count="1" price="190.30" operation_buy="1"/>
+  <stock_operation id="-1" date="24.03.2023" count="1" price="265.00" operation_buy="0"/>
+</Main>

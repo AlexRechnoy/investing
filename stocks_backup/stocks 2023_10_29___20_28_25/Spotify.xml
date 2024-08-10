@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Spotify" country="Europe" industry="IT">
+    <portfolios>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="28.07.2021" count="1" price="222.89" operation_buy="1"/>
+  <stock_operation id="-1" date="09.09.2021" count="1" price="244.23" operation_buy="0"/>
+  <stock_operation id="-1" date="24.11.2021" count="1" price="248.12" operation_buy="1"/>
+  <stock_operation id="-1" date="25.04.2022" count="1" price="112.95" operation_buy="1"/>
+  <stock_operation id="-1" date="09.01.2023" count="1" price="84.40" operation_buy="1"/>
+  <stock_operation id="-1" date="03.05.2023" count="1" price="139.25" operation_buy="0"/>
+  <stock_operation id="0" date="22.09.2023" count="1" price="156.00" operation_buy="0"/>
+</Main>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Яндекс" country="Россия" industry="IT" iscurrency="0" current_price="0">
+    <portfolios/>
+  </other>
+  <stock_operation id="0" date="14.04.2021" count="1" price="4653.00" operation_buy="1"/>
+  <stock_operation id="1" date="14.04.2021" count="1" price="4646.00" operation_buy="1"/>
+  <stock_operation id="2" date="14.04.2021" count="2" price="9346.00" operation_buy="1"/>
+  <stock_operation id="3" date="14.04.2021" count="1" price="4690.00" operation_buy="1"/>
+  <stock_operation id="4" date="14.04.2021" count="1" price="4683.00" operation_buy="1"/>
+  <stock_operation id="5" date="19.04.2021" count="1" price="4715.00" operation_buy="0"/>
+  <stock_operation id="6" date="26.04.2021" count="2" price="9430.00" operation_buy="0"/>
+  <stock_operation id="7" date="27.04.2021" count="3" price="14238.00" operation_buy="0"/>
+</Main>

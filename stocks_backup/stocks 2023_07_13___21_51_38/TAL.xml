@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="TAL" country="China" industry="Сфера услуг" portfolio="Рисковый"/>
+  <stock_operation id="-1" date="27.10.2021" count="56" price="491.35" operation_buy="1"/>
+  <stock_operation id="-1" date="27.10.2021" count="10" price="43.60" operation_buy="1"/>
+  <stock_operation id="-1" date="29.10.2021" count="2" price="8.14" operation_buy="1"/>
+  <stock_operation id="-1" date="04.11.2021" count="2" price="7.95" operation_buy="1"/>
+  <stock_operation id="-1" date="01.02.2022" count="4" price="11.43" operation_buy="1"/>
+  <stock_operation id="-1" date="28.02.2022" count="3" price="8.16" operation_buy="1"/>
+  <stock_operation id="-1" date="09.06.2022" count="1" price="4.12" operation_buy="1"/>
+  <stock_operation id="-1" date="28.09.2022" count="1" price="4.78" operation_buy="1"/>
+  <stock_operation id="-1" date="16.12.2022" count="26" price="195.00" operation_buy="0"/>
+  <stock_operation id="-1" date="22.12.2022" count="4" price="40.00" operation_buy="0"/>
+  <stock_operation id="-1" date="12.01.2023" count="1" price="8.52" operation_buy="0"/>
+  <stock_operation id="-1" date="05.05.2023" count="2" price="11.12" operation_buy="1"/>
+  <stock_operation id="-1" date="21.06.2023" count="2" price="11.82" operation_buy="1"/>
+  <stock_operation id="0" date="12.07.2023" count="2" price="13.40" operation_buy="0"/>
+  <stock_operation id="1" date="13.07.2023" count="1" price="6.80" operation_buy="0"/>
+</Main>

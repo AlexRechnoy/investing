@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Фосагро" country="Россия" industry="Энергетика" portfolio=""/>
+  <stock_operation id="-1" date="22.12.2020" count="1" price="3215.00" operation_buy="1"/>
+  <stock_operation id="-1" date="30.12.2020" count="1" price="3147.00" operation_buy="1"/>
+  <stock_operation id="-1" date="25.01.2021" count="1" price="3475.00" operation_buy="0"/>
+  <stock_operation id="-1" date="08.02.2021" count="1" price="3675.00" operation_buy="1"/>
+  <stock_operation id="-1" date="23.03.2021" count="1" price="4074.00" operation_buy="0"/>
+  <stock_operation id="-1" date="10.05.2021" count="1" price="4310.00" operation_buy="0"/>
+  <stock_operation id="-1" date="08.06.2021" count="1" price="4770.00" operation_buy="1"/>
+  <stock_operation id="-1" date="01.07.2021" count="1" price="4859.00" operation_buy="1"/>
+  <stock_operation id="-1" date="05.07.2021" count="1" price="4808.00" operation_buy="0"/>
+  <stock_operation id="-1" date="08.07.2021" count="1" price="4810.00" operation_buy="1"/>
+  <stock_operation id="-1" date="14.07.2021" count="1" price="4778.00" operation_buy="0"/>
+  <stock_operation id="-1" date="30.09.2021" count="1" price="5050.00" operation_buy="0"/>
+  <stock_operation id="-1" date="24.01.2022" count="1" price="5303.00" operation_buy="1"/>
+  <stock_operation id="-1" date="21.02.2022" count="1" price="5800.00" operation_buy="0"/>
+  <stock_operation id="-1" date="25.10.2022" count="1" price="6220.00" operation_buy="1"/>
+  <stock_operation id="-1" date="09.11.2022" count="1" price="6350.00" operation_buy="0"/>
+  <stock_operation id="-1" date="15.11.2022" count="1" price="6300.00" operation_buy="1"/>
+  <stock_operation id="-1" date="21.11.2022" count="1" price="6350.00" operation_buy="0"/>
+  <stock_operation id="-1" date="02.12.2022" count="1" price="6375.00" operation_buy="1"/>
+  <stock_operation id="-1" date="20.12.2022" count="1" price="6039.00" operation_buy="1"/>
+  <stock_operation id="-1" date="09.01.2023" count="2" price="12700.00" operation_buy="0"/>
+  <stock_operation id="-1" date="10.01.2023" count="1" price="6358.00" operation_buy="1"/>
+  <stock_operation id="-1" date="24.02.2023" count="1" price="6701.00" operation_buy="0"/>
+  <stock_operation id="-1" date="04.05.2023" count="1" price="7065.00" operation_buy="1"/>
+  <stock_operation id="0" date="10.07.2023" count="1" price="7310.00" operation_buy="1"/>
+  <stock_operation id="1" date="27.07.2023" count="1" price="7424.00" operation_buy="1"/>
+  <stock_operation id="2" date="02.08.2023" count="1" price="7600.00" operation_buy="1"/>
+  <stock_operation id="3" date="14.08.2023" count="1" price="7700.00" operation_buy="0"/>
+  <stock_operation id="4" date="16.08.2023" count="1" price="7500.00" operation_buy="0"/>
+  <stock_operation id="5" date="24.08.2023" count="1" price="7500.00" operation_buy="1"/>
+  <stock_operation id="7" date="30.08.2023" count="1" price="7392.00" operation_buy="1"/>
+  <stock_operation id="6" date="04.09.2023" count="1" price="7220.00" operation_buy="1"/>
+  <stock_operation id="8" date="26.09.2023" count="1" price="6679.00" operation_buy="1"/>
+</Main>

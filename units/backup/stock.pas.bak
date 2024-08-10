@@ -9,6 +9,7 @@ uses
 
 const
   RootStockDir = 'stocks/';
+  prop_file_name =  RootStockDir+'__stockProps.xml';
 type
   { IStock }
   IStock = interface ['{25875868-5C85-469C-9747-7949ACD297C2}']
@@ -19,13 +20,18 @@ type
     function getStockCount : integer;
     function getSumPrice : double;
     function getAverageStockPrice : double;
+    function getDeltaPricePercent : double;  {Разница между текущей ценой и средней, в процентах}
     function getBalance : double;
-    function get_portfolio_name:string;
+    function getPortfolios:tstringList;
     function GetIndustry:string;
+    function GetIsCurrency : boolean;
+    function GetCurrentPrice : double;
     function getOperationListStr : TStringList;
-    procedure set_portfolio_name(AValue : string);
+    function getIsInPortfolio(Aval : string) : boolean;
+    procedure setPortfolios(AValue : TStringList);
     procedure SetCountry(Aval : string);
     procedure SetIndustry(Aval : string);
+    procedure SetCurrentPrice(AVal : double);
     procedure SetName(Aval : string);
     procedure AddOperation(aDate:TDate;aOperationType:tOperationType;aCount:integer; aPrice:single);
     procedure DeleteLastOperation;
@@ -36,34 +42,50 @@ type
     property Industry : string read GetIndustry write SetIndustry;
     property Count : integer read getStockCount;
     property sumPrice : double read getSumPrice;
+    property CurrentPrice : double read GetCurrentPrice write SetCurrentPrice;
+    property DeltaPricePercent : double read getDeltaPricePercent;
     property balance : double read getBalance;
+    property isCurrency : boolean read GetIsCurrency;
     property averagePrice : double read getAverageStockPrice;
-    property portfolio_name : string read get_portfolio_name write set_portfolio_name;
+    property portfolios : TStringList read getPortfolios write setPortfolios;
     property OperationListStr : tStringlist read getOperationListStr;
   end;
+  TStockList = specialize TFPGInterfacedObjectList<IStock>;
 
   { tStock }
   tStock = class(TInterfacedObject,IStock)
    private
-    fName          : string;
-    fCountry       : string;
-    fCount         : integer;
+    fIsCurrency    : boolean;       {Является валютой (не акция =((( )}
+    fName          : string;        {Название}
+    fCountry       : string;        {Страна}
     fIndustry      : string;        {Отрасль}
+    fCurrentPrice  : double;        {Актуальная цена}
     fOperationList : tOperationList;
-    fPortFolioName : string;
-    function getStockCount : integer;
-    function getSumPrice : double;
+    fPortfolios    : tstringlist;
+    function getStockCount : integer; //Кол-во акций
+    function getSumPrice : double;    //Общая стоимость акций на руках
+                                      //Если текущая цена неизвестна, то учитывается только стоимость покупки и продажи, которые в данный момент "на руках".
+                                      //Например купили 2 по 15, сумма = 30; продали 1 за 20, сумма = 10
+                                      //Иначе кол-во акций * текущую цену
     function getAverageStockPrice : double;
-    function getBalance : double;
+    function getDeltaPricePercent : double;  {Разница между текущей ценой и средней, в процентах}
+    function getBalance : double;  //Баланс за операции по акциям.
+                                   //Если текущая цена неизвестна, то учитывается только стоимость покупки и продажи. При покупке акций уходит в минус.
+                                   //Например купили 2 по 15, баланс = -30; продали 1 за 20, баланс = -10
+                                   //Иначе = суммарная стоимость акций на руках + их баланс
+                                   //Например купили 2 по 15, баланс = -30; продали 1 за 20, (тек. цена = 30) баланс = 1*30 -10 = +20
     function GetIndustry:string;
     procedure SetName(Aval : string);
     procedure SetIndustry(Aval : string);
     function GetName : string;
     function GetCountry : string;
+    function GetIsCurrency : boolean;
+    function GetCurrentPrice : double;
     procedure SetCountry(Aval : string);
-    function get_portfolio_name:string;
+    procedure SetCurrentPrice(AVal : double);
+    function getIsInPortfolio(Aval : string) : boolean;
+    function getPortfolios:tstringList;
     function getOperationListStr : TStringList;
-    function getAveragePrice : string;
    public
     constructor Create(const aName,aCountry,aIndustry : string);
     procedure WriteToXML(const StockDir : string = RootStockDir);
@@ -71,13 +93,17 @@ type
     procedure DeleteLastOperation;
     procedure DeleteAllOperations;
     procedure AddOperation(aDate:TDate;aOperationType:tOperationType;aCount:integer; aPrice:single);
-    procedure set_portfolio_name(AValue : string);
+    procedure setPortfolios(AValue : tstringlist);
     property Name : string read GetName;
+    property isCurrency : boolean read GetIsCurrency;
+    property CurrentPrice : double read GetCurrentPrice write SetCurrentPrice;
+    property DeltaPricePercent : double read getDeltaPricePercent;
     property Country : string read GetCountry write SetCountry;
+    property Count : integer read getStockCount;
   end;
   ptStock =^tStock;
 
-  IStockList = specialize TFPGInterfacedObjectList<IStock>;
+
 
 implementation
 
@@ -87,22 +113,19 @@ uses DOM,XMLRead,XMLWrite,FileUtil,Stocks_Data,Dialogs;
 { tStock }
 constructor tStock.Create(const aName, aCountry, aIndustry: string);
 begin
-  fCount        :=0;
+  //fCount        :=0;
+  fCurrentPrice :=0;
+  fIsCurrency   :=false;
   fName         :=aName;
   fCountry      :=aCountry;
   fIndustry     :=aIndustry;
-  fPortFolioName:='';
+  fPortfolios   :=tStringList.Create;
   fOperationList:=tOperationList.Create;
 end;
 
 function tStock.getOperationListStr: TStringList;
 begin
   Result:=fOperationList.OperationStr;
-end;
-
-function tStock.getAveragePrice: string;
-begin
-
 end;
 
 procedure tStock.AddOperation(aDate: TDate; aOperationType: tOperationType;
@@ -125,20 +148,23 @@ begin
 end;
 
 procedure tStock.WriteToXML(const StockDir: string);
-var filename     : string;
-    tekOperation : IStockOperation;
-    FileExist    : boolean=false;
-    XMLDoc       : TXMLDocument;
-    RootNode     : TDOMNode;
-    domelement   : TDOMElement;
+var filename         : string;
+    tekOperation     : IStockOperation;
+    FileExist        : boolean=false;
+    XMLDoc           : TXMLDocument;
+    RootNode         : TDOMNode;
+    domelement       : TDOMElement;
+    portfolioElement : TDOMElement;
+    portfolioNode    : TDOMElement;
+    currPortfolioName: string;
 begin
   filename:=StockDir+fName+'.xml';
   try
     ReadXMLFile(XMLDoc,FileName);
     FileExist:=true;
-    StockDir:=XMLDoc.DocumentElement;
-    while Assigned(StockDir.FirstChild) do
-      StockDir.FirstChild.Destroy;
+    RootNode:=XMLDoc.DocumentElement;
+    while Assigned(RootNode.FirstChild) do
+      RootNode.FirstChild.Destroy;
   except
     XmlDoc  :=TXMLDocument.Create;
     RootNode:=XMLDoc.CreateElement('Main');
@@ -147,7 +173,18 @@ begin
   domelement:=XMLDoc.CreateElement(UTF8Decode('other'));
   domelement.SetAttribute('country',fCountry);
   domelement.SetAttribute('name',fName);
-  domelement.SetAttribute('portfolio',fportfolioName);
+  domelement.SetAttribute('current_price',FloatToStr(fCurrentPrice));
+  domelement.SetAttribute('iscurrency',inttostr(byte(fIsCurrency)));
+
+  portfolioElement:=XMLDoc.CreateElement(UTF8Decode('portfolios'));
+  for currPortfolioName in fPortfolios do
+   begin
+     portfolioNode:=XMLDoc.CreateElement('portfolio');
+     portfolioNode.AppendChild(XMLDOC.CreateTextNode(UTF8Decode(currPortfolioName)));
+     portfolioElement.AppendChild(portfolioNode);
+   end;
+  domelement.AppendChild(portfolioElement);
+
   domelement.SetAttribute('industry',fIndustry);
   RootNode.AppendChild(domelement);
   for tekOperation in fOperationList do
@@ -168,7 +205,8 @@ procedure tStock.ReadFromXML(const fileName : string);
 var XMLDoc         : TXMLDocument;
     RootNode       : TDOMNode;
     tekNode        : TDOMNode;
-    i              : integer;
+    i,j            : integer; s:string;
+    portfoliosNode : TDOMNode;
     function GetOperationType(const str : string) : tOperationType;
     begin
       if str='1' then result:=_Operation_Buy else result:=_Operation_Sell;
@@ -190,10 +228,21 @@ begin
       begin
         fName         :=tekNode.Attributes.GetNamedItem('name').NodeValue;
         fCountry      :=tekNode.Attributes.GetNamedItem('country').NodeValue;
+        if tekNode.Attributes.GetNamedItem('current_price')<>nil
+        then fCurrentPrice:=StrToFloat(tekNode.Attributes.GetNamedItem('current_price').NodeValue);
+        if tekNode.Attributes.GetNamedItem('iscurrency')<>nil
+        then fIsCurrency:=StrToBool(tekNode.Attributes.GetNamedItem('iscurrency').NodeValue);
         if tekNode.Attributes.GetNamedItem('industry')<>nil
         then fIndustry:=tekNode.Attributes.GetNamedItem('industry').NodeValue;
-        if tekNode.Attributes.GetNamedItem('portfolio')<>nil
-        then fPortFolioName:=tekNode.Attributes.GetNamedItem('portfolio').NodeValue;
+
+        portfoliosNode:=tekNode.FindNode('portfolios');
+        if Assigned(portfoliosNode) then //tekNode.GetNamedItem('portfolio')<>nil then
+         begin
+           for j:=0 to portfoliosNode.ChildNodes.Count-1 do
+             fPortfolios.Add(portfoliosNode.ChildNodes[j].TextContent);
+         end;
+
+        //then fPortFolioName:=tekNode.Attributes.GetNamedItem('portfolio').NodeValue;
       end
      else
        try
@@ -216,37 +265,38 @@ begin
   Result:=fOperationList.StockCount;
 end;
 
-function tStock.getSumPrice: double;
-begin
-  Result:=fOperationList.Sum;
-  //if fOperationList.StockCount=0 then Result:='-' else
-  //  if fOperationList.Sum<0 then Result:='<0' else
-  //    Result:=Format('%4.2f',[fOperationList.Sum])
-end;
-
 function tStock.getAverageStockPrice: double;
-var price : double;
 begin
   if fOperationList.StockCount=0
   then Result:=0
   else Result:=fOperationList.Sum/fOperationList.StockCount;
-
- // if fOperationList.StockCount=0
- // then Result:='-'
- // else
- //  begin
- //    price:=fOperationList.Sum/fOperationList.StockCount;
- //    if price>0
- //    then Result:=format('%4.2f',[price])
- //    else Result:='<0';
 end;
 
+function tStock.getDeltaPricePercent: double;
+var tmpAverageStockPrice : double;
+begin
+  tmpAverageStockPrice:=getAverageStockPrice;
+  if (tmpAverageStockPrice<=0) or (fCurrentPrice=0)
+  then Result:=0
+  else Result:=(fCurrentPrice-tmpAverageStockPrice)/tmpAverageStockPrice*100 ;
+end;
+
+//Общая стоимость акций на руках
+function tStock.getSumPrice: double;
+begin
+  Result:=0;
+  if Count=0 then exit;
+  if fCurrentPrice=0
+  then Result:=fOperationList.Sum
+  else Result:=fCurrentPrice*fOperationList.StockCount;
+end;
+
+//Баланс за операции по акциям.
 function tStock.getBalance: double;
 begin
-  Result:=fOperationList.Balance;
-  //if fOperationList.StockCount=0
-  //then Result:=format('%4.2f',[fOperationList.Balance])
-  //else Result:='-';
+  if fCurrentPrice=0
+  then Result:=fOperationList.Balance
+  else Result:=fCurrentPrice*fOperationList.StockCount + fOperationList.Balance;
 end;
 
 function tStock.GetIndustry: string;
@@ -275,19 +325,47 @@ begin
   Result:=fCountry;
 end;
 
+function tStock.GetIsCurrency: boolean;
+begin
+  Result:=fIsCurrency;
+end;
+
+function tStock.GetCurrentPrice: double;
+begin
+  Result:=fCurrentPrice;
+end;
+
 procedure tStock.SetCountry(Aval: string);
 begin
   fCountry:=Aval;
 end;
 
-function tStock.get_portfolio_name: string;
+procedure tStock.SetCurrentPrice(AVal: double);
 begin
-  Result:=fPortFolioName;
+  if fCurrentPrice<>Aval
+  then fCurrentPrice:=AVal;
 end;
 
-procedure tStock.set_portfolio_name(AValue: string);
+function tStock.getIsInPortfolio(Aval: string): boolean;
+var tekPortfolioName : string;
 begin
-  fPortFolioName:=AValue;
+  Result:=false;
+  for tekPortfolioName in fportfolios do
+    if AnsiLowerCase(tekPortfolioName)=AnsiLowerCase(Aval) then
+     begin
+       Result:=true;
+       exit;
+     end;
+end;
+
+function tStock.getPortfolios: tstringList;
+begin
+  Result:=fPortfolios;
+end;
+
+procedure tStock.setPortfolios(AValue: tstringlist);
+begin
+  fPortfolios:=AValue;
 end;
 
 end.

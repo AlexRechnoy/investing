@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="PayPal" country="USA" industry="IT" iscurrency="0" current_price="50.38">
+    <portfolios>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="08.12.2021" count="1" price="194.69" operation_buy="1"/>
+  <stock_operation id="-1" date="02.02.2022" count="1" price="147.62" operation_buy="1"/>
+  <stock_operation id="-1" date="11.02.2022" count="1" price="119.61" operation_buy="1"/>
+  <stock_operation id="-1" date="20.05.2022" count="1" price="83.23" operation_buy="1"/>
+  <stock_operation id="-1" date="08.08.2022" count="1" price="97.90" operation_buy="1"/>
+  <stock_operation id="-1" date="15.09.2022" count="5" price="483.00" operation_buy="0"/>
+  <stock_operation id="-1" date="15.09.2022" count="4" price="390.36" operation_buy="1"/>
+  <stock_operation id="-1" date="08.02.2023" count="1" price="82.65" operation_buy="1"/>
+  <stock_operation id="-1" date="10.05.2023" count="1" price="63.35" operation_buy="1"/>
+</Main>

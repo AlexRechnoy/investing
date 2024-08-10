@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, ExtCtrls, Controls, StdCtrls, ComCtrls,
-  stockGrid, Stocks_Data, stock_Observer, Stock, Dialogs;
+  Stock_Property_Grid, Stocks_Data, Stock_filtered_list,
+  stock_Observer, Stock, Dialogs;
 
 type
 
@@ -14,7 +15,7 @@ type
 
   tStockPanel = class (TPanel, IObserver)
    private
-     fGrid    : tStockGrid;
+     fGrid    : tStockPropertyGrid;
      fToolBar : TToolBar;
      fList    : TListBox;
      fLabel   : TLabel;
@@ -23,7 +24,7 @@ type
    public
      constructor create(AOwner: TComponent; AImageList : TImageList);
      procedure UpdateStock(stock : IStock);
-     procedure UpdateStockList(stock : IStockList);
+     procedure UpdateFilteredStockList(StockFilteredList : TStockFilteredList);
   end;
 
 implementation
@@ -65,7 +66,7 @@ begin
   fToolBar.ButtonList.Add(createToolButton(-1,'',nil,true));
   fToolBar.ButtonList.Add(createToolButton(6,'Удалить все операции',@DeleteAllOperations));
 
-  fGrid:=tStockGrid.Create(self);
+  fGrid:=tStockPropertyGrid.Create(self);
   fGrid.Align:=alTop;
   fList:=TListBox.Create(self);
   fList.Parent:=self;
@@ -86,12 +87,18 @@ end;
 
 procedure tStockPanel.UpdateStock(stock : IStock);
 begin
+  fList.Clear;
+  if stock=nil then
+   begin
+     fGrid.Visible:=false;
+     exit;
+   end;
   fGrid.updateData(stock);
   fList.Clear;
   fList.Items.AddStrings(stock.OperationListStr);
 end;
 
-procedure tStockPanel.UpdateStockList(stock: IStockList);
+procedure tStockPanel.UpdateFilteredStockList(StockFilteredList : TStockFilteredList);
 begin
 
 end;

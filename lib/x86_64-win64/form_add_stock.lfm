@@ -1,28 +1,28 @@
 object Form2: TForm2
-  Left = 1080
-  Height = 147
-  Top = 81
+  Left = 992
+  Height = 170
+  Top = 628
   Width = 648
   Caption = 'Добавление акции'
-  ClientHeight = 147
+  ClientHeight = 170
   ClientWidth = 648
-  OnActivate = FormActivate
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '2.2.0.4'
   object Panel1: TPanel
     Left = 0
-    Height = 42
+    Height = 45
     Top = 0
     Width = 648
     Align = alTop
+    BorderSpacing.Bottom = 10
     BevelWidth = 2
-    ClientHeight = 42
+    ClientHeight = 45
     ClientWidth = 648
     TabOrder = 0
     object Label1: TLabel
       Left = 2
-      Height = 38
+      Height = 41
       Top = 2
       Width = 100
       Align = alLeft
@@ -35,7 +35,7 @@ object Form2: TForm2
     end
     object Edit1: TEdit
       Left = 102
-      Height = 38
+      Height = 41
       Top = 2
       Width = 544
       Align = alClient
@@ -48,8 +48,8 @@ object Form2: TForm2
   end
   object Button1: TButton
     Left = 0
-    Height = 35
-    Top = 112
+    Height = 45
+    Top = 125
     Width = 648
     Align = alClient
     Caption = 'Добавить'
@@ -61,10 +61,9 @@ object Form2: TForm2
   object Panel2: TPanel
     Left = 0
     Height = 35
-    Top = 42
+    Top = 55
     Width = 648
     Align = alTop
-    Caption = 'Panel2'
     ClientHeight = 35
     ClientWidth = 648
     TabOrder = 2
@@ -85,7 +84,7 @@ object Form2: TForm2
       Left = 101
       Height = 23
       Top = 1
-      Width = 496
+      Width = 546
       Align = alClient
       Font.Style = [fsBold]
       ItemHeight = 15
@@ -94,25 +93,13 @@ object Form2: TForm2
       TabOrder = 0
       Text = 'ComboCountry'
     end
-    object BitBtn1: TBitBtn
-      Left = 597
-      Height = 33
-      Top = 1
-      Width = 50
-      Align = alRight
-      Images = Form4.ImageList1
-      ImageIndex = 5
-      OnClick = BitBtn1Click
-      TabOrder = 1
-    end
   end
   object Panel3: TPanel
     Left = 0
     Height = 35
-    Top = 77
+    Top = 90
     Width = 648
     Align = alTop
-    Caption = 'Panel3'
     ClientHeight = 35
     ClientWidth = 648
     TabOrder = 3
@@ -133,7 +120,7 @@ object Form2: TForm2
       Left = 101
       Height = 23
       Top = 1
-      Width = 496
+      Width = 546
       Align = alClient
       Font.Style = [fsBold]
       ItemHeight = 15
@@ -141,17 +128,6 @@ object Form2: TForm2
       ReadOnly = True
       TabOrder = 0
       Text = 'ComboIndustry'
-    end
-    object BitBtn2: TBitBtn
-      Left = 597
-      Height = 33
-      Top = 1
-      Width = 50
-      Align = alRight
-      Images = Form4.ImageList1
-      ImageIndex = 5
-      OnClick = BitBtn2Click
-      TabOrder = 1
     end
   end
 end

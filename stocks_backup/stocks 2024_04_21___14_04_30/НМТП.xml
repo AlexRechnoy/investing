@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="НМТП" country="Россия" industry="Услуги" iscurrency="0" current_price="12.91">
+    <portfolios/>
+  </other>
+  <stock_operation id="0" date="21.04.2021" count="100" price="761.00" operation_buy="1"/>
+  <stock_operation id="1" date="22.04.2021" count="100" price="751.00" operation_buy="1"/>
+  <stock_operation id="2" date="20.05.2021" count="100" price="763.00" operation_buy="0"/>
+  <stock_operation id="3" date="26.05.2021" count="100" price="761.00" operation_buy="1"/>
+  <stock_operation id="4" date="28.05.2021" count="200" price="1445.00" operation_buy="1"/>
+  <stock_operation id="5" date="28.05.2021" count="100" price="722.00" operation_buy="1"/>
+  <stock_operation id="6" date="02.06.2021" count="100" price="730.00" operation_buy="1"/>
+  <stock_operation id="7" date="04.06.2021" count="100" price="730.00" operation_buy="1"/>
+  <stock_operation id="8" date="08.06.2021" count="100" price="723.00" operation_buy="1"/>
+  <stock_operation id="9" date="08.06.2021" count="100" price="718.00" operation_buy="1"/>
+  <stock_operation id="10" date="09.06.2021" count="100" price="721.00" operation_buy="1"/>
+  <stock_operation id="11" date="11.06.2021" count="100" price="713.00" operation_buy="1"/>
+  <stock_operation id="12" date="17.06.2021" count="100" price="698.00" operation_buy="1"/>
+  <stock_operation id="13" date="17.06.2021" count="100" price="698.00" operation_buy="0"/>
+  <stock_operation id="14" date="17.06.2021" count="100" price="700.00" operation_buy="1"/>
+  <stock_operation id="15" date="17.06.2021" count="100" price="708.00" operation_buy="0"/>
+  <stock_operation id="16" date="22.06.2021" count="100" price="706.00" operation_buy="1"/>
+  <stock_operation id="17" date="23.06.2021" count="1200" price="8394.00" operation_buy="0"/>
+  <stock_operation id="18" date="12.01.2024" count="100" price="1300.00" operation_buy="1"/>
+</Main>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="AMD" country="USA" industry="IT" portfolio=""/>
+  <stock_operation id="-1" date="27.11.2020" count="1" price="87.10" operation_buy="1"/>
+  <stock_operation id="-1" date="20.01.2021" count="1" price="90.10" operation_buy="0"/>
+  <stock_operation id="-1" date="10.03.2021" count="1" price="80.19" operation_buy="1"/>
+  <stock_operation id="-1" date="07.06.2021" count="1" price="81.58" operation_buy="0"/>
+  <stock_operation id="-1" date="21.09.2021" count="1" price="102.42" operation_buy="1"/>
+  <stock_operation id="-1" date="27.09.2021" count="1" price="104.28" operation_buy="0"/>
+  <stock_operation id="-1" date="01.10.2021" count="1" price="102.89" operation_buy="1"/>
+  <stock_operation id="-1" date="11.10.2021" count="1" price="104.00" operation_buy="0"/>
+  <stock_operation id="-1" date="04.01.2022" count="1" price="142.90" operation_buy="1"/>
+  <stock_operation id="-1" date="21.01.2022" count="1" price="120.00" operation_buy="1"/>
+  <stock_operation id="-1" date="27.01.2022" count="1" price="104.75" operation_buy="1"/>
+  <stock_operation id="-1" date="07.02.2022" count="1" price="124.00" operation_buy="0"/>
+  <stock_operation id="-1" date="15.09.2022" count="1" price="76.27" operation_buy="1"/>
+  <stock_operation id="-1" date="30.09.2022" count="1" price="64.40" operation_buy="1"/>
+  <stock_operation id="-1" date="12.01.2023" count="1" price="69.79" operation_buy="1"/>
+  <stock_operation id="-1" date="22.03.2023" count="1" price="100.00" operation_buy="0"/>
+  <stock_operation id="-1" date="10.05.2023" count="1" price="97.28" operation_buy="0"/>
+  <stock_operation id="-1" date="24.05.2023" count="1" price="115.00" operation_buy="0"/>
+  <stock_operation id="-1" date="22.06.2023" count="1" price="113.59" operation_buy="1"/>
+  <stock_operation id="0" date="14.07.2023" count="1" price="120.00" operation_buy="0"/>
+</Main>

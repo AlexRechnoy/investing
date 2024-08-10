@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Main>
-  <other name="Procter &amp; Gamble" country="USA" industry="Услуги" portfolio=""/>
-  <stock_operation date="21.01.2022" count="1" price="162.81" operation_buy="1"/>
-  <stock_operation date="24.03.2022" count="1" price="150.62" operation_buy="0"/>
-  <stock_operation date="08.06.2022" count="1" price="146.60" operation_buy="1"/>
-  <stock_operation date="09.05.2023" count="1" price="154.00" operation_buy="0"/>
-</Main>

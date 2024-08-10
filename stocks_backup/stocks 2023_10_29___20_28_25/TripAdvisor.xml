@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="TripAdvisor" country="USA" industry="Туризм">
+    <portfolios/>
+  </other>
+  <stock_operation id="-1" date="24.08.2021" count="1" price="34.90" operation_buy="1"/>
+  <stock_operation id="-1" date="02.09.2021" count="1" price="35.59" operation_buy="1"/>
+  <stock_operation id="-1" date="13.10.2021" count="2" price="72.64" operation_buy="0"/>
+  <stock_operation id="-1" date="26.10.2021" count="1" price="34.65" operation_buy="1"/>
+  <stock_operation id="-1" date="05.11.2021" count="1" price="33.29" operation_buy="1"/>
+  <stock_operation id="-1" date="29.11.2021" count="1" price="26.75" operation_buy="1"/>
+  <stock_operation id="-1" date="30.11.2021" count="1" price="25.72" operation_buy="1"/>
+  <stock_operation id="-1" date="24.01.2022" count="1" price="26.06" operation_buy="1"/>
+  <stock_operation id="-1" date="15.02.2022" count="4" price="120.00" operation_buy="0"/>
+  <stock_operation id="-1" date="19.07.2022" count="1" price="18.74" operation_buy="1"/>
+  <stock_operation id="-1" date="05.08.2022" count="2" price="46.00" operation_buy="0"/>
+  <stock_operation id="-1" date="04.05.2023" count="1" price="15.89" operation_buy="1"/>
+  <stock_operation id="-1" date="09.05.2023" count="1" price="16.23" operation_buy="1"/>
+  <stock_operation id="0" date="17.07.2023" count="1" price="17.54" operation_buy="1"/>
+  <stock_operation id="1" date="27.07.2023" count="1" price="17.78" operation_buy="1"/>
+  <stock_operation id="2" date="31.07.2023" count="1" price="18.74" operation_buy="1"/>
+  <stock_operation id="3" date="04.08.2023" count="1" price="16.80" operation_buy="1"/>
+  <stock_operation id="4" date="10.08.2023" count="1" price="16.49" operation_buy="1"/>
+  <stock_operation id="5" date="16.08.2023" count="1" price="15.15" operation_buy="1"/>
+  <stock_operation id="6" date="18.09.2023" count="1" price="16.20" operation_buy="0"/>
+  <stock_operation id="7" date="28.09.2023" count="1" price="16.51" operation_buy="0"/>
+</Main>

@@ -6,126 +6,179 @@ unit Portfolio_Data;
 interface
 
 uses
-  Classes, SysUtils,Portfolio,Stocks_Data,Stock, fgl;
+  Classes, SysUtils, fgl, Portfolio_Observer, Portfolio_List, Stocks_Data,
+  Stock, Stock_list;
 
 type
-  tPortfolio_add = procedure (Sender : TObject ; Name : string) of object ; //событие по добавлению портфеля
+  tOnPortfolioAdd = procedure (Sender : TObject ; Name : string) of object ; //событие по добавлению портфеля
 
   { tPortfolio_Data }
   tPortfolio_Data = class
    private
-    fAddPortfolio     : tPortfolio_add;  {Событие "добавление портфеля"}
-    fIndex            : integer;         {порядковый номер выбранного портфеля в списке fPortfolioList}
-    fOutSideStock     : IStock;          {Выбранная акция вне портфеля}
-    fChosenStock      : IStock;          {Выбранная акция в портфеле}
-    fPortfolioList    : tPortfolio_List; {Список портфелей}
-    fOutside_StockList: iStockList;      {Акции вне портфелей}
+    fAddPortfolio     : tOnPortfolioAdd;       //Событие "добавление портфеля"
+    fIndex            : integer;               //Порядковый номер выбранного портфеля в списке fPortfolioList
+    fOutSideStock     : IStock;                //Выбранная акция вне портфеля
+    fChosenStock      : IStock;                //Выбранная акция в портфеле
+    fPortfolioList    : tPortfolioList;        //Список портфелей
+    fOutStockList     : TStockList;            //Список акций вне выбранного портфелей
+    fStockList        : TStockList;            //Список акции выбранного портфеля
+    fObserverList     : TPortfolioObserverList;
     function GetPortfolioNames : TStringList;
-    function Get_portfolio_Index(const Name : string): integer;  {Существует ли портфель с таким именем}
     function GetActivePortfolio:boolean;
-    function GetActivePortfolioStockList:IStockList;
+    function getPortfolioName:string;
     procedure Refresh_Outside_StockList;
-    function find_stock(const Name : string; stockList : IStockList): IStock;
+    function find_stock(const Name : string; stockList : TStockList): IStock;
+   public
+    procedure registerObserver(O : IPortfolioObserver);
+    procedure removeObserver(O : IPortfolioObserver);
+    procedure notifyObservers();
    public
     constructor Create;
-    procedure Add_Portfolio(AName : string );
+    destructor destroy; override;
+    procedure Add_Portfolio(APortfolioName : string );
     procedure Delete_Portfolio;
-    procedure Set_Active_Portfolio(const index : integer);
+    procedure SetPortfolio(const AportfolioIndex : integer);//Выбрать активный портфель
     procedure Add_Stock_To_Portfolio;
+    procedure UpdatePortfolioStats;
     procedure Delete_Stock_From_Portfolio;
     function Get_Outside_Stock(const Name : string): IStock;
     function Get_Stock_In_Portfolio(const Name : string): IStock;
-    property PortFolioList : tPortfolio_List read fPortfolioList write fPortfolioList;
+    property PortfolioName : String read getPortfolioName;
+    property PortFolioList : tPortfolioList read fPortfolioList write fPortfolioList;
     property PortfolioNames : TStringList read GetPortfolioNames;
     property OutsideStock : IStock read fOutSideStock write fOutSideStock;
-    property OutsideStockList : IStockList read fOutside_StockList;
+    property OutsideStockList : TStockList read fOutStockList;
     property ChosenStock  : IStock read fChosenStock write fChosenStock;
-    property OnAddPortfolio : tPortfolio_add read fAddPortfolio write fAddPortfolio;
+    property OnAddPortfolio : tOnPortfolioAdd read fAddPortfolio write fAddPortfolio;
     property HasActivePortfolio : boolean read GetActivePortfolio;
-    property StockList:IStockList read GetActivePortfolioStockList; {Список акций выбранного портфеля}
+    property StockList:TStockList read FStockList; {Список акций выбранного портфеля}
   end;
 
-var PortfolioData : tPortfolio_Data;
+    function PortfolioData : tPortfolio_Data;
 
 implementation
 
 uses Dialogs;
 
+var MyPortfolioData : tPortfolio_Data;
+
+  function PortfolioData : tPortfolio_Data;
+  begin
+    if MyPortfolioData=nil
+    then MyPortfolioData:=tPortfolio_Data.Create;
+    Result:=MyPortfolioData;
+  end;
+
 { tPortfolio_Data }
 constructor tPortfolio_Data.Create;
-var TekStock         : IStock;
-    portfolio_index  : integer;
-    portfolio_name   : string;
+var currStock        : IStock;
+    currPortfolioName: string;
 begin
   fIndex            :=-1;
-  fPortfolioList    :=tPortfolio_List.Create;
-  fOutside_StockList:=iStockList.Create; {Акции вне портфелей}
-  for TekStock in StocksData.StockList do
+  fPortfolioList    :=tPortfolioList.Create;
+  fStockList        :=TStockList.Create;
+  fOutStockList     :=TStockList.Create; {Акции вне портфелей}
+  for currStock in StocksData.StockList do
    begin
-     if (TekStock.portfolio_name<>'') then
+     for currPortfolioName in currStock.portfolios do
       begin
-        portfolio_index:=Get_portfolio_Index(TekStock.portfolio_name);
-        if portfolio_index=-1 then {портфель еще не создан}
-         begin
-           portfolio_name:=TekStock.portfolio_name;
-           fPortfolioList.Add(tPortfolio.Create(portfolio_name,TekStock));
-         end
-        else
-         begin
-           fPortfolioList[portfolio_index].Add_Stock(TekStock);
-           portfolio_name:=fPortfolioList[portfolio_index].PortfolioName;
-         end;
-        TekStock.portfolio_name:=portfolio_name;
-      end
-      else
-       begin
-         fOutside_StockList.Add(TekStock); {акции вне портфеля}
-       end;
+        fPortfolioList.AddStock(currPortfolioName,currStock,false);
+      end;
+   end;
+  fObserverList:=TPortfolioObserverList.Create;
+end;
+
+destructor tPortfolio_Data.destroy;
+begin
+  fObserverList.Clear;
+  fObserverList.Free;
+  fStockList.Free;
+  fOutStockList.Free;
+  inherited destroy;
+end;
+
+//Выбрать активный портфель
+procedure tPortfolio_Data.SetPortfolio(const AportfolioIndex: integer);
+var currStock          : IStock;
+    portfolioNameIndex : integer;     i:integer; s : string;
+    tmpPortfolioName      : string;
+begin
+  fIndex:=AportfolioIndex;
+  if fIndex=-1 then
+  begin
+    fOutStockList.Assign(StocksData.StockList);
+    exit;
+  end;
+  for i:=0 to fPortfolioList.Count-1 do
+    s:=fPortfolioList[i].PortfolioName;
+  if (fIndex>=0) and (fIndex<fPortfolioList.Count) then
+   begin
+     fStockList:=fPortfolioList[findex].Stocks;
+     fOutStockList.Clear;
+     for currStock in StocksData.StockList do
+      begin
+        if currStock.isCurrency then continue;
+        tmpPortfolioName:=fPortfolioList[findex].PortfolioName;
+        portfolioNameIndex:=currStock.portfolios.IndexOf(tmpPortfolioName);
+        if portfolioNameIndex<0
+        then fOutStockList.Add(currStock);
+      end;
    end;
 end;
 
-procedure tPortfolio_Data.Delete_Portfolio;
-var index    : integer;
-    tekStock : IStock;
-begin
-  for tekStock in StockList do
-    TekStock.portfolio_name:='';
-  fPortfolioList.Delete(fIndex);
-  fIndex:=-1;
-  Refresh_Outside_StockList;
-end;
-
-procedure tPortfolio_Data.Set_Active_Portfolio(const index: integer);
-begin
-  fIndex:=index;
-end;
-
+//Добавить акцию в портфель
 procedure tPortfolio_Data.Add_Stock_To_Portfolio;
 begin
-  if HasActivePortfolio
-  then fPortfolioList[fIndex].Add_Stock(OutsideStock);
-  Refresh_Outside_StockList;
+  if Assigned(fOutSideStock) then
+   begin
+     if HasActivePortfolio
+     then fPortfolioList[fIndex].Add_Stock(fOutsideStock);
+     Refresh_Outside_StockList;
+     notifyObservers();
+     fOutsideStock:=nil;
+   end;
 end;
 
+procedure tPortfolio_Data.UpdatePortfolioStats;
+begin
+  fPortfolioList.UpdatePortfolioStats;
+  notifyObservers();
+end;
+
+//Удалить акцию из портфеля
 procedure tPortfolio_Data.Delete_Stock_From_Portfolio;
 begin
-  fPortfolioList[fIndex].Delete_Stock(ChosenStock);
-  Refresh_Outside_StockList
+  if Assigned(fChosenStock) then
+   begin
+     fPortfolioList[fIndex].Delete_Stock(fChosenStock);
+     Refresh_Outside_StockList;
+     notifyObservers();
+     fChosenStock:=nil;
+   end;
 end;
 
-function tPortfolio_Data.Get_portfolio_Index(const Name : string): integer;
-var tekPortfolio : tPortfolio;
-    index : integer=0;
+//Удалить портфель
+procedure tPortfolio_Data.Delete_Portfolio;
 begin
-  Result:=-1;
-  for tekPortfolio in fPortfolioList do
+  fPortfolioList.DeletePortfolio(findex);
+  fIndex:=-1;
+  Refresh_Outside_StockList;
+  notifyObservers();
+end;
+
+//Добавить портфель
+procedure tPortfolio_Data.Add_Portfolio(APortfolioName: string);
+begin
+  if fPortfolioList.AddPortfolio(APortfolioName)
+  then
    begin
-     if tekPortfolio.PortfolioName=Name then
-      begin
-        Result:=index;
-        break;
-      end;
-     inc(index);
+     if Assigned(fAddPortfolio)
+     then fAddPortfolio(Self,APortfolioName);
+     notifyObservers();
+   end
+  else
+   begin
+     Showmessage('Такой портфель уже создан!');
    end;
 end;
 
@@ -134,16 +187,14 @@ begin
   Result:=(fIndex>=0);
 end;
 
-function tPortfolio_Data.GetActivePortfolioStockList: IStockList;
+function tPortfolio_Data.getPortfolioName: string;
 begin
-  if HasActivePortfolio
-  then Result:=fPortfolioList[fIndex].Stocks
-  else Result:=IStockList.Create;
+  Result:=fPortfolioList.GetPortfolioName(fIndex);
 end;
 
 function tPortfolio_Data.Get_Outside_Stock(const Name : string): IStock;
 begin
-  Result:=find_stock(Name,fOutside_StockList);
+  Result:=find_stock(Name,fOutStockList);
 end;
 
 function tPortfolio_Data.Get_Stock_In_Portfolio(const Name: string): IStock;
@@ -151,22 +202,8 @@ begin
   Result:=find_stock(Name,StockList);
 end;
 
-procedure tPortfolio_Data.Add_Portfolio(AName: string);
-var TekPortfolio : tPortfolio;
-begin
-  for TekPortfolio in fPortfolioList do
-    if TekPortfolio.PortfolioName=AName then
-     begin
-       Showmessage('Такой портфель уже создан!');
-       exit;
-     end;
-  fPortfolioList.Add(tPortfolio.Create(AName));
-  if Assigned(fAddPortfolio)
-  then fAddPortfolio(Self,AName);
-end;
-
 {--private--}
-function tPortfolio_Data.find_stock(const Name : string; stockList : IStockList): IStock;
+function tPortfolio_Data.find_stock(const Name : string; stockList : TStockList): IStock;
 var tekStock : IStock;
 begin
   Result := nil;
@@ -179,19 +216,44 @@ begin
 end;
 
 procedure tPortfolio_Data.Refresh_Outside_StockList;
-var TekStock : IStock;
+var currStock          : IStock;
+    portfolioNameIndex : integer;
 begin
-  fOutside_StockList.Clear;
-  for TekStock in StocksData.StockList do
-    if TekStock.portfolio_name='' then fOutside_StockList.Add(TekStock);
+  if fIndex<0 then exit;
+  fOutStockList.Clear;
+  for currStock in StocksData.StockList do
+   begin
+     portfolioNameIndex:=currStock.portfolios.IndexOf(fPortfolioList[findex].PortfolioName);
+     if portfolioNameIndex<0
+     then fOutStockList.Add(currStock);
+   end;
 end;
 
 function tPortfolio_Data.GetPortfolioNames: TStringList;
-var tekPortfolio : tPortfolio;
 begin
   Result:=TStringList.Create;
-  for tekPortfolio in fPortfolioList do
-    Result.Add(tekPortfolio.PortfolioName);
+  Result.Assign(fPortfolioList.PortfolioNames);
+end;
+
+{--Observer--}
+procedure tPortfolio_Data.registerObserver(O: IPortfolioObserver);
+begin
+  FObserverList.Add(O);
+end;
+
+procedure tPortfolio_Data.removeObserver(O: IPortfolioObserver);
+var OIndex : integer;
+begin
+  OIndex:=FObserverList.IndexOf(O);
+  If OIndex>=0
+  then FObserverList.Delete(OIndex);
+end;
+
+procedure tPortfolio_Data.notifyObservers;
+var TekO : IPortfolioObserver;
+begin
+  for TekO in FObserverList do
+    TekO.UpdatePortfolioStats(fPortfolioList);
 end;
 
 end.

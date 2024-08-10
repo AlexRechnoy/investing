@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="TCS Group" country="Россия" industry="Финансы" portfolio=""/>
+  <stock_operation id="-1" date="09.12.2021" count="1" price="6405.00" operation_buy="1"/>
+  <stock_operation id="-1" date="13.01.2022" count="1" price="5832.00" operation_buy="1"/>
+  <stock_operation id="-1" date="14.01.2022" count="1" price="5544.00" operation_buy="1"/>
+  <stock_operation id="-1" date="17.01.2022" count="1" price="5230.00" operation_buy="1"/>
+  <stock_operation id="-1" date="19.01.2022" count="1" price="4800.00" operation_buy="1"/>
+  <stock_operation id="-1" date="22.02.2022" count="1" price="4220.00" operation_buy="1"/>
+  <stock_operation id="-1" date="04.04.2022" count="1" price="3630.00" operation_buy="1"/>
+  <stock_operation id="-1" date="27.04.2022" count="1" price="2190.00" operation_buy="1"/>
+  <stock_operation id="-1" date="03.06.2022" count="1" price="2117.00" operation_buy="1"/>
+  <stock_operation id="-1" date="07.06.2022" count="1" price="1850.00" operation_buy="1"/>
+  <stock_operation id="-1" date="22.06.2022" count="1" price="1637.00" operation_buy="1"/>
+  <stock_operation id="-1" date="28.06.2022" count="1" price="1812.00" operation_buy="1"/>
+  <stock_operation id="-1" date="08.07.2022" count="1" price="1976.00" operation_buy="1"/>
+  <stock_operation id="-1" date="08.09.2022" count="1" price="2770.00" operation_buy="0"/>
+  <stock_operation id="-1" date="08.09.2022" count="1" price="2855.00" operation_buy="0"/>
+  <stock_operation id="-1" date="19.09.2022" count="1" price="3150.00" operation_buy="0"/>
+  <stock_operation id="-1" date="20.02.2023" count="1" price="2447.00" operation_buy="1"/>
+  <stock_operation id="-1" date="16.05.2023" count="1" price="2800.00" operation_buy="0"/>
+  <stock_operation id="-1" date="18.05.2023" count="1" price="3010.00" operation_buy="0"/>
+  <stock_operation id="-1" date="14.06.2023" count="1" price="3500.00" operation_buy="0"/>
+  <stock_operation id="-1" date="23.06.2023" count="1" price="3287.00" operation_buy="1"/>
+</Main>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Intel" country="USA" industry="IT" portfolio=""/>
+  <other name="Intel" country="USA" industry="IT/Полупроводники" iscurrency="0" current_price="20">
+    <portfolios>
+      <portfolio>Dow Jones</portfolio>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
   <stock_operation id="-1" date="02.11.2020" count="1" price="44.83" operation_buy="1"/>
   <stock_operation id="-1" date="05.11.2020" count="1" price="46.30" operation_buy="1"/>
   <stock_operation id="-1" date="27.11.2020" count="1" price="47.25" operation_buy="1"/>
@@ -21,4 +26,8 @@
   <stock_operation id="-1" date="03.04.2023" count="1" price="33.21" operation_buy="0"/>
   <stock_operation id="-1" date="25.05.2023" count="1" price="27.00" operation_buy="1"/>
   <stock_operation id="-1" date="13.06.2023" count="1" price="33.74" operation_buy="0"/>
+  <stock_operation id="0" date="27.07.2023" count="1" price="35.00" operation_buy="0"/>
+  <stock_operation id="1" date="15.09.2023" count="1" price="38.00" operation_buy="0"/>
+  <stock_operation id="2" date="20.09.2023" count="1" price="34.67" operation_buy="1"/>
+  <stock_operation id="3" date="30.10.2023" count="1" price="35.88" operation_buy="0"/>
 </Main>

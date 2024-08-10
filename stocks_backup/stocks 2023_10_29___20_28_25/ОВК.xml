@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="ОВК" country="Россия" industry="Услуги">
+    <portfolios>
+      <portfolio>Рискованный</portfolio>
+      <portfolio>Россия</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="18.09.2023" count="1" price="142.00" operation_buy="1"/>
+  <stock_operation id="1" date="18.09.2023" count="1" price="146.30" operation_buy="1"/>
+  <stock_operation id="2" date="18.09.2023" count="1" price="146.00" operation_buy="1"/>
+  <stock_operation id="3" date="18.09.2023" count="1" price="129.00" operation_buy="1"/>
+  <stock_operation id="4" date="19.09.2023" count="1" price="134.00" operation_buy="1"/>
+  <stock_operation id="5" date="19.09.2023" count="1" price="130.00" operation_buy="1"/>
+  <stock_operation id="6" date="20.09.2023" count="1" price="124.00" operation_buy="1"/>
+  <stock_operation id="7" date="20.09.2023" count="1" price="124.20" operation_buy="1"/>
+  <stock_operation id="8" date="20.09.2023" count="1" price="120.00" operation_buy="1"/>
+  <stock_operation id="9" date="21.09.2023" count="1" price="115.00" operation_buy="1"/>
+  <stock_operation id="10" date="21.09.2023" count="1" price="110.00" operation_buy="1"/>
+  <stock_operation id="11" date="22.09.2023" count="1" price="108.00" operation_buy="1"/>
+  <stock_operation id="12" date="22.09.2023" count="1" price="107.00" operation_buy="1"/>
+  <stock_operation id="13" date="22.09.2023" count="2" price="240.00" operation_buy="0"/>
+  <stock_operation id="14" date="26.09.2023" count="1" price="113.50" operation_buy="1"/>
+  <stock_operation id="15" date="27.09.2023" count="1" price="112.90" operation_buy="1"/>
+  <stock_operation id="16" date="28.09.2023" count="3" price="375.00" operation_buy="0"/>
+  <stock_operation id="17" date="28.09.2023" count="1" price="120.30" operation_buy="0"/>
+  <stock_operation id="18" date="29.09.2023" count="1" price="120.00" operation_buy="1"/>
+  <stock_operation id="19" date="02.10.2023" count="1" price="118.00" operation_buy="1"/>
+  <stock_operation id="20" date="03.10.2023" count="1" price="117.00" operation_buy="1"/>
+  <stock_operation id="21" date="06.10.2023" count="1" price="114.00" operation_buy="1"/>
+  <stock_operation id="22" date="09.10.2023" count="1" price="108.50" operation_buy="1"/>
+  <stock_operation id="23" date="13.10.2023" count="1" price="105.80" operation_buy="1"/>
+  <stock_operation id="24" date="23.10.2023" count="1" price="81.40" operation_buy="1"/>
+  <stock_operation id="25" date="25.10.2023" count="1" price="83.70" operation_buy="1"/>
+  <stock_operation id="26" date="26.10.2023" count="1" price="87.00" operation_buy="1"/>
+  <stock_operation id="27" date="27.10.2023" count="1" price="83.00" operation_buy="1"/>
+</Main>

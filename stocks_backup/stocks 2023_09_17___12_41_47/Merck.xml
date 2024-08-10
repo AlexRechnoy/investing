@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Merck" country="USA" industry="Фармацевтика" portfolio=""/>
+  <stock_operation id="0" date="09.06.2021" count="1" price="74.12" operation_buy="1"/>
+  <stock_operation id="1" date="16.06.2021" count="1" price="76.78" operation_buy="0"/>
+  <stock_operation id="2" date="31.07.2023" count="1" price="106.54" operation_buy="1"/>
+  <stock_operation id="3" date="22.08.2023" count="1" price="108.00" operation_buy="0"/>
+</Main>

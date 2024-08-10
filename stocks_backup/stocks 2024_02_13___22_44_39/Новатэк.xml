@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Новатэк" country="Россия" industry="Нефть/газ" iscurrency="0" current_price="1608">
+    <portfolios>
+      <portfolio>Россия</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="05.11.2020" count="1" price="1055.00" operation_buy="1"/>
+  <stock_operation id="-1" date="27.11.2020" count="1" price="1251.00" operation_buy="0"/>
+  <stock_operation id="-1" date="07.04.2021" count="2" price="2898.00" operation_buy="1"/>
+  <stock_operation id="-1" date="08.04.2021" count="1" price="1471.00" operation_buy="1"/>
+  <stock_operation id="-1" date="09.04.2021" count="1" price="1432.00" operation_buy="1"/>
+  <stock_operation id="-1" date="14.04.2021" count="1" price="1461.00" operation_buy="0"/>
+  <stock_operation id="-1" date="20.04.2021" count="1" price="1423.00" operation_buy="1"/>
+  <stock_operation id="-1" date="22.04.2021" count="1" price="1420.00" operation_buy="1"/>
+  <stock_operation id="-1" date="26.04.2021" count="1" price="1413.00" operation_buy="1"/>
+  <stock_operation id="-1" date="30.04.2021" count="1" price="1361.00" operation_buy="1"/>
+  <stock_operation id="-1" date="04.05.2021" count="1" price="1377.00" operation_buy="1"/>
+  <stock_operation id="-1" date="17.05.2021" count="5" price="6955.00" operation_buy="0"/>
+  <stock_operation id="-1" date="18.05.2021" count="2" price="2832.00" operation_buy="0"/>
+  <stock_operation id="-1" date="24.05.2021" count="1" price="1399.00" operation_buy="0"/>
+  <stock_operation id="-1" date="26.07.2021" count="1" price="1555.00" operation_buy="1"/>
+  <stock_operation id="-1" date="29.07.2021" count="1" price="1629.00" operation_buy="1"/>
+  <stock_operation id="-1" date="10.08.2021" count="2" price="3410.00" operation_buy="0"/>
+  <stock_operation id="-1" date="10.08.2021" count="2" price="3408.00" operation_buy="1"/>
+  <stock_operation id="-1" date="19.08.2021" count="1" price="1763.00" operation_buy="0"/>
+  <stock_operation id="-1" date="26.08.2021" count="1" price="1682.00" operation_buy="1"/>
+  <stock_operation id="-1" date="03.09.2021" count="1" price="1821.00" operation_buy="0"/>
+  <stock_operation id="-1" date="14.09.2021" count="1" price="2000.00" operation_buy="0"/>
+  <stock_operation id="-1" date="23.11.2021" count="1" price="1624.00" operation_buy="1"/>
+  <stock_operation id="-1" date="25.11.2021" count="1" price="1680.00" operation_buy="1"/>
+  <stock_operation id="-1" date="18.01.2022" count="1" price="1552.00" operation_buy="1"/>
+  <stock_operation id="-1" date="07.02.2022" count="3" price="4905.00" operation_buy="0"/>
+  <stock_operation id="-1" date="04.05.2022" count="1" price="1036.00" operation_buy="1"/>
+  <stock_operation id="-1" date="26.05.2022" count="1" price="957.00" operation_buy="1"/>
+  <stock_operation id="-1" date="06.06.2022" count="1" price="783.00" operation_buy="1"/>
+  <stock_operation id="-1" date="01.07.2022" count="3" price="3120.00" operation_buy="0"/>
+  <stock_operation id="-1" date="15.08.2022" count="1" price="1045.00" operation_buy="1"/>
+  <stock_operation id="-1" date="19.08.2022" count="1" price="1091.00" operation_buy="0"/>
+  <stock_operation id="-1" date="31.08.2022" count="1" price="1140.00" operation_buy="1"/>
+  <stock_operation id="-1" date="20.09.2022" count="1" price="1074.00" operation_buy="1"/>
+  <stock_operation id="-1" date="06.01.2023" count="1" price="1049.00" operation_buy="1"/>
+  <stock_operation id="-1" date="11.01.2023" count="1" price="1042.00" operation_buy="1"/>
+  <stock_operation id="-1" date="16.02.2023" count="1" price="1032.00" operation_buy="1"/>
+  <stock_operation id="-1" date="17.03.2023" count="1" price="1075.00" operation_buy="1"/>
+  <stock_operation id="-1" date="20.03.2023" count="5" price="5598.00" operation_buy="0"/>
+  <stock_operation id="-1" date="22.03.2023" count="1" price="1123.00" operation_buy="1"/>
+  <stock_operation id="-1" date="27.03.2023" count="1" price="1159.00" operation_buy="1"/>
+  <stock_operation id="-1" date="27.03.2023" count="1" price="1169.00" operation_buy="1"/>
+  <stock_operation id="-1" date="18.05.2023" count="1" price="1290.00" operation_buy="1"/>
+  <stock_operation id="-1" date="30.05.2023" count="1" price="1297.00" operation_buy="1"/>
+  <stock_operation id="0" date="26.06.2023" count="1" price="1322.00" operation_buy="1"/>
+  <stock_operation id="1" date="25.07.2023" count="1" price="1469.00" operation_buy="1"/>
+  <stock_operation id="2" date="28.07.2023" count="1" price="1495.00" operation_buy="1"/>
+  <stock_operation id="3" date="09.08.2023" count="1" price="1599.00" operation_buy="1"/>
+  <stock_operation id="4" date="15.08.2023" count="1" price="1636.00" operation_buy="1"/>
+  <stock_operation id="5" date="16.08.2023" count="3" price="4781.00" operation_buy="0"/>
+  <stock_operation id="6" date="16.08.2023" count="1" price="1590.00" operation_buy="1"/>
+  <stock_operation id="7" date="17.08.2023" count="1" price="1600.00" operation_buy="1"/>
+  <stock_operation id="8" date="27.10.2023" count="1" price="1684.00" operation_buy="1"/>
+  <stock_operation id="9" date="10.11.2023" count="1" price="1616.00" operation_buy="1"/>
+  <stock_operation id="10" date="20.11.2023" count="1" price="1543.00" operation_buy="1"/>
+  <stock_operation id="11" date="15.01.2024" count="1" price="1498.00" operation_buy="1"/>
+  <stock_operation id="12" date="29.01.2024" count="1" price="1428.00" operation_buy="1"/>
+</Main>

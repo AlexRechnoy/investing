@@ -5,58 +5,93 @@ unit Stocks_Data;
 interface
 
 uses
-  Classes, SysUtils, Stock, Stock_Operation, stock_Observer;
+  Classes, SysUtils, Stock,  Stock_list, Stock_Operation, Stocks_stats,
+  Stock_group, stock_Observer,FileUtil, Stocks_XML_Write, Stocks_XML_Read,
+  Stock_filtered_list,  Dialogs;
 
 type
   tStockEvent = procedure (sender : TObject; stock : IStock) of object;
+  tIndustryEvent = procedure (sender : TObject; stock : tStockGroup) of object;
 
   { tStocks_Data }
   tStocks_Data = class(TInterfacedObject,ISubject)
    private
-    fOnAddStock   : tStockEvent; {Событие добавлена новая акция}
-    fOnEditStock  : tStockEvent; {Событие изменены параметры выбранной акции}
-    fOnSaved      : TNotifyEvent;{Событие при измении флага fIsSaved}
+    fOnSortFilteredStocks : TNotifyEvent; {Событие сортировка списка отфильтрованных акций}
+    fOnAddStock        : tStockEvent;  {Событие добавлена новая акция}
+    fOnEditStock       : tStockEvent;  {Событие изменены параметры выбранной акции}
+    fOnExchangeCountry : TNotifyEvent; {Событие изменение названия страны}
+    fOnExchangeIndustry: TNotifyEvent; {Событие изменение отрасли }
+    fOnSaved           : TNotifyEvent; {Событие при измении флага fIsSaved}
    private
-    fObserverList : TObserverList;
-    fIsSaved      : boolean;     {Данные сохранены}
-    fChosenStock  : IStock;      {Выбранная акция}
-    fStockList    : iStockList;  {Все акции}
-    fCountryStocks: IStockList;  {Список акций выбранной страны}
-    fIndustryList : TStringList; {Список отраслей}
-    fCountryList  : TStringList; {Список стран}
+    fObserverList         : TObserverList;
+    fXMLWrite             : tStocks_XML_Write;
+    fXMLRead              : tStocks_XML_Read;
+    fIsSaved              : boolean;      {Данные сохранены}
+    fChosenCountry        : string;       {Выбранная страна}
+    fChosenIndustry       : string;       {Выбранная отрасль}
+    fChosenPortfolio      : string;       {Выбранный портфель}
+    fChosenPortfolioStats : string;       {Выбранный портфель для отображения статистики}
+    fChosenStock          : IStock;       {Выбранная акция}
+    fStockList            : TStockList;   {Все акции}
+    fFilteredStocks       : TStockFilteredList;   {Список акций отфильтрованный (фильтр по стране/отрасле)}
+    fIndustryList         : TStringList;  {Список отраслей}
+    fStockStats           : tStockStats;  {Статистика по отраслям}
+    fCountryList          : TStringList;  {Список стран}
+    fUSDtoRUB             : double;       {Стоимость доллара (в рублях)}
     procedure DoOnSaved;
     procedure SetIsSaved(AVal : boolean);
+    procedure setUSDtoRUB(Aval : double);
+    procedure UpdateIndustryList; //Обновить список отраслей (перед сохранением)
    public
+    property OnSortFilteredStocks : TNotifyEvent read fOnSortFilteredStocks write fOnSortFilteredStocks;
     property OnSaved : TNotifyEvent read fOnSaved write fOnSaved;
     property OnAddStock : tStockEvent read fOnAddStock write fOnAddStock;
     property OnEditStock : tStockEvent read fOnEditStock write fOnEditStock;
+    property OnExchangeCountry : TNotifyEvent read fOnExchangeCountry write fOnExchangeCountry;
+    property OnExchangeIndustry: TNotifyEvent read fOnExchangeIndustry write fOnExchangeIndustry;
    public
     procedure registerObserver(O : IObserver);
     procedure removeObserver(O : IObserver);
     procedure notifyObservers();
-    procedure notifyStockListObservers();
+    procedure calcAndNotifyStatsObservers;
+    procedure notifyFilteredStocksObservers();
    public
     constructor Create;
-    function getStock(const StockName : string):IStock;
+    destructor destroy; override;
     procedure ReadFromXML;
     procedure CheckStockProps;
     procedure AddStock(Stock: IStock);
     procedure EditStock(Country,Name,Industry : string);
-    procedure WriteToXML(const StockDirName : string='');
-    procedure BackUP;
+    function WriteToSettingsXML(const StockDirName: string=''): boolean; //Сохранить выбранный портфель/страну/отрасль
+    function WriteToXML(const StockDirName : string='') : boolean;
+    function  BackUP (out backUpTime : double) : boolean ;
     procedure setCountry(const countryName : string);
+    procedure setIndustry(const industryName : string);
+    procedure SetPortfolio(const portfolioName : string);
+    procedure SetPortfolioStats(const portfolioName : string);//выбрать портфель для отображения статистики
     procedure setStock(const stockIndex : integer); //изменилась выбранная акция
-    procedure SetFirstStockFromCountry(countryName : string);
-    function getStockStrList(countryName : string) : TStringlist;
     procedure AddOperationToChosenStock(aDate:TDate;aOperationType:tOperationType;aCount:integer; aPrice:single);
+    procedure SaveCurrentStockPrice(AVal : double); //Сохранить актуальную стоимость акции
     procedure DeleteAllStockOperations;
     procedure DeleteLastStockOperation;
-
+    procedure SortFilteredList(ASortFunc : TSortStockListFunc);
+    //Отрасли
+    procedure AddIndustry(const AIndustry : string);
+    procedure ExchangeIndustry(const AOldIndustry, ANewIndustry : string);
+    //Страны
+    procedure AddCountry(const ACountry : string);
+    procedure ExchangeCountry(const AOldCountry, ANewCountry : string);
+    //
+    property USDtoRUB : double read fUSDtoRUB write setUSDtoRUB;
     property IsSaved : boolean read fIsSaved write SetIsSaved;
-    property StockList: IStockList read fStockList;
-    property IndustryList : TStringList read  fIndustryList write fIndustryList;
+    property StockList: TStockList read fStockList;
+    property IndustryList : TStringList read  fIndustryList {write fIndustryList};
+    property StockStats : tStockStats read fStockStats;
+    property FilteredStocks : TStockFilteredList read fFilteredStocks;
     property CountryList: TStringList read fCountryList write fCountryList;
     property ChosenStock : IStock read fChosenStock;
+    property ChosenCountry : string read fChosenCountry;
+    property ChosenIndustry : string read fChosenIndustry;
   end;
 
   function sort_by_name(const I1 ,I2 : IStock) : LongInt;
@@ -65,10 +100,6 @@ var
   StocksData: tStocks_Data;
 
 implementation
-
-uses FileUtil, XMLRead,XMLWrite,DOM, Dialogs;
-
-const prop_file_name =  RootStockDir+'__stockProps.xml';
 
 function sort_by_name(const I1 ,I2 : IStock) : LongInt;
 begin
@@ -80,17 +111,23 @@ end;
 { tStocks_Data }
 constructor tStocks_Data.Create;
 begin
-  fObserverList := TObserverList.Create;
-  fStockList    := IStockList.Create;
-  fCountryStocks:= IStockList.Create;
-  fIndustryList := TStringList.Create;
+  fObserverList       := TObserverList.Create;
+  //fIndustryObserverList:=TIndustryObserverList.Create;
+  fStockList          := TStockList.Create;
+  fFilteredStocks     := TStockFilteredList.Create;
+  fIndustryList       := TStringList.Create;
+  fStockStats         := tStockStats.Create;
+  fChosenPortfolioStats:='все';
+  fIndustryList.Add('Не определено');
   fIndustryList.Sorted:=true;
-  fCountryList  := TStringList.Create;
-  fChosenStock  :=nil;
+  fCountryList        := TStringList.Create;
+  fChosenStock        :=nil;
+  fUSDtoRUB           :=USDtoRUBdefault;
+  fXMLWrite           :=tStocks_XML_Write.Create;
   ReadFromXML;
   IsSaved:=true;
   fStockList.Sort(@sort_by_name);
-  fCountryStocks.AddList(fStockList);
+  fFilteredStocks.AddList(fStockList);
 end;
 
 procedure tStocks_Data.registerObserver(O: IObserver);
@@ -105,6 +142,19 @@ begin
   If OIndex>=0
   then FObserverList.Delete(OIndex);
 end;
+     {
+procedure tStocks_Data.registerIndustryObserver(O: IIndustryObserver);
+begin
+  fIndustryObserverList.Add(O);
+end;
+
+procedure tStocks_Data.removeIndustryObserver(O: IIndustryObserver);
+var OIndex : integer;
+begin
+  OIndex:=fIndustryObserverList.IndexOf(O);
+  If OIndex>=0
+  then fIndustryObserverList.Delete(OIndex);
+end; }
 
 procedure tStocks_Data.notifyObservers;
 var TekO : IObserver;
@@ -113,77 +163,71 @@ begin
     TekO.UpdateStock(fChosenStock);
 end;
 
-procedure tStocks_Data.notifyStockListObservers;
+procedure tStocks_Data.calcAndNotifyStatsObservers;
+begin
+  fStockStats.USDtoRUB:=fUSDtoRUB;
+  fStockStats.AddStockListToStats(StockList, fFilteredStocks,  fChosenPortfolioStats);
+  fStockStats.notifyStatsObservers();
+end;
+
+procedure tStocks_Data.notifyFilteredStocksObservers;
 var TekO : IObserver;
 begin
   for TekO in FObserverList do
-    TekO.UpdateStockList(fCountryStocks);
-end;
-
-procedure tStocks_Data.SetFirstStockFromCountry(countryName: string);
-var i : integer;
-begin
-  for i:=0 to StockList.Count-1 do
-    if (countryName='') or (AnsiLowerCase(countryName)=AnsiLowerCase(StockList[i].Country)) then
-     begin
-       FChosenStock:=StocksData.StockList[i];
-       break;
-     end;
-  notifyObservers;
+    TekO.UpdateFilteredStockList(fFilteredStocks);
 end;
 
 procedure tStocks_Data.setStock(const stockIndex: integer);
 begin
-  FChosenStock:=fCountryStocks[stockIndex];
+  if stockIndex>=0
+  then FChosenStock:=fFilteredStocks[stockIndex]
+  else FChosenStock:=nil;
   notifyObservers();
 end;
 
 procedure tStocks_Data.setCountry(const countryName: string);
-var i : integer;
 begin
-  fCountryStocks.Clear;
-  if (countryName='')
-  then fCountryStocks.AddList(fStockList)
-  else
-    begin
-      for i:=0 to StockList.Count-1 do
-        if (AnsiLowerCase(countryName)=AnsiLowerCase(StockList[i].Country))
-        then fCountryStocks.Add(StockList[i]);
-    end;
-  notifyStockListObservers();
+  fChosenPortfolio:='';
+  fChosenCountry:=countryName;
+  fFilteredStocks.UpdateFilteredStocks(fStockList, fChosenPortfolio, fChosenCountry, fChosenIndustry);
+  if fFilteredStocks.Count>0
+  then FChosenStock:=fFilteredStocks[0]
+  else FChosenStock:=nil;
+  notifyFilteredStocksObservers();
+  notifyObservers;
+  calcAndNotifyStatsObservers();
 end;
 
-
-function tStocks_Data.getStockStrList(countryName: string): TStringlist;
-var i : integer;
+procedure tStocks_Data.setIndustry(const industryName: string);
 begin
-  Result:=TStringList.Create;
-  for i:=0 to StockList.Count-1 do
-    if (countryName='') or (AnsiLowerCase(countryName)=AnsiLowerCase(StockList[i].Country))
-    then Result.Add(StockList[i].Name);
+  fChosenIndustry:=industryName;
+  fFilteredStocks.UpdateFilteredStocks(fStockList, fChosenPortfolio, fChosenCountry, fChosenIndustry);
+  if fFilteredStocks.Count>0
+  then FChosenStock:=fFilteredStocks[0]
+  else FChosenStock:=nil;
+  notifyFilteredStocksObservers();
+  notifyObservers;
+  calcAndNotifyStatsObservers();
 end;
 
-procedure tStocks_Data.AddOperationToChosenStock(aDate: TDate;
-  aOperationType: tOperationType; aCount: integer; aPrice: single);
+procedure tStocks_Data.SetPortfolio(const portfolioName: string);
 begin
-  if fChosenStock<>nil
-  then fChosenStock.AddOperation(aDate,aOperationType,aCount,aPrice);
-  notifyStockListObservers();
-  notifyObservers();
+  fChosenPortfolio:=portfolioName;
+  fChosenCountry  :='';
+  fChosenIndustry :='';
+
+  fFilteredStocks.UpdateFilteredStocks(fStockList, fChosenPortfolio, fChosenCountry, fChosenIndustry);
+  if fFilteredStocks.Count>0
+  then FChosenStock:=fFilteredStocks[0]
+  else FChosenStock:=nil;
+  notifyFilteredStocksObservers();
+  notifyObservers;
 end;
 
-procedure tStocks_Data.DeleteAllStockOperations;
+procedure tStocks_Data.SetPortfolioStats(const portfolioName: string);
 begin
-  fChosenStock.DeleteAllOperations;
-  notifyStockListObservers();
-  notifyObservers();
-end;
-
-procedure tStocks_Data.DeleteLastStockOperation;
-begin
-  fChosenStock.DeleteLastOperation;
-  notifyStockListObservers();
-  notifyObservers();
+  fChosenPortfolioStats:=portfolioName;
+  calcAndNotifyStatsObservers;
 end;
 
 procedure tStocks_Data.DoOnSaved;
@@ -198,6 +242,27 @@ begin
    begin
      fIsSaved:=Aval;
      DoOnSaved;
+   end;
+end;
+
+procedure tStocks_Data.setUSDtoRUB(Aval: double);
+begin
+  if fUSDtoRUB<>AVal then
+   begin
+     fUSDtoRUB:=AVal;
+     SetIsSaved(false);
+   end;
+end;
+
+procedure tStocks_Data.UpdateIndustryList;
+var currStock : IStock;
+begin
+  fIndustryList.Clear;
+  fIndustryList.Add('Не определено');
+  for currStock in fStockList do
+   begin
+     if fIndustryList.IndexOf(currStock.Industry)<0
+     then fIndustryList.Add(currStock.Industry);
    end;
 end;
 
@@ -233,72 +298,97 @@ begin
    end;
 end;
 
-function tStocks_Data.getStock(const StockName: string): IStock;
-var tekStock : IStock;
+{Основные действия}
+procedure tStocks_Data.AddOperationToChosenStock(aDate: TDate;
+  aOperationType: tOperationType; aCount: integer; aPrice: single);
 begin
-  Result:=nil;
-  for tekStock in StockList do
-   begin
-     if AnsiLowerCase(tekStock.Name)=AnsiLowerCase(StockName) then
-      begin
-        Result:=tekStock;
-        exit;
-      end;
-   end;
+  if fChosenStock<>nil
+  then fChosenStock.AddOperation(aDate,aOperationType,aCount,aPrice);
+  notifyFilteredStocksObservers();
+  notifyObservers();
+  calcAndNotifyStatsObservers();
 end;
 
-procedure tStocks_Data.ReadFromXML;
-var fileList: TStringList;
-    tekStock: IStock;
-    tekFileName: string;
-    procedure ReadStocks;
-    begin
-      fileList := FindAllFiles(RootStockDir, '*.xml', True);
-      for tekFileName in fileList do
-       begin
-         if pos('__stockProps.xml',tekFileName)>0
-         then continue;
-         tekStock := tStock.Create(tekFileName,'','');
-         tekStock.ReadFromXML(tekFileName);
-         fStockList.Add(tekStock);
-       end;
-    end;
-    procedure ReadProps;
-    var XMLDoc     : TXMLDocument;
-        RootNode   : TDOMNode;
-        domelement : TDOMElement;
-        procedure ReadProp(list : tstringlist; nodeName : string);
-        var tekChild   : TDOMNode;
-        begin
-          tekChild:=RootNode.FindNode(nodeName).FirstChild;
-          while tekChild<>nil do
-           begin
-             if tekChild.HasChildNodes
-             then list.Add(tekChild.FirstChild.TextContent);
-             tekChild:=tekChild.NextSibling;
-           end;
-        end;
-
-    begin
-      try
-        ReadXMLFile(XMLDoc,prop_file_name);
-        RootNode:=XMLDoc.DocumentElement;
-        ReadProp(fCountryList,'country');
-        ReadProp(fIndustryList,'industry');
-      except
-        XmlDoc  :=TXMLDocument.Create;
-        RootNode:=XMLDoc.CreateElement('Main');
-        domelement:=XMLDoc.CreateElement('country');
-        RootNode.AppendChild(domelement);
-        domelement:=XMLDoc.CreateElement('industry');
-        RootNode.AppendChild(domelement);
-        XMLDoc.AppendChild(RootNode);
-        WriteXMLFile(XMLDoc,prop_file_name);
-      end;
-    end;
+procedure tStocks_Data.SaveCurrentStockPrice(AVal: double);
 begin
-  ReadProps;
-  ReadStocks;
+  fChosenStock.CurrentPrice:=AVal;
+  SetIsSaved(false);
+
+//  portfol
+  notifyFilteredStocksObservers();
+  notifyObservers();
+  calcAndNotifyStatsObservers();
+end;
+
+procedure tStocks_Data.DeleteAllStockOperations;
+begin
+  fChosenStock.DeleteAllOperations;
+  notifyFilteredStocksObservers();
+  notifyObservers();
+  calcAndNotifyStatsObservers();
+end;
+
+procedure tStocks_Data.DeleteLastStockOperation;
+begin
+  fChosenStock.DeleteLastOperation;
+  notifyFilteredStocksObservers();
+  notifyObservers();
+  calcAndNotifyStatsObservers();
+end;
+
+procedure tStocks_Data.SortFilteredList(ASortFunc: TSortStockListFunc);
+begin
+  fFilteredStocks.SortList(ASortFunc);
+  notifyFilteredStocksObservers();
+  if Assigned(fOnSortFilteredStocks)
+  then  fOnSortFilteredStocks(self);
+end;
+
+procedure tStocks_Data.AddIndustry(const AIndustry: string);
+begin
+  FIndustryList.Add(AIndustry);
+  calcAndNotifyStatsObservers;
+end;
+
+procedure tStocks_Data.ExchangeIndustry(const AOldIndustry, ANewIndustry: string);
+var tekStock : IStock;
+begin
+  if self.IndustryList.IndexOf(ANewIndustry)<0
+  then self.IndustryList.Add(ANewIndustry);
+  for tekStock in self.StockList do
+    if tekStock.Industry=AOldIndustry then
+     begin
+       ShowMessage(Format('%s : замена отрасли с "%s" на "%s"',[tekStock.Name,AOldIndustry,ANewIndustry]));
+       tekStock.Industry:=ANewIndustry;
+       IsSaved:=false;
+     end;
+  notifyFilteredStocksObservers();
+  notifyObservers();
+  calcAndNotifyStatsObservers();
+  if Assigned(fOnExchangeIndustry)
+  then fOnExchangeIndustry(self);
+end;
+
+procedure tStocks_Data.AddCountry(const ACountry: string);
+begin
+  fCountryList.Add(ACountry);
+ // notifyIndustryObservers();
+end;
+
+procedure tStocks_Data.ExchangeCountry(const AOldCountry, ANewCountry: string);
+var tekStock : IStock;
+begin
+  for tekStock in self.StockList do
+    if tekStock.Country=AOldCountry then
+     begin
+       ShowMessage(Format('%s : замена страны с "%s" на "%s"',[tekStock.Name,AOldCountry,ANewCountry]));
+       tekStock.Country:=ANewCountry;
+       IsSaved:=false;
+     end;
+  notifyFilteredStocksObservers();
+  notifyObservers();
+  if Assigned(fOnExchangeCountry)
+  then fOnExchangeCountry(self);
 end;
 
 procedure tStocks_Data.AddStock(Stock: IStock); {Добавление акции}
@@ -319,79 +409,69 @@ begin
   if Assigned(fOnEditStock)
   then fOnEditStock(self,fChosenStock);
   notifyObservers();
-  notifyStockListObservers();
+  notifyFilteredStocksObservers();
+  calcAndNotifyStatsObservers();
 end;
 
-procedure tStocks_Data.WriteToXML(const StockDirName: string);
-var s : string;
-    procedure WriteStocks;
-    var tekStock : IStock;
-    begin
-      for tekStock in fStockList do
-        if StockDirName=''
-        then tekStock.WriteToXML
-        else tekStock.WriteToXML(StockDirName);
-    end;
-    procedure WriteProps;
-    var RootNode     : TDOMNode;
-        XMLDoc       : TXMLDocument;
-        procedure WriteProp(list : tstringlist; nodeName : string);
-        var propNode : tDOMNode;
-            tekelem  : TDOMElement;
-            tekName  : string;
-        begin
-          propNode:=RootNode.FindNode(nodeName);
-          while Assigned(propNode.FirstChild) do
-            propNode.FirstChild.Destroy;
-          for tekName in list do
-            if propNode<>nil then
-             begin
-               tekelem:=XMLDoc.CreateElement('item');
-               tekelem.AppendChild(XMLDOC.CreateTextNode(tekName));
-               propNode.AppendChild(tekelem);
-           end;
 
-        end;
 
-    begin
-      try
-        ReadXMLFile(XMLDoc,prop_file_name);
-        RootNode:=XMLDoc.DocumentElement;
-        WriteProp(fCountryList,'country');
-        WriteProp(fIndustryList,'industry');
-        WriteXMLFile(XMLDoc,prop_file_name);
-      except
-
-      end;
-    end;
+{XML }
+procedure tStocks_Data.ReadFromXML;
 begin
-  s:=ExtractFileDir(ParamStr(0));
+  fXMLRead.ReadFromXML(fStockList,fUSDtoRUB,fCountryList,fIndustryList,fChosenCountry,fChosenIndustry,fChosenPortfolio);
+end;
+
+function tStocks_Data.WriteToSettingsXML(const StockDirName: string): boolean;
+begin
+  fXMLWrite.WriteToSettingsXML(StockDirName,fChosenCountry,fChosenIndustry,fChosenPortfolio);
+end;
+
+function tStocks_Data.WriteToXML(const StockDirName: string) : boolean;
+begin
+  Result:=false;
   if (StockDirName<>'') then
    begin
      if (not DirectoryExists(StockDirName)) then
-       if not ForceDirectories(s+'/1/sfsds')
+       if not ForceDirectories(ExtractFileDir(ParamStr(0))+'/'+StockDirName)
        then exit;
    end;
-  WriteStocks;
-  WriteProps;
+  UpdateIndustryList;
+
+  if not fXMLWrite.WriteToXML(StockDirName,fStockList,fCountryList,fIndustryList,fUSDtoRUB)
+  then exit;
+  Result:=true;
   IsSaved:=true;
 end;
 
-procedure tStocks_Data.BackUP;
+{BackUP}
+function tStocks_Data.BackUP(out backUpTime: double): boolean;
 var myFormatSettings : TFormatSettings;
-//RootStockDir = 'stocks/';
-var stockDir : string;
-    stock_date_str : string;
+var stockDir   : string;
+    date_str   : string;
+    time_str   : string;
+    startTime  : QWord;
 begin
+  Result:=false;
+  startTime:=GetTickCount64;
   myFormatSettings:=DefaultFormatSettings;
-  //myFormatSettings.DateSeparator:='_';
-  //myFormatSettings.DecimalSeparator:='_';
   myFormatSettings.ShortDateFormat:='yyyy_MM_dd';
   myFormatSettings.LongTimeFormat:='hh_nn_ss';
-  //myFormatSettings.TimeSeparator:='_';
-  stock_date_str:=Format('%s',[DateTimeToStr(Now,myFormatSettings)]);
-  stockDir:=Format('stocks_backup/stocks___%s/',[DateTimeToStr(Now,myFormatSettings)]);
-  WriteToXML(stockDir);
+  date_str:=DateToStr(Now,myFormatSettings);
+  time_str:=TimeToStr(Now,myFormatSettings);
+  stockDir:=Format('stocks_backup/stocks %s___%s/',[date_str,time_str]);
+  if WriteToXML(stockDir) then
+   begin
+     backUpTime:=(GetTickCount64-startTime)/1000;
+     Result:=true;
+   end;
+end;
+
+destructor tStocks_Data.destroy;
+begin
+  fIndustryList.Free;
+  fCountryList.Free;
+  fStockStats.Free;
+  inherited destroy;
 end;
 
 initialization

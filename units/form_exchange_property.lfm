@@ -1,0 +1,33 @@
+object Form5: TForm5
+  Left = 564
+  Height = 59
+  Top = 72
+  Width = 488
+  Caption = 'Замена свойства'
+  ClientHeight = 59
+  ClientWidth = 488
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '2.2.0.4'
+  object ComboBox1: TComboBox
+    Left = 0
+    Height = 23
+    Top = 0
+    Width = 488
+    Align = alTop
+    ItemHeight = 15
+    ReadOnly = True
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 0
+    Height = 36
+    Top = 23
+    Width = 488
+    Align = alClient
+    Caption = 'Сохранить'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+end

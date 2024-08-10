@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="American Express" country="USA" industry="Услуги" portfolio=""/>
+  <stock_operation id="-1" date="27.08.2021" count="1" price="166.17" operation_buy="1"/>
+  <stock_operation id="-1" date="28.09.2021" count="1" price="174.00" operation_buy="0"/>
+  <stock_operation id="-1" date="13.10.2021" count="1" price="167.87" operation_buy="1"/>
+  <stock_operation id="-1" date="15.10.2021" count="1" price="176.07" operation_buy="0"/>
+  <stock_operation id="-1" date="08.11.2021" count="1" price="181.38" operation_buy="1"/>
+  <stock_operation id="-1" date="07.02.2022" count="1" price="186.31" operation_buy="0"/>
+  <stock_operation id="-1" date="26.05.2022" count="1" price="166.23" operation_buy="1"/>
+  <stock_operation id="-1" date="07.02.2023" count="1" price="176.26" operation_buy="0"/>
+  <stock_operation id="-1" date="03.04.2023" count="1" price="164.85" operation_buy="1"/>
+  <stock_operation id="-1" date="09.05.2023" count="1" price="153.46" operation_buy="1"/>
+  <stock_operation id="-1" date="02.06.2023" count="1" price="169.00" operation_buy="0"/>
+</Main>

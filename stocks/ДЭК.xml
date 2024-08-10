@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="ДЭК" country="Россия" industry="Энергетика" iscurrency="0" current_price="0">
+    <portfolios>
+      <portfolio>Россия</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="29.10.2021" count="1000" price="1760.00" operation_buy="1"/>
+  <stock_operation id="1" date="07.12.2021" count="1000" price="1329.00" operation_buy="1"/>
+  <stock_operation id="2" date="25.02.2022" count="1000" price="736.00" operation_buy="1"/>
+  <stock_operation id="3" date="06.04.2022" count="3000" price="4200.00" operation_buy="0"/>
+</Main>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Лукойл" country="Россия" industry="Нефть/газ" portfolio=""/>
+  <stock_operation id="-1" date="06.11.2020" count="1" price="4341.00" operation_buy="1"/>
+  <stock_operation id="-1" date="25.11.2020" count="1" price="5335.00" operation_buy="1"/>
+  <stock_operation id="-1" date="24.03.2021" count="1" price="6200.00" operation_buy="0"/>
+  <stock_operation id="-1" date="29.04.2021" count="1" price="5918.00" operation_buy="0"/>
+  <stock_operation id="-1" date="08.07.2021" count="1" price="6674.00" operation_buy="1"/>
+  <stock_operation id="-1" date="10.08.2021" count="1" price="6374.00" operation_buy="1"/>
+  <stock_operation id="-1" date="10.08.2021" count="1" price="6384.00" operation_buy="0"/>
+  <stock_operation id="-1" date="01.09.2021" count="1" price="6332.00" operation_buy="0"/>
+  <stock_operation id="-1" date="20.12.2021" count="1" price="6327.00" operation_buy="1"/>
+  <stock_operation id="-1" date="14.02.2022" count="1" price="6610.00" operation_buy="0"/>
+  <stock_operation id="-1" date="28.04.2022" count="1" price="4663.00" operation_buy="1"/>
+  <stock_operation id="-1" date="04.05.2022" count="1" price="4720.00" operation_buy="0"/>
+  <stock_operation id="-1" date="08.12.2022" count="1" price="4588.00" operation_buy="1"/>
+  <stock_operation id="-1" date="22.12.2022" count="1" price="4046.00" operation_buy="1"/>
+  <stock_operation id="-1" date="24.02.2023" count="1" price="3915.00" operation_buy="1"/>
+  <stock_operation id="-1" date="03.05.2023" count="2" price="9000.00" operation_buy="0"/>
+  <stock_operation id="-1" date="05.06.2023" count="1" price="5391.00" operation_buy="1"/>
+  <stock_operation id="-1" date="07.06.2023" count="1" price="5106.00" operation_buy="1"/>
+  <stock_operation id="-1" date="19.06.2023" count="1" price="5222.00" operation_buy="1"/>
+  <stock_operation id="0" date="20.07.2023" count="2" price="10800.00" operation_buy="0"/>
+  <stock_operation id="1" date="03.08.2023" count="1" price="6130.00" operation_buy="1"/>
+  <stock_operation id="2" date="14.08.2023" count="1" price="6200.00" operation_buy="0"/>
+  <stock_operation id="3" date="15.08.2023" count="1" price="6100.00" operation_buy="1"/>
+</Main>

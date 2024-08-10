@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Walt disney" country="USA" industry="Услуги">
+    <portfolios>
+      <portfolio>Dow Jones</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="29.11.2021" count="1" price="145.44" operation_buy="1"/>
+  <stock_operation id="-1" date="29.04.2022" count="1" price="113.40" operation_buy="1"/>
+  <stock_operation id="-1" date="06.01.2023" count="1" price="92.33" operation_buy="1"/>
+  <stock_operation id="-1" date="26.05.2023" count="1" price="88.86" operation_buy="1"/>
+</Main>

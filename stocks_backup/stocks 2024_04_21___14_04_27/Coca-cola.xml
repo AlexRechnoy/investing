@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Coca-cola" country="USA" industry="Потребительские товары" iscurrency="0" current_price="57">
+    <portfolios>
+      <portfolio>Dow Jones</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="28.09.2021" count="1" price="53.61" operation_buy="1"/>
+  <stock_operation id="1" date="11.10.2021" count="1" price="54.00" operation_buy="0"/>
+  <stock_operation id="2" date="26.10.2021" count="1" price="54.37" operation_buy="1"/>
+  <stock_operation id="3" date="10.03.2022" count="1" price="58.00" operation_buy="0"/>
+  <stock_operation id="4" date="12.01.2023" count="1" price="62.09" operation_buy="1"/>
+  <stock_operation id="5" date="02.10.2023" count="1" price="55.49" operation_buy="1"/>
+</Main>

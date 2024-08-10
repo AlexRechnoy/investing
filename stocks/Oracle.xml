@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Oracle" country="USA" industry="IT" portfolio=""/>
+  <other name="Oracle" country="USA" industry="IT" iscurrency="0" current_price="128">
+    <portfolios>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
   <stock_operation id="-1" date="22.06.2021" count="1" price="78.84" operation_buy="1"/>
   <stock_operation id="-1" date="08.07.2021" count="1" price="84.79" operation_buy="0"/>
   <stock_operation id="-1" date="26.07.2021" count="1" price="87.92" operation_buy="1"/>
@@ -11,4 +15,7 @@
   <stock_operation id="-1" date="05.01.2022" count="1" price="87.00" operation_buy="1"/>
   <stock_operation id="-1" date="09.01.2023" count="1" price="86.00" operation_buy="0"/>
   <stock_operation id="-1" date="02.02.2023" count="1" price="90.00" operation_buy="0"/>
+  <stock_operation id="0" date="05.08.2023" count="1" price="114.36" operation_buy="1"/>
+  <stock_operation id="1" date="11.09.2023" count="1" price="123.00" operation_buy="0"/>
+  <stock_operation id="2" date="12.09.2023" count="1" price="114.80" operation_buy="1"/>
 </Main>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Exxon mobil corporation" country="USA" industry="Энергетика" portfolio=""/>
+  <stock_operation id="-1" date="21.06.2022" count="1" price="90.45" operation_buy="1"/>
+  <stock_operation id="-1" date="29.06.2022" count="1" price="90.43" operation_buy="1"/>
+  <stock_operation id="-1" date="29.06.2022" count="1" price="91.00" operation_buy="0"/>
+  <stock_operation id="-1" date="03.08.2022" count="1" price="92.51" operation_buy="1"/>
+  <stock_operation id="-1" date="03.08.2022" count="1" price="93.00" operation_buy="0"/>
+  <stock_operation id="-1" date="11.08.2022" count="1" price="93.08" operation_buy="0"/>
+  <stock_operation id="-1" date="24.08.2022" count="1" price="98.88" operation_buy="1"/>
+  <stock_operation id="-1" date="02.05.2023" count="1" price="110.00" operation_buy="0"/>
+  <stock_operation id="-1" date="05.05.2023" count="1" price="107.70" operation_buy="1"/>
+</Main>

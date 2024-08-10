@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Johnson &amp; Johnson" country="USA" industry="Услуги" portfolio=""/>
+  <stock_operation id="-1" date="28.09.2021" count="1" price="162.56" operation_buy="1"/>
+  <stock_operation id="-1" date="16.11.2021" count="1" price="163.30" operation_buy="0"/>
+  <stock_operation id="-1" date="19.01.2023" count="1" price="170.97" operation_buy="1"/>
+</Main>

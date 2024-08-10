@@ -15,8 +15,8 @@ type
    private
      fOperationStrList : TStringList;
      fStockCount       : integer;     {Кол-во акций}
-     fSum              : double;      {Общая стоимость акций, которые в данный момент "на руках"}
-     fBalance          : double;
+     fSum              : double;      {Общая стоимость акций, которые в данный момент "на руках".Например купили 2 по 15, сумма = 30; продали 1 за 20, сумма = 10 (но непонятно какая текщая цена...)}
+     fBalance          : double;      {Баланс. При покупке акций уходит в минус. Например купили 2 по 15, баланс = -30; продали 1 за 20, баланс = -10}
      procedure processOperationBuy(stockOperation : IStockOperation);
      function processOperationSell(stockOperation : IStockOperation): boolean;
      procedure ClearOperationListData;
@@ -98,21 +98,23 @@ begin
      then
       begin
         processOperationBuy(TekStockOperation);
-        TempList.Add(Format('%d)  Дата : %s. Куплено %d за %4.2f. Среднее = %4.2f',[index,
-                                                                                    DateToStr(TekStockOperation.Date),
-                                                                                    TekStockOperation.Count,
-                                                                                    TekStockOperation.Price,
-                                                                                    TekStockOperation.Price/TekStockOperation.Count])
+        TempList.Add(Format('%d)  Дата : %s. Куплено %d за %4.2f. Среднее = %4.2f. ID = %d',[index,
+                                                                                             DateToStr(TekStockOperation.Date),
+                                                                                             TekStockOperation.Count,
+                                                                                             TekStockOperation.Price,
+                                                                                             TekStockOperation.Price/TekStockOperation.Count,
+                                                                                             TekStockOperation.ID])
                     )
       end
      else
       begin
         if processOperationSell(TekStockOperation)
-        then TempList.Add(Format('%d)  Дата : %s. Продано %d за %4.2f. Среднее = %4.2f',[index,
-                                                                                         DateToStr(TekStockOperation.Date),
-                                                                                         TekStockOperation.Count,
-                                                                                         TekStockOperation.Price,
-                                                                                         TekStockOperation.Price/TekStockOperation.Count]))
+        then TempList.Add(Format('%d)  Дата : %s. Продано %d за %4.2f. Среднее = %4.2f. ID = %d',[index,
+                                                                                                  DateToStr(TekStockOperation.Date),
+                                                                                                  TekStockOperation.Count,
+                                                                                                  TekStockOperation.Price,
+                                                                                                  TekStockOperation.Price/TekStockOperation.Count,
+                                                                                                  TekStockOperation.ID]))
         else
           begin
             TempList.Add(Format('!!!Некорректная продажа!!! Дата : %s. Продано %d за %4.2f',[DateToStr(TekStockOperation.Date),TekStockOperation.Count,TekStockOperation.Price]));
@@ -122,6 +124,7 @@ begin
       end;
       inc(index);
    end;
+
 
   fOperationStrList.Add(Format('Всего : %d за %4.2f',[fStockCount,fSum]));
   //fOperationStrList.AddStrings(TempList);

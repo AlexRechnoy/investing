@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Seagate" country="USA" industry="IT" portfolio=""/>
+  <stock_operation id="0" date="21.01.2022" count="10" price="100.30" operation_buy="1"/>
+  <stock_operation id="1" date="27.01.2022" count="10" price="110.00" operation_buy="0"/>
+  <stock_operation id="2" date="26.05.2023" count="1" price="61.61" operation_buy="1"/>
+  <stock_operation id="3" date="05.09.2023" count="1" price="70.00" operation_buy="0"/>
+</Main>

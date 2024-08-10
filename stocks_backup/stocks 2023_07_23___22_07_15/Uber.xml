@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Uber" country="USA" industry="Услуги" portfolio=""/>
+  <stock_operation id="-1" date="02.09.2021" count="1" price="41.78" operation_buy="1"/>
+  <stock_operation id="-1" date="14.09.2021" count="1" price="39.56" operation_buy="1"/>
+  <stock_operation id="-1" date="22.09.2021" count="2" price="88.03" operation_buy="0"/>
+  <stock_operation id="-1" date="27.09.2021" count="1" price="47.08" operation_buy="1"/>
+  <stock_operation id="-1" date="11.10.2021" count="1" price="47.00" operation_buy="1"/>
+  <stock_operation id="-1" date="14.10.2021" count="2" price="95.10" operation_buy="0"/>
+  <stock_operation id="-1" date="30.11.2021" count="1" price="37.94" operation_buy="1"/>
+  <stock_operation id="-1" date="14.01.2022" count="1" price="42.00" operation_buy="0"/>
+  <stock_operation id="-1" date="18.01.2022" count="1" price="39.06" operation_buy="1"/>
+  <stock_operation id="-1" date="10.02.2022" count="1" price="41.15" operation_buy="0"/>
+  <stock_operation id="-1" date="11.02.2022" count="1" price="37.02" operation_buy="1"/>
+  <stock_operation id="-1" date="04.05.2022" count="1" price="28.10" operation_buy="1"/>
+  <stock_operation id="-1" date="07.06.2022" count="2" price="50.02" operation_buy="0"/>
+</Main>

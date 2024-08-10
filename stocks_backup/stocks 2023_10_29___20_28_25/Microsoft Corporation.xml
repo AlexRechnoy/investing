@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Microsoft Corporation" country="USA" industry="IT">
+    <portfolios>
+      <portfolio>Dow Jones</portfolio>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="-1" date="27.11.2020" count="1" price="214.50" operation_buy="1"/>
+  <stock_operation id="-1" date="15.01.2021" count="1" price="213.46" operation_buy="0"/>
+  <stock_operation id="-1" date="09.09.2021" count="1" price="299.57" operation_buy="1"/>
+  <stock_operation id="-1" date="20.10.2021" count="1" price="305.00" operation_buy="0"/>
+  <stock_operation id="-1" date="26.10.2021" count="1" price="310.72" operation_buy="1"/>
+  <stock_operation id="-1" date="16.11.2021" count="1" price="338.00" operation_buy="0"/>
+  <stock_operation id="-1" date="08.12.2021" count="1" price="333.77" operation_buy="1"/>
+  <stock_operation id="0" date="20.07.2023" count="1" price="350.00" operation_buy="0"/>
+  <stock_operation id="1" date="20.07.2023" count="1" price="347.00" operation_buy="1"/>
+  <stock_operation id="2" date="24.10.2023" count="1" price="342.90" operation_buy="0"/>
+</Main>

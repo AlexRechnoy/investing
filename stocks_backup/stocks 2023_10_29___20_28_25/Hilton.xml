@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Hilton" country="USA" industry="Услуги">
+    <portfolios/>
+  </other>
+  <stock_operation id="0" date="24.01.2022" count="1" price="137.61" operation_buy="1"/>
+  <stock_operation id="1" date="10.02.2022" count="1" price="151.19" operation_buy="0"/>
+  <stock_operation id="2" date="12.09.2022" count="1" price="136.07" operation_buy="1"/>
+  <stock_operation id="3" date="14.07.2023" count="1" price="148.00" operation_buy="0"/>
+</Main>

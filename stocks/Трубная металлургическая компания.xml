@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Трубная металлургическая компания" country="Россия" industry="Металлургия" iscurrency="0" current_price="168">
+    <portfolios>
+      <portfolio>Россия</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="20.12.2023" count="10" price="2000.00" operation_buy="1"/>
+  <stock_operation id="1" date="20.12.2023" count="10" price="2233.00" operation_buy="0"/>
+  <stock_operation id="2" date="11.07.2024" count="10" price="1657.00" operation_buy="1"/>
+</Main>

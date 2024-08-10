@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Valero Energy Corporation" country="USA" industry="Нефть/газ" portfolio=""/>
+  <stock_operation id="-1" date="06.01.2021" count="1" price="58.20" operation_buy="1"/>
+  <stock_operation id="-1" date="03.02.2021" count="1" price="61.00" operation_buy="0"/>
+  <stock_operation id="-1" date="22.06.2021" count="1" price="80.77" operation_buy="1"/>
+  <stock_operation id="-1" date="15.07.2021" count="1" price="67.60" operation_buy="1"/>
+  <stock_operation id="-1" date="08.09.2021" count="1" price="64.02" operation_buy="1"/>
+  <stock_operation id="-1" date="27.09.2021" count="1" price="71.00" operation_buy="0"/>
+  <stock_operation id="-1" date="01.10.2021" count="1" price="72.00" operation_buy="0"/>
+  <stock_operation id="-1" date="05.10.2021" count="1" price="74.60" operation_buy="0"/>
+  <stock_operation id="-1" date="07.02.2023" count="1" price="132.42" operation_buy="1"/>
+  <stock_operation id="-1" date="19.04.2023" count="1" price="122.85" operation_buy="1"/>
+  <stock_operation id="-1" date="04.05.2023" count="1" price="106.76" operation_buy="1"/>
+  <stock_operation id="0" date="25.07.2023" count="1" price="125.00" operation_buy="0"/>
+</Main>

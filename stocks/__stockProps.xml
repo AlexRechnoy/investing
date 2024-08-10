@@ -3,20 +3,32 @@
   <country>
     <item>Россия</item>
     <item>USA</item>
-    <item>China</item>
     <item>Europe</item>
+    <item>Asia</item>
   </country>
   <industry>
     <item>IT</item>
+    <item>IT/Полупроводники</item>
     <item>Авто</item>
     <item>Криптовалюта</item>
     <item>Металлургия</item>
+    <item>Минералы</item>
+    <item>Не определено</item>
     <item>Недвижимость</item>
-    <item>Сфера услуг</item>
+    <item>Нефть/газ</item>
+    <item>Потребительские товары</item>
     <item>Туризм</item>
     <item>Услуги</item>
     <item>Фармацевтика</item>
     <item>Финансы</item>
     <item>Энергетика</item>
   </industry>
+  <other>
+    <usd_to_rub>93</usd_to_rub>
+  </other>
+  <settings>
+    <chosen_country>USA</chosen_country>
+    <chosen_industry>Все</chosen_industry>
+    <chosen_portfolio></chosen_portfolio>
+  </settings>
 </Main>

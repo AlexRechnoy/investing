@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="NIKE" country="USA" industry="Сфера услуг" portfolio=""/>
+  <stock_operation id="-1" date="03.01.2022" count="1" price="163.73" operation_buy="1"/>
+  <stock_operation id="-1" date="10.02.2022" count="1" price="144.52" operation_buy="1"/>
+  <stock_operation id="-1" date="01.08.2022" count="1" price="115.28" operation_buy="1"/>
+</Main>

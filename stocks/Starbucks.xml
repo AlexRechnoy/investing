@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Starbucks" country="USA" industry="Услуги" portfolio=""/>
+  <other name="Starbucks" country="USA" industry="Потребительские товары" iscurrency="0" current_price="76">
+    <portfolios/>
+  </other>
   <stock_operation id="-1" date="26.05.2021" count="1" price="113.29" operation_buy="1"/>
   <stock_operation id="-1" date="10.06.2021" count="1" price="111.70" operation_buy="0"/>
   <stock_operation id="-1" date="27.08.2021" count="1" price="114.47" operation_buy="1"/>
@@ -11,4 +13,5 @@
   <stock_operation id="-1" date="06.01.2023" count="1" price="105.00" operation_buy="0"/>
   <stock_operation id="-1" date="24.02.2023" count="1" price="103.79" operation_buy="1"/>
   <stock_operation id="-1" date="03.05.2023" count="1" price="110.00" operation_buy="0"/>
+  <stock_operation id="0" date="14.07.2023" count="1" price="101.74" operation_buy="1"/>
 </Main>

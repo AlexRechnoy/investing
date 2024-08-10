@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Comcast" country="USA" industry="IT" portfolio=""/>
+  <stock_operation id="-1" date="07.02.2023" count="1" price="39.34" operation_buy="1"/>
+  <stock_operation id="-1" date="29.06.2023" count="1" price="41.58" operation_buy="0"/>
+</Main>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Royal Caribbean Cruises" country="USA" industry="Туризм" portfolio=""/>
+  <stock_operation id="0" date="23.01.2023" count="1" price="63.20" operation_buy="1"/>
+  <stock_operation id="1" date="02.08.2023" count="1" price="105.00" operation_buy="0"/>
+  <stock_operation id="2" date="20.09.2023" count="1" price="98.45" operation_buy="1"/>
+</Main>

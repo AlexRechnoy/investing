@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Норильский никель" country="Россия" industry="Металлургия" portfolio=""/>
+  <stock_operation id="-1" date="05.03.2021" count="1" price="22000.00" operation_buy="1"/>
+  <stock_operation id="-1" date="29.03.2021" count="1" price="23056.00" operation_buy="0"/>
+  <stock_operation id="-1" date="14.12.2021" count="1" price="21000.00" operation_buy="0"/>
+  <stock_operation id="-1" date="14.12.2021" count="1" price="20648.00" operation_buy="1"/>
+  <stock_operation id="-1" date="08.11.2022" count="1" price="14100.00" operation_buy="1"/>
+  <stock_operation id="-1" date="15.11.2022" count="1" price="15080.00" operation_buy="1"/>
+  <stock_operation id="-1" date="15.11.2022" count="1" price="15000.00" operation_buy="0"/>
+  <stock_operation id="-1" date="21.04.2023" count="1" price="15518.00" operation_buy="0"/>
+  <stock_operation id="-1" date="25.04.2023" count="1" price="15589.00" operation_buy="1"/>
+  <stock_operation id="0" date="19.07.2023" count="1" price="16106.00" operation_buy="0"/>
+  <stock_operation id="1" date="20.07.2023" count="1" price="15990.00" operation_buy="1"/>
+</Main>

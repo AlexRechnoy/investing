@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Autodesk" country="USA" industry="IT" portfolio=""/>
+  <stock_operation id="-1" date="24.11.2021" count="1" price="254.00" operation_buy="1"/>
+  <stock_operation id="-1" date="05.01.2022" count="1" price="270.00" operation_buy="0"/>
+  <stock_operation id="-1" date="27.03.2023" count="1" price="201.00" operation_buy="1"/>
+</Main>

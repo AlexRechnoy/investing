@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="PayPal" country="USA" industry="IT" portfolio=""/>
+  <other name="PayPal" country="USA" industry="IT" iscurrency="0" current_price="62">
+    <portfolios>
+      <portfolio>Nasdaq</portfolio>
+    </portfolios>
+  </other>
   <stock_operation id="-1" date="08.12.2021" count="1" price="194.69" operation_buy="1"/>
   <stock_operation id="-1" date="02.02.2022" count="1" price="147.62" operation_buy="1"/>
   <stock_operation id="-1" date="11.02.2022" count="1" price="119.61" operation_buy="1"/>

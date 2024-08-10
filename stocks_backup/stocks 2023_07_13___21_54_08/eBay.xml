@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="eBay" country="USA" industry="Услуги" portfolio=""/>
+  <stock_operation id="-1" date="16.08.2021" count="1" price="74.00" operation_buy="0"/>
+  <stock_operation id="-1" date="21.08.2021" count="1" price="69.19" operation_buy="1"/>
+  <stock_operation id="-1" date="24.08.2021" count="1" price="73.34" operation_buy="1"/>
+  <stock_operation id="-1" date="07.09.2021" count="1" price="75.00" operation_buy="0"/>
+  <stock_operation id="-1" date="28.10.2021" count="1" price="72.46" operation_buy="1"/>
+  <stock_operation id="-1" date="22.11.2021" count="1" price="74.00" operation_buy="0"/>
+  <stock_operation id="-1" date="24.11.2021" count="1" price="71.69" operation_buy="1"/>
+  <stock_operation id="-1" date="03.12.2021" count="1" price="67.49" operation_buy="1"/>
+  <stock_operation id="-1" date="06.01.2022" count="1" price="65.69" operation_buy="1"/>
+  <stock_operation id="-1" date="04.05.2022" count="1" price="53.73" operation_buy="1"/>
+</Main>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Block" country="USA" industry="IT">
+    <portfolios>
+      <portfolio>Рискованный</portfolio>
+    </portfolios>
+  </other>
+  <stock_operation id="0" date="31.01.2022" count="1" price="122.00" operation_buy="1"/>
+  <stock_operation id="1" date="28.02.2022" count="1" price="122.00" operation_buy="0"/>
+  <stock_operation id="2" date="01.09.2023" count="1" price="58.82" operation_buy="1"/>
+</Main>

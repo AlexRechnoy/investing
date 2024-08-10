@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main>
+  <other name="Microchip Technology" country="USA" industry="IT/Полупроводники" portfolio=""/>
+  <stock_operation id="-1" date="18.01.2022" count="1" price="80.42" operation_buy="1"/>
+  <stock_operation id="-1" date="09.01.2023" count="1" price="72.54" operation_buy="0"/>
+  <stock_operation id="-1" date="25.05.2023" count="1" price="73.75" operation_buy="1"/>
+  <stock_operation id="0" date="03.08.2023" count="1" price="85.12" operation_buy="0"/>
+</Main>
