@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="ONEOK" country="USA" industry="Нефть/газ" iscurrency="0" current_price="83">
+  <other name="ONEOK" country="USA" industry="Нефть/газ" iscurrency="0" current_price="83" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="-1" date="06.01.2021" count="1" price="40.03" operation_buy="1"/>

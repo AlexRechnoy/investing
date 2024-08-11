@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Virgin Galactic" country="USA" industry="Услуги" iscurrency="0" current_price="5.69">
+  <other name="Virgin Galactic" country="USA" industry="Услуги" iscurrency="0" current_price="5.69" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Рискованный</portfolio>
     </portfolios>

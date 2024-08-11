@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="ПИК" country="Россия" industry="Недвижимость" iscurrency="0" current_price="760">
+  <other name="ПИК" country="Россия" industry="Недвижимость" iscurrency="0" current_price="760" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Россия</portfolio>
     </portfolios>
@@ -156,4 +156,5 @@
   <stock_operation id="63" date="26.07.2024" count="1" price="788.00" operation_buy="1"/>
   <stock_operation id="64" date="29.07.2024" count="1" price="770.00" operation_buy="1"/>
   <stock_operation id="65" date="31.07.2024" count="1" price="750.00" operation_buy="1"/>
+  <stock_operation id="66" date="08.08.2024" count="1" price="781.00" operation_buy="0"/>
 </Main>

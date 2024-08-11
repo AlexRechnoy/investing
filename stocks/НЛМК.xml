@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="НЛМК" country="Россия" industry="Металлургия" iscurrency="0" current_price="162">
+  <other name="НЛМК" country="Россия" industry="Металлургия" iscurrency="0" current_price="162" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Россия</portfolio>
     </portfolios>

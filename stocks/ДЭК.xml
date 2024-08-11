@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="ДЭК" country="Россия" industry="Энергетика" iscurrency="0" current_price="0">
+  <other name="ДЭК" country="Россия" industry="Энергетика" iscurrency="0" current_price="0" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Россия</portfolio>
     </portfolios>

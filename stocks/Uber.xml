@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Uber" country="USA" industry="Услуги" iscurrency="0" current_price="0">
+  <other name="Uber" country="USA" industry="Услуги" iscurrency="0" current_price="0" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="-1" date="02.09.2021" count="1" price="41.78" operation_buy="1"/>

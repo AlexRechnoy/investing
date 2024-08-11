@@ -13,7 +13,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="units;units\stock_base;units\charts;units\grids"/>
+            <OtherUnitFiles Value="units;units\stock_base;units\charts;units\grids;units\forms"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -45,7 +45,7 @@
         </CompilerOptions>
       </Item1>
     </BuildModes>
-    <Units Count="94">
+    <Units Count="102">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -59,11 +59,10 @@
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="16"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="3"/>
         <CursorPos X="67" Y="9"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="units\form_edit_props.pas"/>
@@ -98,9 +97,9 @@
         <Filename Value="units\stockpanel.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="stockPanel"/>
-        <EditorIndex Value="14"/>
-        <TopLine Value="58"/>
-        <CursorPos X="85" Y="101"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="82"/>
+        <CursorPos X="41" Y="130"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -121,7 +120,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="14"/>
         <CursorPos Y="11"/>
-        <UsageCount Value="156"/>
+        <UsageCount Value="159"/>
       </Unit7>
       <Unit8>
         <Filename Value="units\stock_group.pas"/>
@@ -129,16 +128,16 @@
         <UnitName Value="Stock_group"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3"/>
-        <UsageCount Value="154"/>
+        <UsageCount Value="157"/>
       </Unit8>
       <Unit9>
         <Filename Value="units\stock_group_list.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Stock_group_list"/>
-        <EditorIndex Value="13"/>
+        <EditorIndex Value="10"/>
         <TopLine Value="51"/>
         <CursorPos X="27" Y="33"/>
-        <UsageCount Value="154"/>
+        <UsageCount Value="157"/>
         <Loaded Value="True"/>
       </Unit9>
       <Unit10>
@@ -148,45 +147,42 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
         <CursorPos X="62" Y="19"/>
-        <UsageCount Value="150"/>
+        <UsageCount Value="153"/>
       </Unit10>
       <Unit11>
         <Filename Value="units\panel_choose_stock.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Panel_Choose_Stock"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="132"/>
-        <CursorPos Y="157"/>
-        <UsageCount Value="137"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="67" Y="139"/>
+        <UsageCount Value="140"/>
       </Unit11>
       <Unit12>
         <Filename Value="units\stocks_stats.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Stocks_stats"/>
-        <EditorIndex Value="11"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="8"/>
         <TopLine Value="40"/>
         <CursorPos X="41" Y="8"/>
-        <UsageCount Value="123"/>
+        <UsageCount Value="126"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
         <Filename Value="units\industry_stats_list.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Industry_stats_list"/>
-        <EditorIndex Value="19"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="58" Y="8"/>
-        <UsageCount Value="120"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="123"/>
       </Unit13>
       <Unit14>
         <Filename Value="units\country_stats_list.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Country_stats_list"/>
-        <EditorIndex Value="20"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="30" Y="10"/>
-        <UsageCount Value="120"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="123"/>
       </Unit14>
       <Unit15>
         <Filename Value="units\country_grid.pas"/>
@@ -195,7 +191,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="4"/>
         <CursorPos Y="16"/>
-        <UsageCount Value="117"/>
+        <UsageCount Value="120"/>
       </Unit15>
       <Unit16>
         <Filename Value="units\country_chart.pas"/>
@@ -203,28 +199,24 @@
         <UnitName Value="Country_chart"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="89" Y="46"/>
-        <UsageCount Value="116"/>
+        <UsageCount Value="119"/>
       </Unit16>
       <Unit17>
         <Filename Value="units\tab_portfolio.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Tab_Portfolio"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="18"/>
-        <TopLine Value="5"/>
-        <CursorPos Y="147"/>
-        <UsageCount Value="115"/>
+        <EditorIndex Value="13"/>
+        <CursorPos X="17" Y="6"/>
+        <UsageCount Value="118"/>
         <Loaded Value="True"/>
       </Unit17>
       <Unit18>
         <Filename Value="units\portfolio_list.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Portfolio_List"/>
-        <EditorIndex Value="10"/>
-        <TopLine Value="19"/>
-        <CursorPos Y="45"/>
-        <UsageCount Value="105"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="80"/>
+        <UsageCount Value="108"/>
       </Unit18>
       <Unit19>
         <Filename Value="units\portfolio_grid.pas"/>
@@ -233,7 +225,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos X="24" Y="46"/>
-        <UsageCount Value="96"/>
+        <UsageCount Value="99"/>
       </Unit19>
       <Unit20>
         <Filename Value="units\portfolio_observer.pas"/>
@@ -241,7 +233,7 @@
         <UnitName Value="Portfolio_Observer"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="6"/>
-        <UsageCount Value="95"/>
+        <UsageCount Value="98"/>
       </Unit20>
       <Unit21>
         <Filename Value="units\industry_chart.pas"/>
@@ -250,16 +242,16 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos X="90" Y="34"/>
-        <UsageCount Value="86"/>
+        <UsageCount Value="89"/>
       </Unit21>
       <Unit22>
         <Filename Value="units\stock_price_panel.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Stock_Price_Panel"/>
-        <EditorIndex Value="15"/>
-        <TopLine Value="14"/>
-        <CursorPos Y="45"/>
-        <UsageCount Value="81"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="11"/>
+        <CursorPos X="22" Y="23"/>
+        <UsageCount Value="84"/>
         <Loaded Value="True"/>
       </Unit22>
       <Unit23>
@@ -268,7 +260,7 @@
         <UnitName Value="Tab_Statistics"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="15" Y="19"/>
-        <UsageCount Value="51"/>
+        <UsageCount Value="54"/>
       </Unit23>
       <Unit24>
         <Filename Value="units\stocks_xml_write.pas"/>
@@ -276,7 +268,7 @@
         <UnitName Value="Stocks_XML_Write"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="40" Y="8"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="49"/>
       </Unit24>
       <Unit25>
         <Filename Value="units\stocks_xml_read.pas"/>
@@ -284,17 +276,16 @@
         <UnitName Value="Stocks_XML_Read"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="50" Y="8"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="48"/>
       </Unit25>
       <Unit26>
         <Filename Value="units\filtered_stats_list.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Filtered_stats_list"/>
-        <EditorIndex Value="21"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="10"/>
         <CursorPos X="41" Y="8"/>
-        <UsageCount Value="37"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="40"/>
       </Unit26>
       <Unit27>
         <Filename Value="units\stock_list.pas"/>
@@ -302,16 +293,16 @@
         <UnitName Value="Stock_list"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="14" Y="44"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="35"/>
       </Unit27>
       <Unit28>
         <Filename Value="units\stock_base\stock_filtered_list.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Stock_filtered_list"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="46"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="13"/>
         <CursorPos X="31" Y="74"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
       </Unit28>
       <Unit29>
@@ -447,8 +438,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainUnit"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="133"/>
-        <CursorPos Y="158"/>
+        <TopLine Value="126"/>
+        <CursorPos X="53" Y="151"/>
         <UsageCount Value="106"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -456,18 +447,17 @@
       <Unit46>
         <Filename Value="units\portfolio_data.pas"/>
         <UnitName Value="Portfolio_Data"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="211"/>
         <CursorPos Y="256"/>
         <UsageCount Value="100"/>
-        <Loaded Value="True"/>
       </Unit46>
       <Unit47>
         <Filename Value="units\stocks_data.pas"/>
         <UnitName Value="Stocks_Data"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="143"/>
-        <CursorPos Y="185"/>
+        <TopLine Value="222"/>
+        <CursorPos X="205" Y="308"/>
         <UsageCount Value="105"/>
         <Loaded Value="True"/>
       </Unit47>
@@ -497,11 +487,10 @@
       </Unit50>
       <Unit51>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\fgl.pp"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="878"/>
         <CursorPos Y="906"/>
         <UsageCount Value="31"/>
-        <Loaded Value="True"/>
       </Unit51>
       <Unit52>
         <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
@@ -577,8 +566,8 @@
       <Unit61>
         <Filename Value="C:\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="3446"/>
-        <CursorPos Y="3477"/>
+        <TopLine Value="3566"/>
+        <CursorPos Y="3594"/>
         <UsageCount Value="12"/>
       </Unit61>
       <Unit62>
@@ -616,17 +605,17 @@
         <Filename Value="C:\lazarus\lcl\controls.pp"/>
         <UnitName Value="Controls"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="145"/>
-        <CursorPos X="38" Y="168"/>
-        <UsageCount Value="9"/>
+        <TopLine Value="1720"/>
+        <CursorPos X="14" Y="1742"/>
+        <UsageCount Value="10"/>
       </Unit66>
       <Unit67>
         <Filename Value="C:\lazarus\lcl\stdctrls.pp"/>
         <UnitName Value="StdCtrls"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="427"/>
-        <CursorPos X="3" Y="450"/>
-        <UsageCount Value="9"/>
+        <TopLine Value="504"/>
+        <CursorPos X="60" Y="511"/>
+        <UsageCount Value="10"/>
       </Unit67>
       <Unit68>
         <Filename Value="C:\lazarus\lcl\graphics.pp"/>
@@ -735,10 +724,9 @@
       <Unit82>
         <Filename Value="units\portfolio.pas"/>
         <UnitName Value="Portfolio"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="46" Y="8"/>
         <UsageCount Value="55"/>
-        <Loaded Value="True"/>
       </Unit82>
       <Unit83>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\classes\classesh.inc"/>
@@ -794,159 +782,209 @@
       <Unit90>
         <Filename Value="units\stock_base\stock_list.pas"/>
         <UnitName Value="Stock_list"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="7"/>
         <CursorPos X="16" Y="3"/>
-        <UsageCount Value="15"/>
+        <UsageCount Value="16"/>
         <Loaded Value="True"/>
       </Unit90>
       <Unit91>
         <Filename Value="units\stock_base\stock_observer.pas"/>
         <UnitName Value="Stock_Observer"/>
-        <EditorIndex Value="17"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="77" Y="13"/>
-        <UsageCount Value="14"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="15"/>
       </Unit91>
       <Unit92>
         <Filename Value="units\grids\stocks_grid.pas"/>
         <UnitName Value="Stocks_Grid"/>
-        <EditorIndex Value="12"/>
-        <TopLine Value="153"/>
-        <CursorPos Y="178"/>
-        <UsageCount Value="12"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="83"/>
+        <CursorPos X="51" Y="104"/>
+        <UsageCount Value="13"/>
         <Loaded Value="True"/>
       </Unit92>
       <Unit93>
         <Filename Value="units\grids\portfolio_grid.pas"/>
         <UnitName Value="Portfolio_Grid"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="31"/>
         <CursorPos Y="76"/>
-        <UsageCount Value="12"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="13"/>
       </Unit93>
+      <Unit94>
+        <Filename Value="units\charts\country_chart.pas"/>
+        <UnitName Value="Country_chart"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="54" Y="6"/>
+        <UsageCount Value="10"/>
+      </Unit94>
+      <Unit95>
+        <Filename Value="units\charts\industry_chart.pas"/>
+        <UnitName Value="Industry_chart"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="8"/>
+        <CursorPos Y="46"/>
+        <UsageCount Value="10"/>
+      </Unit95>
+      <Unit96>
+        <Filename Value="units\stock_base\stock.pas"/>
+        <UnitName Value="Stock"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="23" Y="13"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit96>
+      <Unit97>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\inc\systemh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="447"/>
+        <CursorPos X="12" Y="472"/>
+        <UsageCount Value="10"/>
+      </Unit97>
+      <Unit98>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\datih.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="104"/>
+        <CursorPos X="10" Y="128"/>
+        <UsageCount Value="10"/>
+      </Unit98>
+      <Unit99>
+        <Filename Value="units\stock_base\stock_operation_list.pas"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="4" Y="14"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit99>
+      <Unit100>
+        <Filename Value="units\stock_base\stock_operation.pas"/>
+        <UnitName Value="Stock_Operation"/>
+        <EditorIndex Value="12"/>
+        <TopLine Value="25"/>
+        <CursorPos Y="48"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit100>
+      <Unit101>
+        <Filename Value="C:\lazarus\lcl\include\customlistbox.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="484"/>
+        <CursorPos Y="509"/>
+        <UsageCount Value="10"/>
+      </Unit101>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="67" TopLine="30"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="58" Column="7" TopLine="52"/>
       </Position1>
       <Position2>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="68" TopLine="30"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="97" TopLine="55"/>
       </Position2>
       <Position3>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="69" TopLine="30"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="77" Column="7" TopLine="76"/>
       </Position3>
       <Position4>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="70" TopLine="30"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="107" TopLine="75"/>
       </Position4>
       <Position5>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="71" TopLine="30"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="108" TopLine="75"/>
       </Position5>
       <Position6>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="72" TopLine="30"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="107" TopLine="75"/>
       </Position6>
       <Position7>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="73" TopLine="31"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="97" TopLine="75"/>
       </Position7>
       <Position8>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="74" TopLine="31"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="99" TopLine="75"/>
       </Position8>
       <Position9>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="65" TopLine="31"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="100" Column="38" TopLine="75"/>
       </Position9>
       <Position10>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="67" TopLine="31"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="97" TopLine="75"/>
       </Position10>
       <Position11>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="68" TopLine="31"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="96" TopLine="75"/>
       </Position11>
       <Position12>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="69" TopLine="31"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="107" TopLine="75"/>
       </Position12>
       <Position13>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="76" TopLine="31"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="108" TopLine="75"/>
       </Position13>
       <Position14>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="59" TopLine="31"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="97" TopLine="75"/>
       </Position14>
       <Position15>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="77" TopLine="31"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="99" TopLine="75"/>
       </Position15>
       <Position16>
-        <Filename Value="units\portfolio_data.pas"/>
-        <Caret Line="255" TopLine="211"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="100" TopLine="75"/>
       </Position16>
       <Position17>
-        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\fgl.pp"/>
-        <Caret Line="903" TopLine="878"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="101" TopLine="75"/>
       </Position17>
       <Position18>
-        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\fgl.pp"/>
-        <Caret Line="904" TopLine="878"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="96" TopLine="75"/>
       </Position18>
       <Position19>
-        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\fgl.pp"/>
-        <Caret Line="905" TopLine="878"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="103" TopLine="75"/>
       </Position19>
       <Position20>
-        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\fgl.pp"/>
-        <Caret Line="906" TopLine="878"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="97" TopLine="75"/>
       </Position20>
       <Position21>
-        <Filename Value="units\portfolio_data.pas"/>
-        <Caret Line="255" TopLine="211"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="99" TopLine="75"/>
       </Position21>
       <Position22>
-        <Filename Value="units\portfolio_data.pas"/>
-        <Caret Line="254" TopLine="211"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="97" TopLine="75"/>
       </Position22>
       <Position23>
-        <Filename Value="units\portfolio_data.pas"/>
-        <Caret Line="257" TopLine="211"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="81" Column="28" TopLine="76"/>
       </Position23>
       <Position24>
-        <Filename Value="units\portfolio_data.pas"/>
-        <Caret Line="254" TopLine="211"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="85" Column="24" TopLine="77"/>
       </Position24>
       <Position25>
-        <Filename Value="units\portfolio_data.pas"/>
-        <Caret Line="257" TopLine="211"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="97" TopLine="77"/>
       </Position25>
       <Position26>
-        <Filename Value="units\tab_portfolio.pas"/>
-        <Caret Line="79" TopLine="54"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="92" Column="6" TopLine="77"/>
       </Position26>
       <Position27>
-        <Filename Value="units\tab_portfolio.pas"/>
-        <Caret Line="80" TopLine="54"/>
+        <Filename Value="units\stock_base\stock_operation.pas"/>
+        <Caret Line="50" Column="17" TopLine="19"/>
       </Position27>
       <Position28>
-        <Filename Value="units\tab_portfolio.pas"/>
-        <Caret Line="52" TopLine="46"/>
+        <Filename Value="units\stockpanel.pas"/>
+        <Caret Line="130" Column="41" TopLine="82"/>
       </Position28>
-      <Position29>
-        <Filename Value="units\portfolio_data.pas"/>
-        <Caret Line="256" TopLine="211"/>
-      </Position29>
-      <Position30>
-        <Filename Value="units\grids\portfolio_grid.pas"/>
-        <Caret Line="76" TopLine="31"/>
-      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -979,13 +1017,6 @@
         <WatchKind Value="wpkWrite"/>
         <Source Value="units\portfolio_list.pas"/>
         <Line Value="94"/>
-      </Item>
-      <Item>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="units\portfolio_list.pas"/>
-        <Line Value="80"/>
       </Item>
     </BreakPoints>
   </Debugging>

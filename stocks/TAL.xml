@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="TAL" country="Asia" industry="Услуги" iscurrency="0" current_price="10.4">
+  <other name="TAL" country="Asia" industry="Услуги" iscurrency="0" current_price="10.4" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Рискованный</portfolio>
     </portfolios>

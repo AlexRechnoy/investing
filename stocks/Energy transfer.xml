@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Energy transfer" country="USA" industry="Энергетика" iscurrency="0" current_price="0">
+  <other name="Energy transfer" country="USA" industry="Энергетика" iscurrency="0" current_price="0" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="-1" date="16.02.2021" count="10" price="69.60" operation_buy="1"/>

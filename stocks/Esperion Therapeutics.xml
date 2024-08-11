@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Esperion Therapeutics" country="USA" industry="Фармацевтика" iscurrency="0" current_price="2.35">
+  <other name="Esperion Therapeutics" country="USA" industry="Фармацевтика" iscurrency="0" current_price="2.35" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Рискованный</portfolio>
     </portfolios>

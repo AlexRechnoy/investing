@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="JPMorgan" country="USA" industry="Финансы" iscurrency="0" current_price="210">
+  <other name="JPMorgan" country="USA" industry="Финансы" iscurrency="0" current_price="210" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Dow Jones</portfolio>
     </portfolios>

@@ -36,6 +36,7 @@ type
 implementation
 
 const name_col   = 1;
+      currPrice_col=4;
       percent_col= 5;
       price_col  = 6;
       balance_col= 7;
@@ -94,24 +95,31 @@ end;
 
 procedure tStocksGrid.OnGridDrawCell(Sender: TObject; aCol, aRow: Integer; aRect: TRect; aState: TGridDrawState);
    function getColor(stock : IStock) : tcolor;
-   var positiveColor : tcolor;
-       negativeColor : tcolor;
-       successfulColor : TColor;
+   var positiveColor      : tcolor;
+       negativeColor      : tcolor;
+       notActualDateColor : tcolor;{Кол-во акций>0 , дата текущей цены устарела (указана больше месяца назад)}
+       successfulColor    : TColor;{Кол-во акций =0 и баланс >0 ; Кол-во акций>0, указана текущая цена и средняя стоимость <0}
    const balanceColors : array [boolean] of tcolor = (clRed,clGreen);
    begin
-     positiveColor  :=RGBToColor(145,238,160);
-     successfulColor:=RGBToColor(55,215,75);
-     negativeColor  :=RGBToColor(248,123,105);
+     positiveColor     :=RGBToColor(145,238,160);
+     successfulColor   :=RGBToColor(55,215,75);
+     negativeColor     :=RGBToColor(248,123,105);
+     notActualDateColor:=RGBToColor(242,242,151);
      Result:=clWhite;
      if stock.Count=0
      then
       begin
         if stock.balance>0
-        then result:={positiveColor}successfulColor
+        then result:=successfulColor
         else result:=negativeColor;
       end
      else
       begin
+        if (aCol=currPrice_col) and (not stock.GetCurrentPriceDateIsActual  ) then
+          begin
+            Result:=notActualDateColor;
+            exit;
+          end;
         if stock.CurrentPrice>0 then //указана текущая цена
          begin
            if stock.averagePrice<0

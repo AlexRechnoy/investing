@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Arrival" country="Europe" industry="Авто" iscurrency="0" current_price="0.01">
+  <other name="Arrival" country="Europe" industry="Авто" iscurrency="0" current_price="0.01" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Рискованный</portfolio>
     </portfolios>

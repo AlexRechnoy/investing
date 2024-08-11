@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Магнитогорский металлургический комбинат" country="Россия" industry="Металлургия" iscurrency="0" current_price="53">
+  <other name="Магнитогорский металлургический комбинат" country="Россия" industry="Металлургия" iscurrency="0" current_price="53" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Россия</portfolio>
     </portfolios>

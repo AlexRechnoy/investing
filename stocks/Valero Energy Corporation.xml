@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Valero Energy Corporation" country="USA" industry="Нефть/газ" iscurrency="0" current_price="145">
+  <other name="Valero Energy Corporation" country="USA" industry="Нефть/газ" iscurrency="0" current_price="145" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="-1" date="06.01.2021" count="1" price="58.20" operation_buy="1"/>

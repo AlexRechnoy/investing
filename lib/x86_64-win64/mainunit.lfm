@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 282
+  Left = 225
   Height = 852
-  Top = 149
+  Top = 122
   Width = 1399
   Caption = 'Инвестиции'
   ClientHeight = 832
@@ -15,9 +15,9 @@ object Form1: TForm1
     Height = 832
     Top = 0
     Width = 1399
-    ActivePage = PortfolioSheet
+    ActivePage = TabSheet1
     Align = alClient
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Акции'
@@ -348,13 +348,13 @@ object Form1: TForm1
           ClientHeight = 47
           ClientWidth = 805
           TabOrder = 4
-          object Label6: TLabel
+          object StockPriceLabel: TLabel
             Left = 1
             Height = 45
             Top = 1
-            Width = 247
+            Width = 229
             Align = alLeft
-            AutoSize = False
+            BorderSpacing.Right = 10
             Caption = 'Актуальная стоимость акции'
             Font.Height = -16
             Font.Style = [fsBold]
@@ -362,10 +362,10 @@ object Form1: TForm1
             ParentFont = False
           end
           object StockPriceEdit: TEdit
-            Left = 248
+            Left = 240
             Height = 45
             Top = 1
-            Width = 508
+            Width = 516
             Align = alClient
             Font.Height = -16
             Font.Style = [fsBold]

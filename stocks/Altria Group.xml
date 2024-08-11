@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Altria Group" country="USA" industry="Потребительские товары" iscurrency="0" current_price="49">
+  <other name="Altria Group" country="USA" industry="Потребительские товары" iscurrency="0" current_price="49" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="-1" date="04.10.2021" count="1" price="45.97" operation_buy="1"/>

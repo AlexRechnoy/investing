@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="The Williams Companies" country="USA" industry="Энергетика" iscurrency="0" current_price="44">
+  <other name="The Williams Companies" country="USA" industry="Энергетика" iscurrency="0" current_price="44" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="-1" date="28.12.2020" count="1" price="20.75" operation_buy="1"/>

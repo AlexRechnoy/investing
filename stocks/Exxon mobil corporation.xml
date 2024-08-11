@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Exxon mobil corporation" country="USA" industry="Нефть/газ" iscurrency="0" current_price="0">
+  <other name="Exxon mobil corporation" country="USA" industry="Нефть/газ" iscurrency="0" current_price="0" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="-1" date="21.06.2022" count="1" price="90.45" operation_buy="1"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Royal Caribbean Cruises" country="USA" industry="Туризм" iscurrency="0" current_price="162">
+  <other name="Royal Caribbean Cruises" country="USA" industry="Туризм" iscurrency="0" current_price="162" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="0" date="23.01.2023" count="1" price="63.20" operation_buy="1"/>

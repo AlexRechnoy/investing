@@ -18,6 +18,7 @@ type
     FForm           : TForm;
     FStockPriceEdit : TEdit;
     FStockPriceBtn  : TBitBtn;
+    FStockPriceLabel: TLabel;
     procedure OnStockPriceBtnClick(Sender : TObject);
    public
     constructor Create(AForm : TForm);
@@ -33,6 +34,7 @@ constructor tStockPricePanel.Create(AForm: TForm);
 begin
   FForm:=AForm;
   FStockPriceEdit :=FForm.FindComponent('StockPriceEdit') as TEdit ;
+  FStockPriceLabel:=FForm.FindComponent('StockPriceLabel') as TLabel ;
 
   FStockPriceBtn  :=FForm.FindComponent('StockPriceSaveBtn') as TBitBtn ;
   FStockPriceBtn.OnClick:=@OnStockPriceBtnClick;
@@ -44,8 +46,15 @@ procedure tStockPricePanel.UpdateStock(stock: IStock);
 begin
   FStockPriceBtn.Enabled :=Assigned(stock);
   FStockPriceEdit.Enabled:=Assigned(stock);
-  if Assigned(stock)
-  then FStockPriceEdit.Text:=Format('%4.2f',[stock.CurrentPrice])
+  if Assigned(stock) then
+    begin
+      if stock.CurrentPriceDate<>0
+      then FStockPriceLabel.Caption:=Format('Актуальная стоимость акции на %s',[DateToStr(stock.CurrentPriceDate)])
+      else FStockPriceLabel.Caption:='Актуальная стоимость акции';
+
+      FStockPriceEdit.Text:=Format('%4.2f',[stock.CurrentPrice]);
+
+    end;
 end;
 
 procedure tStockPricePanel.UpdateFilteredStockList(StockFilteredList : TStockFilteredList);
@@ -55,7 +64,7 @@ end;
 
 procedure tStockPricePanel.OnStockPriceBtnClick(Sender: TObject);
 begin
-  StocksData.SaveCurrentStockPrice(strtofloat(FStockPriceEdit.Text));
+  StocksData.SaveCurrentStockPrice(strtofloat(FStockPriceEdit.Text), Now);
   PortfolioData.UpdatePortfolioStats;
 end;
 

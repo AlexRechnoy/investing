@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Ozon" country="Россия" industry="Услуги" iscurrency="0" current_price="3900">
+  <other name="Ozon" country="Россия" industry="Услуги" iscurrency="0" current_price="3888" current_price_date="10.08.2024">
     <portfolios>
       <portfolio>Россия</portfolio>
     </portfolios>

@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, ExtCtrls, Controls, StdCtrls, ComCtrls,
-  Stock_Property_Grid, Stocks_Data, Stock_filtered_list,
-  stock_Observer, Stock, Dialogs;
+  Stock_Property_Grid, Stocks_Data, Stock_filtered_list, Graphics,
+  stock_Observer, Stock, Stock_Operation, Dialogs;
 
 type
 
@@ -15,12 +15,15 @@ type
 
   tStockPanel = class (TPanel, IObserver)
    private
-     fGrid    : tStockPropertyGrid;
-     fToolBar : TToolBar;
-     fList    : TListBox;
-     fLabel   : TLabel;
+     fGrid          : tStockPropertyGrid;
+     fToolBar       : TToolBar;
+     fList          : TListBox;
+     fLabel         : TLabel;
+     fSelectedStock : IStock;
      procedure DeleteLastOperation(Sender : TObject);
      procedure DeleteAllOperations(Sender : TObject);
+     procedure ListDrawItem(Control: TWinControl; Index: Integer;
+                            ARect: TRect; State: TOwnerDrawState);
    public
      constructor create(AOwner: TComponent; AImageList : TImageList);
      procedure UpdateStock(stock : IStock);
@@ -48,6 +51,7 @@ constructor tStockPanel.create(AOwner: TComponent; AImageList : TImageList);
 
 begin
   inherited Create(AOwner);
+  fSelectedStock:=nil;
   self.Parent:=AOwner as TWinControl;
   self.Align:=alClient;
   fLabel:=TLabel.Create(self);
@@ -69,7 +73,9 @@ begin
   fGrid:=tStockPropertyGrid.Create(self);
   fGrid.Align:=alTop;
   fList:=TListBox.Create(self);
+  fList.Style:=lbOwnerDrawVariable;
   fList.Parent:=self;
+  fList.OnDrawItem:=@ListDrawItem;
   fList.Align:=alClient;
   StocksData.registerObserver(self);
 end;
@@ -85,8 +91,26 @@ begin
   then StocksData.DeleteAllStockOperations;
 end;
 
+procedure tStockPanel.ListDrawItem(Control: TWinControl; Index: Integer; ARect: TRect; State: TOwnerDrawState);
+    function getOperationNum(const ATxtOperationNum : integer) : integer;
+    begin
+      Result:=fSelectedStock.OperationList.Count-ATxtOperationNum;
+    end;
+
+begin
+  if Assigned(fSelectedStock) and
+     (Index>0) and
+     (fSelectedStock.OperationList[getOperationNum(Index)].GetOperationType=_Operation_Buy) then
+    begin
+      fList.Canvas.Brush.Color:=RGBToColor(145,238,160);
+    end;
+  fList.Canvas.FillRect(ARect);
+  fList.Canvas.TextOut(ARect.Left, ARect.Top, fList.Items[Index])
+end;
+
 procedure tStockPanel.UpdateStock(stock : IStock);
 begin
+  fSelectedStock:=Stock;
   fList.Clear;
   if stock=nil then
    begin

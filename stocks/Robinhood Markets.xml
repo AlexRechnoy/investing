@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Robinhood Markets" country="USA" industry="Криптовалюта" iscurrency="0" current_price="22.3">
+  <other name="Robinhood Markets" country="USA" industry="Криптовалюта" iscurrency="0" current_price="22.3" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Рискованный</portfolio>
     </portfolios>

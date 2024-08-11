@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 282
+  Left = 225
   Height = 852
-  Top = 149
+  Top = 122
   Width = 1399
   Caption = 'Инвестиции'
   ClientHeight = 832
@@ -348,13 +348,12 @@ object Form1: TForm1
           ClientHeight = 47
           ClientWidth = 805
           TabOrder = 4
-          object Label6: TLabel
+          object StockPriceLabel: TLabel
             Left = 1
             Height = 45
             Top = 1
-            Width = 247
+            Width = 229
             Align = alLeft
-            AutoSize = False
             Caption = 'Актуальная стоимость акции'
             Font.Height = -16
             Font.Style = [fsBold]
@@ -362,10 +361,10 @@ object Form1: TForm1
             ParentFont = False
           end
           object StockPriceEdit: TEdit
-            Left = 248
+            Left = 230
             Height = 45
             Top = 1
-            Width = 508
+            Width = 526
             Align = alClient
             Font.Height = -16
             Font.Style = [fsBold]

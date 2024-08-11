@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Фосагро" country="Россия" industry="Минералы" iscurrency="0" current_price="5479">
+  <other name="Фосагро" country="Россия" industry="Минералы" iscurrency="0" current_price="5479" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Россия</portfolio>
     </portfolios>

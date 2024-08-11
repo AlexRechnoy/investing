@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Северсталь" country="Россия" industry="Металлургия" iscurrency="0" current_price="1373">
+  <other name="Северсталь" country="Россия" industry="Металлургия" iscurrency="0" current_price="1385" current_price_date="10.08.2024">
     <portfolios>
       <portfolio>Россия</portfolio>
     </portfolios>

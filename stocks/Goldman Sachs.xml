@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Goldman Sachs" country="USA" industry="Финансы" iscurrency="0" current_price="479">
+  <other name="Goldman Sachs" country="USA" industry="Финансы" iscurrency="0" current_price="479" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Dow Jones</portfolio>
     </portfolios>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Twitter" country="USA" industry="IT" iscurrency="0" current_price="0">
+  <other name="Twitter" country="USA" industry="IT" iscurrency="0" current_price="0" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Nasdaq</portfolio>
     </portfolios>

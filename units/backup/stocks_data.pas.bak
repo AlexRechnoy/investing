@@ -16,6 +16,7 @@ type
   { tStocks_Data }
   tStocks_Data = class(TInterfacedObject,ISubject)
    private
+    fOnSortFilteredStocks : TNotifyEvent; {Событие сортировка списка отфильтрованных акций}
     fOnAddStock        : tStockEvent;  {Событие добавлена новая акция}
     fOnEditStock       : tStockEvent;  {Событие изменены параметры выбранной акции}
     fOnExchangeCountry : TNotifyEvent; {Событие изменение названия страны}
@@ -42,6 +43,7 @@ type
     procedure setUSDtoRUB(Aval : double);
     procedure UpdateIndustryList; //Обновить список отраслей (перед сохранением)
    public
+    property OnSortFilteredStocks : TNotifyEvent read fOnSortFilteredStocks write fOnSortFilteredStocks;
     property OnSaved : TNotifyEvent read fOnSaved write fOnSaved;
     property OnAddStock : tStockEvent read fOnAddStock write fOnAddStock;
     property OnEditStock : tStockEvent read fOnEditStock write fOnEditStock;
@@ -312,7 +314,6 @@ begin
   fChosenStock.CurrentPrice:=AVal;
   SetIsSaved(false);
 
-//  portfol
   notifyFilteredStocksObservers();
   notifyObservers();
   calcAndNotifyStatsObservers();
@@ -338,6 +339,8 @@ procedure tStocks_Data.SortFilteredList(ASortFunc: TSortStockListFunc);
 begin
   fFilteredStocks.SortList(ASortFunc);
   notifyFilteredStocksObservers();
+  if Assigned(fOnSortFilteredStocks)
+  then  fOnSortFilteredStocks(self);
 end;
 
 procedure tStocks_Data.AddIndustry(const AIndustry: string);

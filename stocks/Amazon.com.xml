@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Amazon.com" country="USA" industry="IT" iscurrency="0" current_price="164">
+  <other name="Amazon.com" country="USA" industry="IT" iscurrency="0" current_price="164" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Nasdaq</portfolio>
     </portfolios>

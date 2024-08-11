@@ -5,7 +5,7 @@ unit Stock;
 interface
 
 uses
-  Classes, SysUtils,stock_operation_list,Stock_Operation, fgl;
+  Classes, SysUtils,stock_operation_list,Stock_Operation;
 
 const
   RootStockDir = 'stocks/';
@@ -18,20 +18,24 @@ type
     function GetName : string;
     function GetCountry : string;
     function getStockCount : integer;
+      function GetCurrentPriceDateIsActual : boolean;
     function getSumPrice : double;
     function getAverageStockPrice : double;
     function getDeltaPricePercent : double;  {Разница между текущей ценой и средней, в процентах}
     function getBalance : double;
     function getPortfolios:tstringList;
+    function getOperationList: tOperationList;
     function GetIndustry:string;
     function GetIsCurrency : boolean;
     function GetCurrentPrice : double;
+    function GetCurrentPriceDate : TDate;
     function getOperationListStr : TStringList;
     function getIsInPortfolio(Aval : string) : boolean;
     procedure setPortfolios(AValue : TStringList);
     procedure SetCountry(Aval : string);
     procedure SetIndustry(Aval : string);
     procedure SetCurrentPrice(AVal : double);
+    procedure SetCurrentPriceDate(AVal : TDate);
     procedure SetName(Aval : string);
     procedure AddOperation(aDate:TDate;aOperationType:tOperationType;aCount:integer; aPrice:single);
     procedure DeleteLastOperation;
@@ -43,25 +47,29 @@ type
     property Count : integer read getStockCount;
     property sumPrice : double read getSumPrice;
     property CurrentPrice : double read GetCurrentPrice write SetCurrentPrice;
+    property CurrentPriceDate : TDate read GetCurrentPriceDate write SetCurrentPriceDate;
     property DeltaPricePercent : double read getDeltaPricePercent;
     property balance : double read getBalance;
     property isCurrency : boolean read GetIsCurrency;
     property averagePrice : double read getAverageStockPrice;
     property portfolios : TStringList read getPortfolios write setPortfolios;
     property OperationListStr : tStringlist read getOperationListStr;
+    property OperationList : tOperationList read getOperationList;
+    property CurrentPriceDateIsActual : boolean read GetCurrentPriceDateIsActual;
   end;
 
 
   { tStock }
   tStock = class(TInterfacedObject,IStock)
    private
-    fIsCurrency    : boolean;       {Является валютой (не акция =((( )}
-    fName          : string;        {Название}
-    fCountry       : string;        {Страна}
-    fIndustry      : string;        {Отрасль}
-    fCurrentPrice  : double;        {Актуальная цена}
-    fOperationList : tOperationList;
-    fPortfolios    : tstringlist;
+    fIsCurrency       : boolean;   {Является валютой (не акция =((( )}
+    fName             : string;    {Название}
+    fCountry          : string;    {Страна}
+    fIndustry         : string;    {Отрасль}
+    fCurrentPrice     : double;    {Актуальная цена}
+    fCurrentPriceDate : TDate;     {Дата актуальной цены}
+    fOperationList    : tOperationList;
+    fPortfolios       : tstringlist;
     function getStockCount : integer; //Кол-во акций
     function getSumPrice : double;    //Общая стоимость акций на руках
                                       //Если текущая цена неизвестна, то учитывается только стоимость покупки и продажи, которые в данный момент "на руках".
@@ -80,12 +88,16 @@ type
     function GetName : string;
     function GetCountry : string;
     function GetIsCurrency : boolean;
+    function GetCurrentPriceDate : TDate;
+    function GetCurrentPriceDateIsActual : boolean;
     function GetCurrentPrice : double;
     procedure SetCountry(Aval : string);
     procedure SetCurrentPrice(AVal : double);
+    procedure SetCurrentPriceDate(AVal : TDate);
     function getIsInPortfolio(Aval : string) : boolean;
     function getPortfolios:tstringList;
     function getOperationListStr : TStringList;
+    function getOperationList: tOperationList;
    public
     constructor Create(const aName,aCountry,aIndustry : string);
     procedure WriteToXML(const StockDir : string = RootStockDir);
@@ -97,6 +109,10 @@ type
     property Name : string read GetName;
     property isCurrency : boolean read GetIsCurrency;
     property CurrentPrice : double read GetCurrentPrice write SetCurrentPrice;
+    property CurrentPriceDate : TDate read GetCurrentPriceDate write SetCurrentPriceDate;
+    property CurrentPriceDateIsActual : boolean read GetCurrentPriceDateIsActual;
+    property OperationList : tOperationList read getOperationList;
+    property OperationListStr : tStringlist read getOperationListStr;
     property DeltaPricePercent : double read getDeltaPricePercent;
     property Country : string read GetCountry write SetCountry;
     property Count : integer read getStockCount;
@@ -113,19 +129,24 @@ uses DOM,XMLRead,XMLWrite,FileUtil,Stocks_Data,Dialogs;
 { tStock }
 constructor tStock.Create(const aName, aCountry, aIndustry: string);
 begin
-  //fCount        :=0;
-  fCurrentPrice :=0;
-  fIsCurrency   :=false;
-  fName         :=aName;
-  fCountry      :=aCountry;
-  fIndustry     :=aIndustry;
-  fPortfolios   :=tStringList.Create;
-  fOperationList:=tOperationList.Create;
+  fCurrentPrice    :=0;
+  fCurrentPriceDate:=0;
+  fIsCurrency      :=false;
+  fName            :=aName;
+  fCountry         :=aCountry;
+  fIndustry        :=aIndustry;
+  fPortfolios      :=tStringList.Create;
+  fOperationList   :=tOperationList.Create;
 end;
 
 function tStock.getOperationListStr: TStringList;
 begin
   Result:=fOperationList.OperationStr;
+end;
+
+function tStock.getOperationList: tOperationList;
+begin
+  Result:=fOperationList;
 end;
 
 procedure tStock.AddOperation(aDate: TDate; aOperationType: tOperationType;
@@ -174,6 +195,7 @@ begin
   domelement.SetAttribute('country',fCountry);
   domelement.SetAttribute('name',fName);
   domelement.SetAttribute('current_price',FloatToStr(fCurrentPrice));
+  domelement.SetAttribute('current_price_date',DateToStr(fCurrentPriceDate));
   domelement.SetAttribute('iscurrency',inttostr(byte(fIsCurrency)));
 
   portfolioElement:=XMLDoc.CreateElement(UTF8Decode('portfolios'));
@@ -230,6 +252,8 @@ begin
         fCountry      :=tekNode.Attributes.GetNamedItem('country').NodeValue;
         if tekNode.Attributes.GetNamedItem('current_price')<>nil
         then fCurrentPrice:=StrToFloat(tekNode.Attributes.GetNamedItem('current_price').NodeValue);
+        if tekNode.Attributes.GetNamedItem('current_price_date')<>nil
+        then fCurrentPriceDate:=StrToDate(tekNode.Attributes.GetNamedItem('current_price_date').NodeValue);
         if tekNode.Attributes.GetNamedItem('iscurrency')<>nil
         then fIsCurrency:=StrToBool(tekNode.Attributes.GetNamedItem('iscurrency').NodeValue);
         if tekNode.Attributes.GetNamedItem('industry')<>nil
@@ -330,6 +354,17 @@ begin
   Result:=fIsCurrency;
 end;
 
+function tStock.GetCurrentPriceDate: TDate;
+begin
+  Result:=fCurrentPriceDate;
+end;
+
+function tStock.GetCurrentPriceDateIsActual: boolean;
+const ActualDeltaDate=2;
+begin
+  Result:=(Now-fCurrentPriceDate)<ActualDeltaDate;
+end;
+
 function tStock.GetCurrentPrice: double;
 begin
   Result:=fCurrentPrice;
@@ -344,6 +379,12 @@ procedure tStock.SetCurrentPrice(AVal: double);
 begin
   if fCurrentPrice<>Aval
   then fCurrentPrice:=AVal;
+end;
+
+procedure tStock.SetCurrentPriceDate(AVal: TDate);
+begin
+  if fCurrentPriceDate<>AVal
+  then fCurrentPriceDate:=AVal;
 end;
 
 function tStock.getIsInPortfolio(Aval: string): boolean;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Hilton" country="USA" industry="Услуги" iscurrency="0" current_price="0">
+  <other name="Hilton" country="USA" industry="Услуги" iscurrency="0" current_price="0" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="0" date="24.01.2022" count="1" price="137.61" operation_buy="1"/>

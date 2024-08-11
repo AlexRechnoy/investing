@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Salesforce" country="USA" industry="IT" iscurrency="0" current_price="241">
+  <other name="Salesforce" country="USA" industry="IT" iscurrency="0" current_price="241" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="0" date="05.06.2023" count="1" price="209.00" operation_buy="1"/>

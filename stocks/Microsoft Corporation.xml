@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Microsoft Corporation" country="USA" industry="IT" iscurrency="0" current_price="0">
+  <other name="Microsoft Corporation" country="USA" industry="IT" iscurrency="0" current_price="0" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Dow Jones</portfolio>
       <portfolio>Nasdaq</portfolio>

@@ -41,7 +41,7 @@ type
     ImageList1: TImageList;
     Label4: TLabel;
     Label5: TLabel;
-    Label6: TLabel;
+    StockPriceLabel: TLabel;
     PanelPriceStock: TPanel;
     PortfolioGridLabel: TLabel;
     Label9: TLabel;

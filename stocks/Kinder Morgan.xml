@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Kinder Morgan" country="USA" industry="Энергетика" iscurrency="0" current_price="20.15">
+  <other name="Kinder Morgan" country="USA" industry="Энергетика" iscurrency="0" current_price="20.15" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="-1" date="06.01.2021" count="4" price="56.84" operation_buy="1"/>

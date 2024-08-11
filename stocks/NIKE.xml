@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="NIKE" country="USA" industry="Потребительские товары" iscurrency="0" current_price="105">
+  <other name="NIKE" country="USA" industry="Потребительские товары" iscurrency="0" current_price="105" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Dow Jones</portfolio>
     </portfolios>

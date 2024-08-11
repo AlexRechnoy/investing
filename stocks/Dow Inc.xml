@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Dow Inc" country="USA" industry="Энергетика" iscurrency="0" current_price="49">
+  <other name="Dow Inc" country="USA" industry="Энергетика" iscurrency="0" current_price="49" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Dow Jones</portfolio>
     </portfolios>

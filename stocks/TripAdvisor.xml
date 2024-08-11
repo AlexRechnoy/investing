@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="TripAdvisor" country="USA" industry="Туризм" iscurrency="0" current_price="17.57">
+  <other name="TripAdvisor" country="USA" industry="Туризм" iscurrency="0" current_price="17.57" current_price_date="30.12.1899">
     <portfolios/>
   </other>
   <stock_operation id="-1" date="24.08.2021" count="1" price="34.90" operation_buy="1"/>

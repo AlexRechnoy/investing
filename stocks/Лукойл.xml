@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Лукойл" country="Россия" industry="Нефть/газ" iscurrency="0" current_price="7052">
+  <other name="Лукойл" country="Россия" industry="Нефть/газ" iscurrency="0" current_price="6410" current_price_date="10.08.2024">
     <portfolios>
       <portfolio>Россия</portfolio>
     </portfolios>

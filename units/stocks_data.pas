@@ -71,7 +71,7 @@ type
     procedure SetPortfolioStats(const portfolioName : string);//выбрать портфель для отображения статистики
     procedure setStock(const stockIndex : integer); //изменилась выбранная акция
     procedure AddOperationToChosenStock(aDate:TDate;aOperationType:tOperationType;aCount:integer; aPrice:single);
-    procedure SaveCurrentStockPrice(AVal : double); //Сохранить актуальную стоимость акции
+    procedure SaveCurrentStockPrice(AVal : double; ADate : TDate); //Сохранить актуальную стоимость акции
     procedure DeleteAllStockOperations;
     procedure DeleteLastStockOperation;
     procedure SortFilteredList(ASortFunc : TSortStockListFunc);
@@ -309,12 +309,12 @@ begin
   calcAndNotifyStatsObservers();
 end;
 
-procedure tStocks_Data.SaveCurrentStockPrice(AVal: double);
+procedure tStocks_Data.SaveCurrentStockPrice(AVal: double; ADate: TDate);
 begin
   fChosenStock.CurrentPrice:=AVal;
+  fChosenStock.CurrentPriceDate:=ADate;
   SetIsSaved(false);
 
-//  portfol
   notifyFilteredStocksObservers();
   notifyObservers();
   calcAndNotifyStatsObservers();

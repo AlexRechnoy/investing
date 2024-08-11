@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="АЛРОСА" country="Россия" industry="Минералы" iscurrency="0" current_price="61.7">
+  <other name="АЛРОСА" country="Россия" industry="Минералы" iscurrency="0" current_price="61" current_price_date="10.08.2024">
     <portfolios>
       <portfolio>Россия</portfolio>
     </portfolios>

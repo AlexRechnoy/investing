@@ -37,12 +37,17 @@ var a : integer;
     var i          : integer;
         MaxVal     : double;
         tekIndustry: tStockGroup;
+        sumPrice   : double;
+    const
+        minPercentToShow =0.5;
     begin
        Result:=TPieSeries.Create(Self);
        Result.Marks.Style:=smsLabelPercent;
+       sumPrice:=industryStatsList.SumPriceUSD;
        for tekIndustry in industryStatsList do
         begin
-          Result.AddPie(tekIndustry.Price,tekIndustry.Name,RGBToColor(random(255),random(255),random(255)));
+          if (tekIndustry.Price/sumPrice)*100>minPercentToShow
+          then Result.AddPie(tekIndustry.Price,tekIndustry.Name,RGBToColor(random(255),random(255),random(255)));
         end;
         Result.Title:='Title';
     end;

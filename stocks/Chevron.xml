@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Chevron" country="USA" industry="Нефть/газ" iscurrency="0" current_price="155">
+  <other name="Chevron" country="USA" industry="Нефть/газ" iscurrency="0" current_price="155" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Dow Jones</portfolio>
     </portfolios>

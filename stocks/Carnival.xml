@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Main>
-  <other name="Carnival" country="USA" industry="Туризм" iscurrency="0" current_price="17.7">
+  <other name="Carnival" country="USA" industry="Туризм" iscurrency="0" current_price="17.7" current_price_date="30.12.1899">
     <portfolios>
       <portfolio>Рискованный</portfolio>
     </portfolios>

@@ -5,9 +5,10 @@ unit Stock_Operation;
 interface
 
 uses
-  Classes, SysUtils,fgl;
+  Classes, SysUtils, Graphics, fgl;
 
 type
+
 
   { tStockOperation }
   tOperationType = (_Operation_Buy,_Operation_Sell);
@@ -44,6 +45,7 @@ type
     property Price : single read GetPrice;
     property Date : TDate read GetDate;
   end;
+
 
 
 implementation
